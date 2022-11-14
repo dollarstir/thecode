@@ -3,7 +3,7 @@
         <div class="row g-4 g-lg-5">
           <!-- Footer Widget Area -->
           <div class="col-12 col-sm-6 col-lg-3">
-            <div class="footer-widget-area"><a class="d-block mb-4" href="index.html"><img src="img/core-img/tlogo.png" alt=""></a>
+            <div class="footer-widget-area"><a class="d-block mb-4" href="index.html"><img src="template/img/core-img/tlogo.png" alt=""></a>
               <p>It's crafted with the latest trend of design &amp; coded with all modern approaches.</p>
               <!-- Newsletter Form -->
               <div class="newsletter-form mb-4">
@@ -85,7 +85,7 @@
       <button class="btn btn-primary btn-sm acceptcookies" type="button" aria-label="Close">I agree &amp; Close</button>
     </div> -->
     <!-- All JavaScript Files-->
-    <script src="js/all-js-libraries.js"></script>
-    <script src="js/active.js"></script>
+    <script src="template/js/all-js-libraries.js"></script>
+    <script src="template/js/active.js"></script>
     </body>
 </html>

@@ -6,7 +6,7 @@
     <header class="header-area header-2">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <!-- Navbar Brand --><a class="navbar-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+          <!-- Navbar Brand --><a class="navbar-brand" href="index.html"><img src="template/img/core-img/logo.png" alt=""></a>
           <!-- Navbar Toggler -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#saasboxNav" aria-controls="saasboxNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-grid"></i></button>
           <!-- Navbar Nav -->

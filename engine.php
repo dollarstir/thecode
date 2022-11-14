@@ -40,5 +40,12 @@ $router = new Router([
             return Viewer::view('template/main.php', $context);
         }
     ),
+
+    new Route(
+        '/login',
+        function ($context) {
+            return Viewer::view('template/auth.php', $context);
+        }
+    ),
 ]);
 $router->launch();

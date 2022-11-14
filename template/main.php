@@ -1,10 +1,15 @@
-<?php include 'top.php'; ?>
+<?php
+involve('core.php');
+
+start('Buy affordable and quality products from our store');
+
+?>
   <body>
-    <?php include 'nav.php'; ?>
+    <?php navi(); ?>
     <!-- Welcome Area -->
     <div class="welcome-area hero2 bg-white">
       <!-- Background Shape -->
-      <div class="hero-background-shape"><img src="img/core-img/hero-2.png" alt=""></div>
+      <div class="hero-background-shape"><img src="template/img/core-img/hero-2.png" alt=""></div>
       <!-- Background Animation -->
       <div class="background-animation">
         <div class="item1"></div>
@@ -28,7 +33,7 @@
           </div>
           <div class="col-12 col-sm-10 col-md-6">
             <!-- Welcome Thumb -->
-            <div class="welcome-thumb ms-xl-5 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms"><img src="img/illustrator/hero-6.png" alt=""></div>
+            <div class="welcome-thumb ms-xl-5 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms"><img src="template/img/illustrator/hero-6.png" alt=""></div>
           </div>
         </div>
       </div>
@@ -45,7 +50,7 @@
             <!-- Single About Area-->
             <div class="col-12 col-sm-6 col-lg-3">                   
               <div class="single-about-item text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
-                <div class="icon mx-auto mb-4"><img src="img/svg-icon/rdp.png" alt=""></div>
+                <div class="icon mx-auto mb-4"><img src="template/img/svg-icon/rdp.png" alt=""></div>
                 <h5 class="mb-3">RDP</h5>
                 <p class="mb-0">We offer you the best quality RDP with Admin Privillaages, The are variety of states available</p>
               </div>
@@ -53,7 +58,7 @@
             <!-- Single About Area-->
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-about-item text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
-                <div class="icon mx-auto mb-4"><img src="img/svg-icon/voice.png" alt=""></div>
+                <div class="icon mx-auto mb-4"><img src="template/img/svg-icon/voice.png" alt=""></div>
                 <h5 class="mb-3">Google Voice</h5>
                 <p class="mb-0">Get Google Voice account at a lower price, with each account you get an old Gmail account that is not easily lost</p>
               </div>
@@ -61,7 +66,7 @@
             <!-- Single About Area-->
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-about-item text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-                <div class="icon mx-auto mb-4"><img src="img/svg-icon/textnow.png" alt=""></div>
+                <div class="icon mx-auto mb-4"><img src="template/img/svg-icon/textnow.png" alt=""></div>
                 <h5 class="mb-3">Text Now Account</h5>
                 <p class="mb-0">Want to buy a Textnow account to promote your business, we give you a full phone verified account. complete Textnow account.</p>
               </div>
@@ -69,7 +74,7 @@
             <!-- Single About Area-->
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-about-item text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-                <div class="icon mx-auto mb-4"><img src="img/svg-icon/cpanel.png" alt=""></div>
+                <div class="icon mx-auto mb-4"><img src="template/img/svg-icon/cpanel.png" alt=""></div>
                 <h5 class="mb-3">Cpanel</h5>
                 <p class="mb-0">We provide you with a dedicated cpanel, helps to host your websites and other pages.</p>
               </div>
@@ -79,7 +84,7 @@
             <!-- Single About Area-->
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-about-item text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-                <div class="icon mx-auto mb-4"><img src="img/svg-icon/gmail.svg" alt=""></div>
+                <div class="icon mx-auto mb-4"><img src="template/img/svg-icon/gmail.svg" alt=""></div>
                 <h5 class="mb-3">Email Leads</h5>
                 <p class="mb-0">We provide large quantity of valid email leads for your business</p>
               </div>
@@ -90,7 +95,7 @@
             <!-- Single About Area-->
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-about-item text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-                <div class="icon mx-auto mb-4"><img src="img/svg-icon/youtube.svg" alt=""></div>
+                <div class="icon mx-auto mb-4"><img src="template/img/svg-icon/youtube.svg" alt=""></div>
                 <h5 class="mb-3">YouTube Views</h5>
                 <p class="mb-0">We generate traffic to your youtube account.</p>
               </div>
@@ -101,7 +106,7 @@
             <!-- Single About Area-->
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-about-item text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-                <div class="icon mx-auto mb-4"><img src="img/svg-icon/instagram.png" alt=""></div>
+                <div class="icon mx-auto mb-4"><img src="template/img/svg-icon/instagram.png" alt=""></div>
                 <h5 class="mb-3">Instagram Followers</h5>
                 <p class="mb-0">We provide you with organic instagram followers</p>
               </div>
@@ -110,7 +115,7 @@
             <!-- Single About Area-->
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-about-item text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-                <div class="icon mx-auto mb-4"><img src="img/svg-icon/instagram.png" alt=""></div>
+                <div class="icon mx-auto mb-4"><img src="template/img/svg-icon/instagram.png" alt=""></div>
                 <h5 class="mb-3">Instagram Likes</h5>
                 <p class="mb-0">We provide you with organic instagram Likes</p>
               </div>
@@ -456,22 +461,22 @@
           <div class="circle-tes-sub-wrap3 position-absolute rounded-circle"></div>
           <div class="circle-tes-sub-wrap4 position-absolute rounded-circle"></div>
           <!-- Single Testimonial -->
-          <div class="cir-testimonial tes1" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="Lim Jannat" data-bs-content="You've saved our business! Thanks guys, keep up the good work!"><img src="img/bg-img/t1.png" alt=""></div>
+          <div class="cir-testimonial tes1" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="Lim Jannat" data-bs-content="You've saved our business! Thanks guys, keep up the good work!"><img src="template/img/bg-img/t1.png" alt=""></div>
           <!-- Single Testimonial -->
-          <div class="cir-testimonial tes2" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="H. Riyadh" data-bs-content="I strongly recommend to everyone interested in running a business!"><img src="img/bg-img/t2.png" alt=""></div>
+          <div class="cir-testimonial tes2" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="H. Riyadh" data-bs-content="I strongly recommend to everyone interested in running a business!"><img src="template/img/bg-img/t2.png" alt=""></div>
           <!-- Single Testimonial -->
-          <div class="cir-testimonial tes3" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="Suha R" data-bs-content="Absolutely wonderful! I wish I would have thought of it first. Excellent product!"><img src="img/bg-img/t3.png" alt=""></div>
+          <div class="cir-testimonial tes3" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="Suha R" data-bs-content="Absolutely wonderful! I wish I would have thought of it first. Excellent product!"><img src="template/img/bg-img/t3.png" alt=""></div>
           <!-- Single Testimonial -->
-          <div class="cir-testimonial tes4" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="A Islam" data-bs-content="You've saved our business! Thanks guys, keep up the good work!"><img src="img/bg-img/t1.png" alt=""></div>
+          <div class="cir-testimonial tes4" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="A Islam" data-bs-content="You've saved our business! Thanks guys, keep up the good work!"><img src="template/img/bg-img/t1.png" alt=""></div>
           <!-- Single Testimonial -->
-          <div class="cir-testimonial tes5" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="Lim Suha" data-bs-content="I strongly recommend to everyone interested in running a business!"><img src="img/bg-img/t2.png" alt=""></div>
+          <div class="cir-testimonial tes5" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="Lim Suha" data-bs-content="I strongly recommend to everyone interested in running a business!"><img src="template/img/bg-img/t2.png" alt=""></div>
           <!-- Single Testimonial -->
-          <div class="cir-testimonial tes6" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="H. Khan" data-bs-content="You've saved our business! Thanks guys, keep up the good work!"><img src="img/bg-img/t3.png" alt=""></div>
+          <div class="cir-testimonial tes6" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="H. Khan" data-bs-content="You've saved our business! Thanks guys, keep up the good work!"><img src="template/img/bg-img/t3.png" alt=""></div>
           <!-- Single Testimonial -->
-          <div class="cir-testimonial tes7" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="Shai Hello" data-bs-content="Absolutely wonderful! I wish I would have thought of it first. Excellent product!"><img src="img/bg-img/t1.png" alt=""></div>
+          <div class="cir-testimonial tes7" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="Shai Hello" data-bs-content="Absolutely wonderful! I wish I would have thought of it first. Excellent product!"><img src="template/img/bg-img/t1.png" alt=""></div>
           <!-- Single Testimonial -->
-          <div class="cir-testimonial tes8" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="T Ninja" data-bs-content="I strongly recommend to everyone interested in running a business!"><img src="img/bg-img/t2.png" alt=""></div>
-          <div class="cir-testimonial tes8" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="T Ninja" data-bs-content="I strongly recommend to everyone interested in running a business!"><img src="img/svg-icon/instagram.png" alt=""></div>
+          <div class="cir-testimonial tes8" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="T Ninja" data-bs-content="I strongly recommend to everyone interested in running a business!"><img src="template/img/bg-img/t2.png" alt=""></div>
+          <div class="cir-testimonial tes8" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="testimonial-popover" data-bs-container="body" data-bs-placement="bottom" title="T Ninja" data-bs-content="I strongly recommend to everyone interested in running a business!"><img src="template/img/svg-icon/instagram.png" alt=""></div>
         </div>
       </div>
       <div class="container">
@@ -510,5 +515,5 @@
     </div>
     <div class="mb-120 d-block"></div>
     <!-- Footer Area-->
-    <?php include 'tail.php'; ?>
+    <?php tail(); ?>
   
