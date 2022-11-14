@@ -1,6 +1,11 @@
-<?php include 'top.php'; ?>
+<?php
+involve('core.php');
+
+start('Complete your order');
+
+?>
   <body>
-  <?php include 'nav.php'; ?>
+  <?php navi(); ?>
     <!-- Breadcrumb Area-->
     <div class="breadcrumb-wrapper breadcrumb-bg-light">
       <div class="container h-100">
@@ -24,7 +29,7 @@
             <div class="checkout-details-area">
              <center> <h3 class="mb-4">Payment  Instruction</h3></center>
 
-              <p><div style="background-color:red;color:#ffff;padding:10px;border-radius:20px;"><h5>Order No:STC111 </h5><h5>Kindly Pay the total amount of &#8373;200 to Below Account</h5><br> <strong>Mobile Money Number : <br>0556676471 <br><br>Account Name : <br>Wisdom Kagblor <br><br>Transaction Reference : <br>STC111</strong></div></p>
+              <p><div style="background-color:grey;color:#ffff;padding:10px;border-radius:20px;"><h5>Order No:STC111 </h5><h5>Kindly Pay the total amount of &#8373;200 to Below Account</h5><br> <strong>Mobile Money Number : <br>0556676471 <br><br>Account Name : <br>Wisdom Kagblor <br><br>Transaction Reference : <br>STC111</strong></div></p>
               <form action="#" method="post">
                 <div class="row">
                   <div class="col-12">
@@ -64,4 +69,4 @@
    
     <div class="mb-120 d-block"></div>
     <!-- Footer Area-->
-    <?php include 'tail.php'; ?>
+    <?php tail(); ?>

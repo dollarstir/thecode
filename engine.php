@@ -47,5 +47,19 @@ $router = new Router([
             return Viewer::view('template/auth.php', $context);
         }
     ),
+
+    new Route(
+        '/register',
+        function ($context) {
+            return Viewer::view('template/regis.php', $context);
+        }
+    ),
+
+    new Route(
+        '/payment',
+        function ($context) {
+            return Viewer::view('template/pay1.php', $context);
+        }
+    ),
 ]);
 $router->launch();

@@ -1,6 +1,11 @@
-<?php include 'top.php'; ?>
+<?php
+involve('core.php');
+
+start('Cart');
+
+?>
   <body>
-  <?php include 'nav.php'; ?>
+  <?php navi(); ?>
     <!-- Breadcrumb Area-->
     <div class="breadcrumb-wrapper breadcrumb-bg-light">
       <div class="container h-100">
@@ -107,4 +112,4 @@
       </div>
     </div>
     <!-- Footer Area-->
-    <?php include 'tail.php'; ?>
+    <?php tail(); ?>
