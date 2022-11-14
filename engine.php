@@ -61,5 +61,12 @@ $router = new Router([
             return Viewer::view('template/pay1.php', $context);
         }
     ),
+
+    new Route(
+        '/cart',
+        function ($context) {
+            return Viewer::view('template/mycart.php', $context);
+        }
+    ),
 ]);
 $router->launch();
