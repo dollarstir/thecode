@@ -26,19 +26,10 @@ $(function(){
     function resp(response){
 
         if(response == "success"){
-            swal.close();
-            swal({
-                title: "Success",
-                text: "Record added Successfully",
-                timer: 1000,
-                type: 'success',
-                padding: "2em",
-                onOpen: function () {
-                  swal.showLoading();
-                },
-              }).then(function (result) {
-                window.location.reload();
-              });
+            $(".mess").html('<div class="alert alert-success"><strong>Operation successful</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
+            setTimeout(function(){
+                windows.location.reload();
+            },3000);
         }
         else if(response == 'deleted'){
 
@@ -59,56 +50,32 @@ $(function(){
 
         else if(response == 'loginsuccess'){
 
-            swal({
-                title: "Login Successfull!",
-                text: "will be redirected soon",
-                timer: 2000,
-                type: 'success',
-                padding: "2em",
-                onOpen: function () {
-                  swal.showLoading();
-                },
-              }).then(function (result) {
-                window.location="/tms/home";
-              });
+          $(".mess").html('<div class="alert alert-success"><strong>Login successful</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
+          setTimeout(function(){
+              windows.location='home';
+          },3000);
 
         }
         else if(response == 'Updated Successfully'){
 
-            swal({
-                title: "Success",
-                text: "Update Successful",
-                timer: 1000,
-                type: 'success',
-                padding: "2em",
-                onOpen: function () {
-                  swal.showLoading();
-                },
-              }).then(function (result) {
-                window.location.reload();
-              });
+          $(".mess").html('<div class="alert alert-success"><strong>Update successful</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
+          setTimeout(function(){
+              windows.location.reload();
+          },3000);
 
         }
 
 
         else if(response == 'loginfailed'){
 
-            swal({
-                title: "Oops!",
-                text: "Record not found in database! ",
-                type: "error",
-                padding: "2em",
-              });
+          $(".mess").html('<div class="alert alert-danger"><strong>Record not found</strong></div>');
+          
 
         }
         else{
 
-            swal({
-                title: "Attention!",
-                text: response,
-                type: "warning",
-                padding: "2em",
-              });
+          $(".mess").html('<div class="alert alert-info"><strong>'+ response + '</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
+          
 
         }
 
@@ -118,24 +85,18 @@ $(function(){
     function before()
 {
     
-    swal({
-        title: 'Please Wait !',
-        html: 'request in progress...',// add html attribute if you want or remove
-        allowOutsideClick: false,
-        onBeforeOpen: () => {
-            Swal.showLoading()
-        },
-    });
+    $(".mess").html('<div class="alert alert-info" role="alert">Please wait <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
+  
 }
 
 
 
-$('.welcome').submit(function(e){
+$('.register').submit(function(e){
 
     e.preventDefault();
     // before();
     var user = {
-        url: 'processor/processor.php?action=welcome',
+        url: 'processor/processor.php?action=register',
         type: 'post',
         data: new FormData(this),
         cache: false,

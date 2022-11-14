@@ -51,10 +51,15 @@ function start($title)
         <meta name="theme-color" content="#ffffff">
     
         <!-- All CSS Stylesheet-->
+        <link rel="stylesheet" href="template/css/bootstrap.min.css">
+
         <link rel="stylesheet" href="template/css/all-css-libraries.css">
         <link rel="stylesheet" href="template/css/float.css">
         <!-- Core Stylesheet-->
         <link rel="stylesheet" href="template/style.css">
+
+
+        
       </head>';
 
     function navi()
@@ -75,13 +80,13 @@ function start($title)
             <header class="header-area header-2">
               <nav class="navbar navbar-expand-lg">
                 <div class="container">
-                  <!-- Navbar Brand --><a class="navbar-brand" href="index.html"><img src="template/img/core-img/logo.png" alt=""></a>
+                  <!-- Navbar Brand --><a class="navbar-brand" href="home"><img src="template/img/core-img/logo.png" alt=""></a>
                   <!-- Navbar Toggler -->
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#saasboxNav" aria-controls="saasboxNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-grid"></i></button>
                   <!-- Navbar Nav -->
                   <div class="collapse navbar-collapse" id="saasboxNav">
                     <ul class="navbar-nav navbar-nav-scroll">
-                      <li class=""><a href="#">Home</a>
+                      <li class=""><a href="home">Home</a>
                       <li class=""><a href="#">Google Voice</a>
                       <li class=""><a href="#">RDP</a></li>
                       <li class=""><a href="#">Cpanel</a></li>
@@ -236,6 +241,7 @@ function start($title)
         <button class="btn btn-primary btn-sm acceptcookies" type="button" aria-label="Close">I agree &amp; Close</button>
       </div> -->
       <!-- All JavaScript Files-->
+      
       <script src="template/js/all-js-libraries.js"></script>
       <script src="template/js/active.js"></script>
       </body>
