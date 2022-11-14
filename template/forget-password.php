@@ -1,7 +1,12 @@
-<?php include 'top.php'; ?>
+<?php
+involve('core.php');
+
+start('Forgot Password');
+
+?>
   <body>
     <!-- Preloader-->
-    <?php include 'nav.php'; ?>
+    <?php navi(); ?>
     <!-- Breadcrumb -->
     <div class="breadcrumb-wrapper breadcrumb-bg-light">
       <div class="container h-100">
@@ -21,7 +26,7 @@
       <div class="container">
         <div class="row g-5 align-items-center justify-content-between">
           <div class="col-12 col-lg-5">
-            <div class="register-thumbnail"><img src="img/illustrator/hero-2.png" alt=""></div>
+            <div class="register-thumbnail"><img src="template/img/illustrator/hero-2.png" alt=""></div>
           </div>
           <div class="col-12 col-lg-6">
             <div class="card register-card bg-gray p-1 p-sm-4">
@@ -46,4 +51,4 @@
     </div>
     <div class="mb-120 d-block"></div>
     <!-- Footer Area-->
-    <?php include 'tail.php'; ?>
+    <?php tail(); ?>

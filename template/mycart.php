@@ -99,7 +99,7 @@ start('Cart');
     </div>
     <div class="mb-120 d-block"></div>
     <!-- Cool Facts Area-->
-    <div class="cta-area cta3 py-5 bg-info">
+    <!-- <div class="cta-area cta3 py-5 bg-info">
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-12 col-sm-8">
@@ -110,6 +110,6 @@ start('Cart');
           <div class="col-12 col-sm-4 text-sm-end wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms"><a class="btn btn-warning btn-sm" href="#">Buy Now</a></div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Footer Area-->
     <?php tail(); ?>

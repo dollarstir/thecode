@@ -68,5 +68,33 @@ $router = new Router([
             return Viewer::view('template/mycart.php', $context);
         }
     ),
+
+    new Route(
+        '/password-reset',
+        function ($context) {
+            return Viewer::view('template/forget-password.php', $context);
+        }
+    ),
+
+    new Route(
+        '/contact',
+        function ($context) {
+            return Viewer::view('template/mycontact.php', $context);
+        }
+    ),
+
+    new Route(
+        '/faq',
+        function ($context) {
+            return Viewer::view('template/faq.php', $context);
+        }
+    ),
+
+    new Route(
+        '/checkout',
+        function ($context) {
+            return Viewer::view('template/mycheckout.php', $context);
+        }
+    ),
 ]);
 $router->launch();

@@ -1,6 +1,11 @@
-<?php include 'top.php'; ?>
+<?php
+involve('core.php');
+
+start('Frequently Asked Questions');
+
+?>
   <body>
-  <?php include 'nav.php'; ?>
+  <?php navi(); ?>
     <!-- Breadcrumb Area-->
     <div class="breadcrumb-wrapper breadcrumb-bg-light">
       <div class="container h-100">
@@ -64,5 +69,5 @@
     </div>
     <div class="mb-120 d-block"></div>
     <!-- Footer Area-->
-    <?php include 'tail.php'; ?>
+    <?php tail(); ?>
     

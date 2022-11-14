@@ -1,6 +1,11 @@
-<?php include 'top.php'; ?>
+<?php
+involve('core.php');
+
+start('Checkout');
+
+?>
   <body>
-  <?php include 'nav.php'; ?>
+  <?php navi(); ?>
     <!-- Breadcrumb Area-->
     <div class="breadcrumb-wrapper breadcrumb-bg-light">
       <div class="container h-100">
@@ -98,7 +103,7 @@
                   <div class="form-group">
                     <div class="form-check">
                       <input class="form-check-input" checked id="momo" type="radio" value="momo" name="checkout-payment">
-                      <img src="img/svg-icon/momo.png" style="height:60px;width:50%;"/>
+                      <img src="template/img/svg-icon/momo.png" style="height:60px;width:50%;"/>
                       <!-- <label class="form-check-label font-weight-bold" for="momo">Mobile Money</label> -->
                     </div>
                     <div class="payment-meta">
@@ -132,9 +137,9 @@
           <div class="col-12 col-sm-9 col-md-6">
             <div class="cta-thumb-group">
               <div class="row">
-                <div class="col-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms"><img src="img/bg-img/5.jpg" alt=""></div>
-                <div class="col-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms"><img src="http://preview.designing-world.com/saasbox-v2.0.0/img/bg-img/13.jpg" alt=""></div>
-                <div class="col-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms"><img src="http://preview.designing-world.com/saasbox-v2.0.0/img/bg-img/14.jpg" alt=""></div>
+                <div class="col-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms"><img src="template/img/bg-img/5.jpg" alt=""></div>
+                <div class="col-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms"><img src="template/http://preview.designing-world.com/saasbox-v2.0.0/img/bg-img/13.jpg" alt=""></div>
+                <div class="col-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms"><img src="template/http://preview.designing-world.com/saasbox-v2.0.0/img/bg-img/14.jpg" alt=""></div>
               </div>
             </div>
           </div>
@@ -143,4 +148,4 @@
     </div> -->
     <div class="mb-120 d-block"></div>
     <!-- Footer Area-->
-    <?php include 'tail.php'; ?>
+    <?php tail(); ?>
