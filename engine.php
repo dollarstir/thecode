@@ -96,5 +96,12 @@ $router = new Router([
             return Viewer::view('template/mycheckout.php', $context);
         }
     ),
+
+    new Route(
+        '/product',
+        function ($context) {
+            return Viewer::view('template/myprod.php', $context);
+        }
+    ),
 ]);
 $router->launch();
