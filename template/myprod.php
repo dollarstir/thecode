@@ -1,6 +1,11 @@
-<?php include 'top.php'; ?>
+<?php
+involve('core.php');
+
+start('Product');
+
+?>
   <body>
-  <?php include 'nav.php'; ?>
+  <?php navi(); ?>
     <!-- Breadcrumb Area-->
     
     <!-- Pricing Plan Area -->
@@ -110,4 +115,4 @@
    
     <div class="mb-120 d-block"></div>
     <!-- Footer Area-->
-    <?php include 'tail.php'; ?>
+    <?php tail(); ?>
