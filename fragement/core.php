@@ -276,10 +276,10 @@ function register($name, $email, $contact, $password, $repass)
         echo 'all fields are required';
     } else {
         if ($password != $repass) {
-            return 'password does not match';
+            echo 'password does not match';
         } else {
             if (authenticate('vusers', [['email', '=', $email]]) == 'succeess') {
-                return 'User already exists';
+                echo 'User already exists';
             } else {
                 $password = md5($password);
                 $data = [
@@ -287,12 +287,14 @@ function register($name, $email, $contact, $password, $repass)
                 'email' => $email,
                 'contact' => $contact,
                 'password' => $password,
+                'datejoined' => date('jS F, Y'),
+                'status' => 'active',
             ];
                 $result = insert('vusers', $data);
                 if ($result == 'success') {
-                    return 'success';
+                    echo 'registration_success';
                 } else {
-                    return 'failed';
+                    echo 'Failed to register';
                 }
             }
         }

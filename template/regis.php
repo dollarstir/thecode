@@ -61,10 +61,7 @@ start('Create free account');
                     </div>
 
                     <div class="mess">
-                      <div class="alert alert-success">
-                          <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
-                        <strong>Registration Successful</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" />
-                      </div>
+                      
                     </div>
                     <button class="btn btn-primary w-100  btnreg" type="submit">Register Now</button>
                   </form>

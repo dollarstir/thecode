@@ -36,13 +36,17 @@ start('Log In');
                 <p>Didn't have an account?<a class="ms-2" href="register">Sign Up</a></p>
                 <!-- Register Form -->
                 <div class="register-form my-4 my-lg-5">
-                  <form action="#" method="post">
+                  <form class="login">
                     <div class="form-group mb-3">
                       <input class="form-control rounded-0" type="email" placeholder="Email Address" name="email" required>
                     </div>
                     <div class="form-group mb-3">
                       <label class="label-psswd" for="registerPassword">Show</label>
                       <input class="form-control rounded-0" id="registerPassword" type="password" placeholder="Password" name="password" required>
+                    </div>
+
+                    <div class="mess">
+                      
                     </div>
                     <button class="btn btn-primary w-100" type="submit"><i class="bi bi-unlock me-2"></i>Login</button>
                   </form>

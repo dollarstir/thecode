@@ -7,21 +7,13 @@
  * *************************************************************************************.
  * to migrate your database tables , open your websitename/migration.
  */
-// addtable(
-//     'customers',
-//     [
-//         addColumn('id', 'int', 11, false, true, true),
-//         addColumn('fname', 'string', 50, false, false, false),
-//         addColumn('lname', 'string', 50, false, false, false),
-//         addColumn('email', 'string', 50, false, false, false),
-//         addColumn('phone', 'string', 50, false, false, false),
-//         addColumn('gender', 'string', 50, false, false, false),
-//         addColumn('dob', 'string', 50, false, false, false),
-//         addColumn('password', 'string', 50, false, false, false),
-//     ]
-// );
 
-// addtable('category', [
-//     addColumn('id', 'int', 11, false, true, true),
-//     addColumn('catname', 'string', 100, false, false, false),
-// ]);
+addtable('vusers', [
+    addColumn('id', 'int', 11, false, true, true),
+    addColumn('name', 'string', 100),
+    addColumn('email', 'string', 100),
+    addColumn('contact', 'string', 100),
+    addColumn('password', 'string', 100),
+    addColumn('datejoined', 'string', 100),
+    addColumn('status', 'string', 100),
+]);
