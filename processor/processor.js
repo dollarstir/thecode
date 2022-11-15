@@ -22,7 +22,7 @@ $(function(){
         
         else{
 
-          $(".mess").html('<div class="alert alert-info"><strong>'+ response + '</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
+          $(".mess").html('<div class="alert alert-warning"><strong>'+ response + '</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
           
 
         }
