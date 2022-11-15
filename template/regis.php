@@ -35,7 +35,7 @@ start('Create free account');
                 <p>Already have an account?<a class="ms-2" href="login">Log In</a></p>
                 <!-- Register Form-->
                 <div class="register-form my-5">
-                  <form action="#" method="post" class="register">
+                  <form class="register">
                     
                     <div class="form-group mb-3">
                       <input class="form-control rounded-0" type="text" placeholder="Full Name" name="name" required>
@@ -82,4 +82,5 @@ start('Create free account');
     </div>
     <div class="mb-120 d-block"></div>
     <!-- Footer Area-->
+   
     <?php tail(); ?>

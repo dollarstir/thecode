@@ -59,6 +59,7 @@ function start($title)
         <link rel="stylesheet" href="template/style.css">
 
 
+
         
       </head>';
 
@@ -241,9 +242,14 @@ function start($title)
         <button class="btn btn-primary btn-sm acceptcookies" type="button" aria-label="Close">I agree &amp; Close</button>
       </div> -->
       <!-- All JavaScript Files-->
+      <script src="template/js/jquery.min.js"></script>
+     
+      
+      <script src="processor/processor.js"></script>
       
       <script src="template/js/all-js-libraries.js"></script>
       <script src="template/js/active.js"></script>
+     
       </body>
   </html>';
     }
