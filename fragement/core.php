@@ -67,7 +67,7 @@ function start($title)
     {
         session_start();
 
-        if (isset($_SESSION['user'])) {
+        if (isset($_SESSION['vuser'])) {
             $ckt = '<a class="btn btn-success btn-sm ms-auto mb-3 mb-lg-0" href="account">Account</a>';
         } else {
             $ckt = '<a class="btn btn-primary btn-sm ms-auto mb-3 mb-lg-0" href="login">Log In</a>';
@@ -297,6 +297,23 @@ function register($name, $email, $contact, $password, $repass)
                     echo 'Failed to register';
                 }
             }
+        }
+    }
+}
+
+function login($email, $password)
+{
+    if (empty(trim($email)) || empty(trim($password))) {
+        echo 'All fields are required';
+    } else {
+        if (authenticate('vusers', [['email', '=', $email]]) == 'success') {
+            if (loginauth('vusers', 'vuser', [['email', '=', $email], ['password', '=', md5($password)]], 'AND') == 'success') {
+                echo 'loginsuccess';
+            } else {
+                echo 'Invalid login credentials';
+            }
+        } else {
+            echo 'Email not found in records';
         }
     }
 }

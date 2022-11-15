@@ -12,6 +12,15 @@ $(function(){
             },3000);
             
         }
+
+        else if(response == "loginsuccess"){
+
+          $(".mess").html('<div class="alert alert-success"><strong>Login successful</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
+            setTimeout(function(){
+                window.location = "home";
+            },3000);
+
+        }
         else{
 
           $(".mess").html('<div class="alert alert-warning"><strong>'+ response + '</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
