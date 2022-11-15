@@ -53,7 +53,7 @@ $(function(){
 // });
 
 
-$(document).on('submit','.register',function(e){
+$(document).on('submit','#register',function(e){
 
   e.preventDefault();
 
