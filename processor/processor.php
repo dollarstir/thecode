@@ -6,8 +6,8 @@ require '../fragement/core.php';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'register':
-            echo 'registration_success';
-
+            extract($_POST);
+            register($name, $email, $contact, $password, $repass);
             break;
 
         default:

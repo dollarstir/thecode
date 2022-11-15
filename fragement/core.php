@@ -268,3 +268,33 @@ function countcart()
 
     return $count;
 }
+
+// register users
+function register($name, $email, $contact, $password, $repass)
+{
+    if (empty(trim($name)) || empty(trim($email)) || empty(trim($contact)) || empty(trim($password)) || empty(trim($repass))) {
+        echo 'all fields are required';
+    } else {
+        if ($password != $repass) {
+            return 'password does not match';
+        } else {
+            if (authenticate('vusers', [['email', '=', $email]]) == 'succeess') {
+                return 'User already exists';
+            } else {
+                $password = md5($password);
+                $data = [
+                'name' => $name,
+                'email' => $email,
+                'contact' => $contact,
+                'password' => $password,
+            ];
+                $result = insert('vusers', $data);
+                if ($result == 'success') {
+                    return 'success';
+                } else {
+                    return 'failed';
+                }
+            }
+        }
+    }
+}

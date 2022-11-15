@@ -11,9 +11,9 @@ $(function(){
     function resp(response){
 
         if(response == "registration_success"){
-            $(".mess").html('<div class="alert alert-success"><strong>Operation successful</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
+            $(".mess").html('<div class="alert alert-success"><strong>Registration successful</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" /></div>');
             setTimeout(function(){
-                window.location = "home";
+                window.location = "login";
             },3000);
             
         }
