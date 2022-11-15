@@ -35,7 +35,7 @@ start('Create free account');
                 <p>Already have an account?<a class="ms-2" href="login">Log In</a></p>
                 <!-- Register Form-->
                 <div class="register-form my-5">
-                  <form id="register">
+                  <form class="register">
                     
                     <div class="form-group mb-3">
                       <input class="form-control rounded-0" type="text" placeholder="Full Name" name="name" required>
@@ -66,7 +66,7 @@ start('Create free account');
                         <strong>Registration Successful</strong> <img src="template/img/spin.gif" style="width:50px;height:50px;" />
                       </div>
                     </div>
-                    <button class="btn btn-primary w-100" type="submit">Register Now</button>
+                    <button class="btn btn-primary w-100  btnreg" type="submit">Register Now</button>
                   </form>
                   
                 </div>

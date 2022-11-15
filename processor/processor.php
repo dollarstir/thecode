@@ -6,7 +6,7 @@ require '../fragement/core.php';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'register':
-            echo 'success';
+            echo 'registration_success';
 
             break;
 

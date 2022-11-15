@@ -243,12 +243,15 @@ function start($title)
       </div> -->
       <!-- All JavaScript Files-->
       <script src="template/js/jquery.min.js"></script>
-     
-      
       <script src="processor/processor.js"></script>
-      
       <script src="template/js/all-js-libraries.js"></script>
       <script src="template/js/active.js"></script>
+      
+     
+      
+      
+      
+     
      
       </body>
   </html>';
