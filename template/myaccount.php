@@ -1,13 +1,17 @@
 <?php
+
 involve('core.php');
-mainchecker('vuser', 'login');
 
 start('Contact Us');
 
 ?>
   <body>
     <!-- Preloader-->
-    <?php navi(); ?>
+    <?php navi();
+    if (!isset($_SESSION['vuser'])) {
+        echo 'window.location.href = "login";';
+    }
+    ?>
     <!-- Breadcrumb Area-->
     <div class="breadcrumb-wrapper breadcrumb-bg-light">
       <div class="container h-100">
@@ -74,7 +78,7 @@ start('Contact Us');
           <div class="col-12 col-lg-6">
           <h2>Account Details</h2> 
             <div class="contact-form">
-              <form action="#" method="POST">
+              <form class="updaterec">
                 <div class="row">
                   <div class="col-12 col-lg-6">
                     <label class="form-label" for="name">Full Name:</label>

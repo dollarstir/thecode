@@ -15,6 +15,12 @@ if (isset($_GET['action'])) {
             login($email, $password);
             break;
 
+        case 'updaterec':
+            extract($_POST);
+            updaterec($name, $email, $contact);
+            // code...
+            break;
+
         default:
 
         break;

@@ -24,6 +24,17 @@ $(function(){
             },3000);
 
         }
+
+        else if(response == "success"){
+
+          $(".mess").html('<div class="alert alert-success"><strong>Operation successful</strong> <div class="spinner-border text-success"></div></div>');
+            setTimeout(function(){
+              $(".mess").html('');
+              
+                window.location.reload();
+            },3000);
+
+        }
         else{
 
           $(".mess").html('<div class="alert alert-danger"><strong>'+ response + '</strong> <div class="spinner-border text-danger"></div></div>');
@@ -89,7 +100,22 @@ $(document).on('submit','.login',function(e){
 
 
 
+$(document).on('submit','.updaterec',function(e){
 
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=updaterec',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
 
 
 

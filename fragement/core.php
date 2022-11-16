@@ -321,3 +321,22 @@ function login($email, $password)
         }
     }
 }
+function updaterec($name, $email, $contact)
+{
+    session_start();
+    if (empty(trim($name)) || empty(trim($email)) || empty(trim($contact))) {
+        echo 'All fields are required';
+    } else {
+        $data = [
+            'name' => $name,
+            'email' => $email,
+            'contact' => $contact,
+        ];
+        $result = update('vusers', $data, [['id', '=', $_SESSION['vuser']['id']]]);
+        if ($result == 'success') {
+            echo 'success';
+        } else {
+            echo 'Failed to update';
+        }
+    }
+}
