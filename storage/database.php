@@ -19,3 +19,21 @@ addtable('vusers', [
     addColumn('token', 'text', null, true),
     addColumn('codestatus', 'string', '100', true),
 ]);
+
+addTable('vproducts', [
+    addColumn('id', 'int', 11, false, true, true),
+    addColumn('name', 'string', 100),
+    addColumn('price', 'string', 100),
+    addColumn('image', 'string', 100),
+    addColumn('category', 'string', 100),
+    addColumn('status', 'string', 100),
+    addColumn('dateadded', 'string', 100),
+]);
+
+addTable('vcart', [
+    addColumn('id', 'int', 11, false, true, true),
+    addColumn('userid', 'int', 11),
+    addColumn('productid', 'int', 11),
+    addColumn('token', 'text', null),
+    addColumn('dateadded', 'string', 100),
+]);
