@@ -340,3 +340,11 @@ function updaterec($name, $email, $contact)
         }
     }
 }
+
+function user()
+{
+    session_start();
+    $user = customfetch('vusers', ['id', '=', $_SESSION['vuser']['id']]);
+
+    return $user = $user[0];
+}
