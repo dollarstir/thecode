@@ -21,6 +21,13 @@ if (isset($_GET['action'])) {
             // code...
             break;
 
+        case 'logout':
+            session_start();
+            unset($_SESSION['vuser']);
+            echo '<script>window.location.href = "home";</script>';
+            // code...
+            break;
+
         default:
 
         break;
