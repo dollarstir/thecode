@@ -31,22 +31,43 @@ start('Forgot Password');
           <div class="col-12 col-lg-6">
             <div class="card register-card bg-gray p-1 p-sm-4">
               <div class="card-body">
-                <h4>Reset Password</h4>
+                <h4><?php echo isset($_GET['token']) ? 'New Password' : 'Reset Password'; ?></h4>
                 <p>Already have an account?<a class="ms-2" href="login.html">Log in</a></p>
                 <!-- Register form -->
-                <div class="register-form my-5">
-                  <form class="resetpassword">
-                    <div class="form-group mb-3">
-                      <input class="form-control rounded-0" type="email" placeholder="Email Address" name="email" required>
-                    </div>
-
-                    <div class="mess">
-                      
-                    </div>
-                    <button class="btn btn-primary w-100" type="submit"><i class="bi bi-lock me-2"></i>Reset Password</button>
-                  </form>
+                <?php if (isset($_GET['token'])) {
+    echo '<div class="register-form my-5">
+              <form class="newpassword">
+                <div class="form-group mb-3">
+                  <input class="form-control rounded-0" type="password" placeholder="New password" name="password" required>
                 </div>
-                
+
+                <div class="form-group mb-3">
+                  <input class="form-control rounded-0" type="password" placeholder="Re-enter password" name="repass" required>
+                </div>
+
+                <div class="mess">
+                  
+                </div>
+                <button class="btn btn-primary w-100" type="submit"><i class="bi bi-lock me-2"></i>Continue</button>
+              </form>
+          </div>';
+} else {
+    echo '
+                                            <div class="register-form my-5">
+                                                          <form class="resetpassword">
+                                                            <div class="form-group mb-3">
+                                                              <input class="form-control rounded-0" type="email" placeholder="Email Address" name="email" required>
+                                                            </div>
+
+                                                            <div class="mess">
+                                                              
+                                                            </div>
+                                                            <button class="btn btn-primary w-100" type="submit"><i class="bi bi-lock me-2"></i>Reset Password</button>
+                                                          </form>
+                                                        </div>';
+}
+
+                ?>
               </div>
             </div>
           </div>

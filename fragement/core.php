@@ -363,7 +363,7 @@ function resetpassword($email)
             $result = update('vusers', $data, ['email' => $email]);
             if ($result == 'success') {
                 $subject = 'Password Reset';
-                $message = "Click the link below to reset your password <br> <a href='http://localhost/virtualmarket/resetpassword.php?token=$token'>Reset Password</a>";
+                $message = "Click the link below to reset your password <br> <a href='http://streetkode.tk/resetpassword?token=$token'>Reset Password</a>";
                 if (sendmail('https://phpyolk.com/', $subject, $message, 'Street Code', [$email]) == 'success') {
                     echo 'resetlink';
                 } else {

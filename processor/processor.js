@@ -149,6 +149,24 @@ $(document).on('submit','.resetpassword',function(e){
 });
 
 
+$(document).on('submit','.newpassword',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=newpassword',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
+
+
 
 
     
