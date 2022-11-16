@@ -332,7 +332,7 @@ function updaterec($name, $email, $contact)
             'email' => $email,
             'contact' => $contact,
         ];
-        $result = update('vusers', $data, [['id', '=', $_SESSION['vuser']['id']]]);
+        $result = update('vusers', $data, ['id' => $_SESSION['vuser']['id']]);
         if ($result == 'success') {
             echo 'success';
         } else {
