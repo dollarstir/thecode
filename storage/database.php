@@ -16,6 +16,6 @@ addtable('vusers', [
     addColumn('password', 'string', 100),
     addColumn('datejoined', 'string', 100),
     addColumn('status', 'string', 100),
-    addColumn('code', 'text', null, true),
+    addColumn('token', 'text', null, true),
     addColumn('codestatus', 'string', '100', true),
 ]);
