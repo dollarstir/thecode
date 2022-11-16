@@ -203,6 +203,9 @@ start('Buy affordable and quality products from our store');
                       <li><i class="text-info me-2 bi bi-check-circle-fill"></i>Download New Release</li>
                     </ul>
                   </div>
+                  <div class="mess">
+                    
+                  </div>
                   <div class="pricing-btn"><button class="btn btn-primary addtocart">Buy Now<i class="bi bi-caret-right-fill"></i></button></div>
                 </div>
               </div>

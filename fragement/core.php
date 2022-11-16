@@ -423,7 +423,7 @@ function addtocart($id)
                 $_SESSION['strcart'] = [];
             }
             if (in_array($id, $_SESSION['strcart'])) {
-                echo 'Product already in cart'.$_SESSION['strcart'];
+                echo 'Product already in cart'.$_SESSION['strcart'][0];
             } else {
                 array_push($_SESSION['strcart'], $id);
                 echo 'success';
