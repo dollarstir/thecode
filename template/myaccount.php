@@ -1,5 +1,6 @@
 <?php
 involve('core.php');
+mainchecker('vuser', 'login');
 
 start('Contact Us');
 
@@ -77,15 +78,15 @@ start('Contact Us');
                 <div class="row">
                   <div class="col-12 col-lg-6">
                     <label class="form-label" for="name">Full Name:</label>
-                    <input class="form-control mb-30" id="name" type="text" placeholder="Name" value="" name="name" required>
+                    <input class="form-control mb-30" id="name" type="text" placeholder="Name" value="<?php echo $_SESSION['vuser']['name']; ?>" name="name" required>
                   </div>
                   <div class="col-12 col-lg-6">
                     <label class="form-label" for="email">Email Address:</label>
-                    <input class="form-control mb-30" id="email" type="email" placeholder="Email Address" name="email" value="" required>
+                    <input class="form-control mb-30" id="email" type="email" placeholder="Email Address" name="email" value="<?php echo $_SESSION['vuser']['email']; ?>" required>
                   </div>
                   <div class="col-12">
-                    <label class="form-label" for="subject">Topics:</label>
-                    <input class="form-control mb-30" id="topics" type="text" placeholder="Contact" name="contact" value="">
+                    <label class="form-label" for="subject">Contact:</label>
+                    <input class="form-control mb-30" id="topics" type="text" placeholder="Contact" name="contact" value="<?php echo $_SESSION['vuser']['contact']; ?>">
                   </div>
                   
                   <div class="col-12 text-center">
