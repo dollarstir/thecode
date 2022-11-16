@@ -185,7 +185,7 @@ $(document).on('click','.addtocart',function(e){
   
   var id = $(this).attr('id');
   var staff = {
-      url: 'processor/processor.php?action=addtocart&id=1',
+      url: 'processor/processor.php?action=addtocart',
       type: 'post',
       data: {"id": id},
       beforeSend: before,

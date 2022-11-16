@@ -39,6 +39,12 @@ if (isset($_GET['action'])) {
             newpassword($password, $repass, $token);
             break;
 
+        case 'addtocart':
+            extract($_POST);
+            addtocart($id);
+            // code...
+            break;
+
         default:
 
         break;
