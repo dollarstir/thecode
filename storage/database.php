@@ -37,3 +37,8 @@ addTable('vcart', [
     addColumn('token', 'text', null),
     addColumn('dateadded', 'string', 100),
 ]);
+
+addTable('vcategory', [
+    addColumn('id', 'int', 11, false, true, true),
+    addColumn('catname', 'string', 100),
+]);
