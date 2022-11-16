@@ -414,6 +414,7 @@ function newpassword($password, $repass, $token)
 
 function addtocart($id)
 {
+    session_start();
     if (empty(trim($id))) {
         echo 'Product not found';
     } else {
@@ -422,7 +423,7 @@ function addtocart($id)
                 $_SESSION['strcart'] = [];
             }
             if (in_array($id, $_SESSION['strcart'])) {
-                echo 'Product already in cart';
+                echo 'Product already in cart'.$_SESSION['strcart'];
             } else {
                 array_push($_SESSION['strcart'], $id);
                 echo 'success';
