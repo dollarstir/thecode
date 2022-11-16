@@ -68,7 +68,7 @@ function start($title)
         session_start();
 
         if (isset($_SESSION['vuser'])) {
-            $ckt = '<a class="btn btn-success btn-sm ms-auto mb-3 mb-lg-0" href="account">Account</a>';
+            $ckt = '<a class="btn btn-success btn-sm ms-auto mb-3 mb-lg-0"  href="account">My account</a>';
         } else {
             $ckt = '<a class="btn btn-primary btn-sm ms-auto mb-3 mb-lg-0" href="login">Log In</a>';
         }
