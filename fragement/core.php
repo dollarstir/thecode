@@ -70,7 +70,7 @@ function start($title)
         session_start();
 
         if (isset($_SESSION['vuser'])) {
-            $ckt = '<a class="btn btn-success btn-sm ms-auto mb-3 mb-lg-0"  href="account">My account</a>
+            $ckt = '<a class="btn btn-defualt btn-sm ms-auto mb-3 mb-lg-0" style="border:1px solid grey !important;"  href="account">My account</a>
                     <a class="btn btn-danger btn-sm ms-auto mb-3 mb-lg-0"  href="account"><i class="bi bi-power"></i></a>';
         } else {
             $ckt = '<a class="btn btn-primary btn-sm ms-auto mb-3 mb-lg-0" href="login">Log In</a>';
