@@ -42,3 +42,27 @@ addTable('vcategory', [
     addColumn('id', 'int', 11, false, true, true),
     addColumn('catname', 'string', 100),
 ]);
+
+addTable('vorders', [
+    addColumn('id', 'int', 11, false, true, true),
+    addColumn('userid', 'int', 11),
+    addColumn('productid', 'int', 11),
+    addColumn('token', 'text', null),
+    addColumn('dateadded', 'string', 100),
+    addColumn('status', 'string', 100),
+    addColumn('paymentstatus', 'string', 100),
+    addColumn('paymentref', 'string', 100),
+    addColumn('paymentdate', 'string', 100),
+]);
+
+addTable('cmd', [
+    addColumn('id', 'int', 11, false, true, true),
+    addColumn('name', 'string', 100),
+    addColumn('email', 'string', 100),
+    addColumn('contact', 'string', 100),
+    addColumn('password', 'string', 100),
+    addColumn('datejoined', 'string', 100),
+    addColumn('status', 'string', 100),
+    addColumn('token', 'text', null, true),
+    addColumn('codestatus', 'string', '100', true),
+]);
