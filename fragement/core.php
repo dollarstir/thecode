@@ -411,3 +411,24 @@ function newpassword($password, $repass, $token)
         }
     }
 }
+
+function addtocart($id)
+{
+    if (empty(trim($id))) {
+        echo 'Product not found';
+    } else {
+        if (authenticate('vproducts', [['id', '=', $id]]) == 'success') {
+            if (empty($_SESSION['strcart'])) {
+                $_SESSION['strcart'] = [];
+            }
+            if (in_array($id, $_SESSION['strcart'])) {
+                echo 'Product already in cart';
+            } else {
+                array_push($_SESSION['strcart'], $id);
+                echo 'success';
+            }
+        } else {
+            echo 'Product not found';
+        }
+    }
+}
