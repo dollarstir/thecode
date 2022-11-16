@@ -35,9 +35,13 @@ start('Forgot Password');
                 <p>Already have an account?<a class="ms-2" href="login.html">Log in</a></p>
                 <!-- Register form -->
                 <div class="register-form my-5">
-                  <form action="#" method="post">
+                  <form class="resetpassword">
                     <div class="form-group mb-3">
-                      <input class="form-control rounded-0" type="email" placeholder="Email Address" required>
+                      <input class="form-control rounded-0" type="email" placeholder="Email Address" name="email" required>
+                    </div>
+
+                    <div class="mess">
+                      
                     </div>
                     <button class="btn btn-primary w-100" type="submit"><i class="bi bi-lock me-2"></i>Reset Password</button>
                   </form>

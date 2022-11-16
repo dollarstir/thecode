@@ -114,7 +114,7 @@ $router = new Router([
     new Route(
         '/logout',
         function ($context) {
-            return Viewer::view('processor/processor.php?action=logout', $context);
+            return Viewer::view('template/out.php', $context);
         }
     ),
 ]);

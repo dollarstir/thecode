@@ -9,7 +9,7 @@ start('Contact Us');
     <!-- Preloader-->
     <?php navi();
     if (!isset($_SESSION['vuser'])) {
-        echo 'window.location.href = "login";';
+        echo '<script>window.location.href = "login";</script>';
     }
     ?>
     <!-- Breadcrumb Area-->

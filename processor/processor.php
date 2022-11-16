@@ -28,6 +28,12 @@ if (isset($_GET['action'])) {
             // code...
             break;
 
+        case 'resetpassword':
+            extract($_POST);
+            resetpassword($email);
+            // code...
+            break;
+
         default:
 
         break;

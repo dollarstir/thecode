@@ -1,12 +1,16 @@
 <?php
 involve('core.php');
-loginpagechecker('vuser', 'home');
+// loginpagechecker('vuser', 'home');
 start('Log In');
 
 ?>
   <body>
     <!-- Preloader-->
-    <?php navi(); ?>
+    <?php navi();
+    if (isset($_SESSION['vuser'])) {
+        echo '<script>window.location.href = "home";</script>';
+    }
+    ?>
     <!-- Breadcrumb -->
     <div class="breadcrumb-wrapper breadcrumb-bg-light">
       <div class="container h-100">

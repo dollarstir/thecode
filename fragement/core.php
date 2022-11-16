@@ -71,7 +71,7 @@ function start($title)
 
         if (isset($_SESSION['vuser'])) {
             $ckt = '<a class="btn btn-defualt btn-sm ms-auto mb-3 mb-lg-0" style="border:1px solid grey !important;"  href="account">My account</a>
-                    <a class="btn btn-danger btn-sm ms-auto mb-3 mb-lg-0"  href="account"><i class="bi bi-power"></i></a>';
+                    <a class="btn btn-danger btn-sm ms-auto mb-3 mb-lg-0"  href="logout"><i class="bi bi-power"></i></a>';
         } else {
             $ckt = '<a class="btn btn-primary btn-sm ms-auto mb-3 mb-lg-0" href="login">Log In</a>';
         }
@@ -348,4 +348,32 @@ function user()
     $user = customfetch('vusers', ['id', '=', $_SESSION['vuser']['id']]);
 
     return $user = $user[0];
+}
+
+function resetpassword($email)
+{
+    if (empty(trim($email))) {
+        echo 'Email is required';
+    } else {
+        if (authenticate('vusers', [['email', '=', $email]]) == 'success') {
+            $token = md5($email.time());
+            $data = [
+            'token' => $token,
+              ];
+            $result = update('vusers', $data, ['email' => $email]);
+            if ($result == 'success') {
+                $subject = 'Password Reset';
+                $message = "Click the link below to reset your password <br> <a href='http://localhost/virtualmarket/resetpassword.php?token=$token'>Reset Password</a>";
+                if (sendmail('https://phpyolk.com/', $subject, $message, 'Street Code', [$email]) == 'success') {
+                    echo 'resetlink';
+                } else {
+                    echo 'Failed to send reset link';
+                }
+            } else {
+                echo 'Failed to reset password';
+            }
+        } else {
+            echo 'Email not found in records';
+        }
+    }
 }
