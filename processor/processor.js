@@ -177,6 +177,24 @@ $(document).on('submit','.newpassword',function(e){
       $.ajax(user);
 });
 
+// add to cart
+
+$(document).on('click','.addtocart',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=addtocart&id=1',
+      type: 'post',
+      data: {"id": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
+
 
 
 
