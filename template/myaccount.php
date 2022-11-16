@@ -18,7 +18,7 @@ start('Contact Us');
         <div class="row h-100 align-items-center">
           <div class="col-12">
             <div class="breadcrumb-content">
-              <h2 class="breadcrumb-title">Contact Us </h2>
+              <h2 class="breadcrumb-title">Welcome <?php echo user()['name']; ?> </h2>
               
             </div>
           </div>
