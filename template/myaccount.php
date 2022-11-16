@@ -82,15 +82,15 @@ start('Contact Us');
                 <div class="row">
                   <div class="col-12 col-lg-6">
                     <label class="form-label" for="name">Full Name:</label>
-                    <input class="form-control mb-30" id="name" type="text" placeholder="Name" value="<?php echo $user['name']; ?>" name="name" required>
+                    <input class="form-control mb-30" id="name" type="text" placeholder="Name" value="<?php echo user()['name']; ?>" name="name" required>
                   </div>
                   <div class="col-12 col-lg-6">
                     <label class="form-label" for="email">Email Address:</label>
-                    <input class="form-control mb-30" id="email" type="email" placeholder="Email Address" name="email" value="<?php echo $user['email']; ?>" required>
+                    <input class="form-control mb-30" id="email" type="email" placeholder="Email Address" name="email" value="<?php echo user()['email']; ?>" required>
                   </div>
                   <div class="col-12">
                     <label class="form-label" for="subject">Contact:</label>
-                    <input class="form-control mb-30" id="topics" type="text" placeholder="Contact" name="contact" value="<?php echo $user['contact']; ?>">
+                    <input class="form-control mb-30" id="topics" type="text" placeholder="Contact" name="contact" value="<?php echo user()['contact']; ?>">
                   </div>
 
                   <div class="mess">
