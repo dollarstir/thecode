@@ -43,6 +43,7 @@ start('Forgot Password');
 
                 <div class="form-group mb-3">
                   <input class="form-control rounded-0" type="password" placeholder="Re-enter password" name="repass" required>
+                  <input class="form-control rounded-0" type="hidden" name="token" value="'.$_GET['token'].'">
                 </div>
 
                 <div class="mess">

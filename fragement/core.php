@@ -377,3 +377,16 @@ function resetpassword($email)
         }
     }
 }
+
+function newpassword($password, $repass, $token)
+{
+    if (empty(trim($password)) || empty(trim($repass))) {
+        echo 'All fields are required';
+    } else {
+        if ($password != $repass) {
+            echo 'Password does not match';
+        } else {
+            $password = md5($password);
+        }
+    }
+}

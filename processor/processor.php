@@ -34,6 +34,11 @@ if (isset($_GET['action'])) {
             // code...
             break;
 
+        case 'newpassword':
+            extract($_POST);
+            newpassword($password, $repass, $token);
+            break;
+
         default:
 
         break;
