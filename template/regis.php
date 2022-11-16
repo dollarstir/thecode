@@ -1,6 +1,8 @@
 <?php
 involve('core.php');
 
+loginpagechecker('vuser', 'home');
+
 start('Create free account');
 
 ?>

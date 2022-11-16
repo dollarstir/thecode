@@ -52,8 +52,10 @@ function start($title)
     
         <!-- All CSS Stylesheet-->
         <link rel="stylesheet" href="template/css/bootstrap.min.css">
-
+        
         <link rel="stylesheet" href="template/css/all-css-libraries.css">
+        
+
         <link rel="stylesheet" href="template/css/float.css">
         <!-- Core Stylesheet-->
         <link rel="stylesheet" href="template/style.css">
@@ -243,6 +245,8 @@ function start($title)
       </div> -->
       <!-- All JavaScript Files-->
       <script src="template/js/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
       <script src="processor/processor.js"></script>
       <script src="template/js/all-js-libraries.js"></script>
       <script src="template/js/active.js"></script>

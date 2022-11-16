@@ -1,6 +1,6 @@
 <?php
 involve('core.php');
-
+loginpagechecker('vuser', 'home');
 start('Log In');
 
 ?>
@@ -46,7 +46,7 @@ start('Log In');
                     </div>
 
                     <div class="mess">
-                      
+
                     </div>
                     <button class="btn btn-primary w-100" type="submit"><i class="bi bi-unlock me-2"></i>Login</button>
                   </form>

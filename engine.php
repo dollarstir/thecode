@@ -103,5 +103,12 @@ $router = new Router([
             return Viewer::view('template/myprod.php', $context);
         }
     ),
+
+    new Route(
+        '/account',
+        function ($context) {
+            return Viewer::view('template/myaccount.php', $context);
+        }
+    ),
 ]);
 $router->launch();
