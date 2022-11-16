@@ -92,6 +92,10 @@ start('Contact Us');
                     <label class="form-label" for="subject">Contact:</label>
                     <input class="form-control mb-30" id="topics" type="text" placeholder="Contact" name="contact" value="<?php echo $_SESSION['vuser']['contact']; ?>">
                   </div>
+
+                  <div class="mess">
+                    
+                  </div>
                   
                   <div class="col-12 text-center">
                     <button class="btn btn-primary w-100" type="submit">Save</button>
