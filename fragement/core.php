@@ -359,6 +359,7 @@ function resetpassword($email)
             $token = md5($email.time());
             $data = [
             'token' => $token,
+            'codestatus' => 'active',
               ];
             $result = update('vusers', $data, ['email' => $email]);
             if ($result == 'success') {
@@ -386,7 +387,27 @@ function newpassword($password, $repass, $token)
         if ($password != $repass) {
             echo 'Password does not match';
         } else {
-            $password = md5($password);
+            if (authenticate('vusers', [['token', '=', $token]]) == 'success') {
+                $d = customfetch('vusers', ['token', '=', $token]);
+                $d = $d[0];
+                if ($d['codestatus'] == 'active') {
+                    $password = md5($password);
+                    $data = [
+                    'password' => $password,
+                    'codestatus' => 'inactive',
+                  ];
+                    $result = update('vusers', $data, ['token' => $token]);
+                    if ($result == 'success') {
+                        echo 'token_success';
+                    } else {
+                        echo 'Failed to reset password';
+                    }
+                } else {
+                    echo 'Token has expired';
+                }
+            } else {
+                echo 'Invalid Token';
+            }
         }
     }
 }

@@ -46,6 +46,17 @@ $(function(){
             },3000);
 
         }
+
+        else if(response == "token_success"){
+
+          $(".mess").html('<div class="alert alert-success"><strong>Password reset successful</strong> <div class="spinner-border text-success"></div></div>');
+            setTimeout(function(){
+              $(".mess").html('');
+              
+                window.location="login";
+            },3000);
+
+        }
         else{
 
           $(".mess").html('<div class="alert alert-danger"><strong>'+ response + '</strong> <div class="spinner-border text-danger"></div></div>');
