@@ -27,6 +27,22 @@ start('Checkout');
           <!-- Checkout Details Area-->
           <div class="col-12 col-lg-6">
             <div class="checkout-details-area">
+
+            <h3 class="mb-4">Login Details</h3>
+              <form action="#" method="post">
+                <div class="row">
+                  <div class="col-12">
+                    <!-- <label class="mb-2" for="first-name">Email</label> -->
+                    <input class="form-control mb-30" id="first-name" type="email" placeholder="Email" name="email"  required>
+                  </div>
+                  <div class="col-12">
+                    <!-- <label class="mb-2" for="last-name">Password</label> -->
+                    <input class="form-control mb-30" id="last-name" type="password" placeholder="password" name="password"  required>
+                  </div>
+                  
+                  
+                </div>
+              </form>
               <h3 class="mb-4">Billing Details</h3>
               <form action="#" method="post">
                 <div class="row">
@@ -87,7 +103,7 @@ start('Checkout');
                     </tr>
                     <tr>
                       <th class="px-3">Order Total </th>
-                      <td class="text-end px-3">&#8373;<?php echo carttotal(); ?></td>
+                      <td class="text-end px-3"><strong>&#8373;<?php echo carttotal(); ?></strong></td>
                     </tr>
                   </tfoot>
                 </table>

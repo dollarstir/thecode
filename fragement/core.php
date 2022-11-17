@@ -545,7 +545,7 @@ function checkoutcart()
 
             echo '<tr>
             <th class="px-3">'.$k['name'].' <span> × 1</span></th>
-            <td class="text-end px-3">'.$k['price'].'</td>
+            <td class="text-end px-3">&#8373;'.$k['price'].'</td>
             </tr>';
         }
 
