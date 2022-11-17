@@ -531,4 +531,26 @@ function product($cat)
 
 function checkoutcart()
 {
+    error_reporting(0);
+    session_start();
+    if (!empty($_SESSION['strcart'])) {
+        $cart = $_SESSION['strcart'];
+        // $cart = implode(',', $cart);
+        // $cart = customfetch('vproducts', [['id', 'IN', $cart]]);
+        $total = 0;
+        foreach ($cart as $c) {
+            $k = customfetch('vproducts', [['id', '=', $c]]);
+            $k = $k[0];
+            $total += $k['price'];
+
+            echo '<tr>
+            <th class="px-3">'.$k['name'].' <span> × 1</span></th>
+            <td class="text-end px-3">'.$k['price'].'</td>
+            </tr>';
+        }
+
+        // return $cart;
+    } else {
+        echo 'No item in cart';
+    }
 }
