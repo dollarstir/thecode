@@ -56,21 +56,18 @@ start('Checkout');
               <form action="#" method="post">
                 <div class="row">
                   <div class="col-12">
-                    <label class="mb-2" for="first-name">First Name</label>
-                    <input class="form-control mb-30" id="first-name" type="text" placeholder="First Name" value="" required>
+                    <label class="mb-2" for="first-name">Full Name</label>
+                    <input class="form-control mb-30" id="first-name" type="text" placeholder="Full Name" value="<?php echo (isset($_SESSION['vuser'])) ? user()['name'] : ''; ?>" required>
                   </div>
-                  <div class="col-12">
-                    <label class="mb-2" for="last-name">Last Name</label>
-                    <input class="form-control mb-30" id="last-name" type="text" placeholder="Last Name" value="" required>
-                  </div>
+                  
                   
                   <div class="col-12">
                     <label class="mb-2" for="email-address">Email Address</label>
-                    <input class="form-control mb-30" id="email-address" type="email" placeholder="Email Address" value="" required>
+                    <input class="form-control mb-30" id="email-address" type="email" placeholder="Email Address" name="<?php echo (isset($_SESSION['vuser'])) ? user()['email'] : ''; ?>"  value="<?php echo (isset($_SESSION['vuser'])) ? user()['email'] : ''; ?>" required>
                   </div>
                   <div class="col-12">
                     <label class="mb-2" for="phone">Phone</label>
-                    <input class="form-control mb-30" id="phone" type="text" placeholder="Phone" value="">
+                    <input class="form-control mb-30" id="phone" type="text" placeholder="Phone" name="<?php echo (isset($_SESSION['vuser'])) ? user()['contact'] : ''; ?>" value="<?php echo (isset($_SESSION['vuser'])) ? user()['contact'] : ''; ?>">
                   </div>
                   
                  
