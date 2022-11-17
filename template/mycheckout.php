@@ -79,15 +79,15 @@ start('Checkout');
                   <tfoot>
                     <tr>
                       <th class="px-3">Subtotal </th>
-                      <td class="text-end px-3">$16.94</td>
+                      <td class="text-end px-3">&#8373;<?php echo carttotal(); ?></td>
                     </tr>
                     <tr>
                       <th class="px-3">Shipping </th>
-                      <td class="text-end px-3">Flat Rate $5.00</td>
+                      <td class="text-end px-3">Flat Rate &#8373;0.00</td>
                     </tr>
                     <tr>
                       <th class="px-3">Order Total </th>
-                      <td class="text-end px-3">$21.94</td>
+                      <td class="text-end px-3">&#8373;<?php echo carttotal(); ?></td>
                     </tr>
                   </tfoot>
                 </table>
