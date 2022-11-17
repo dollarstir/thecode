@@ -87,7 +87,7 @@ function start($title)
                 <div class="container">
                   <!-- Navbar Brand --><a class="navbar-brand" href="home"><img src="template/img/core-img/logo.png" alt=""></a>
                   <!-- Navbar Toggler -->
-                  <button  class="navbar-toggler" type="button"><i class="bi bi-cart"></i> <span class="badge badge-primary" style="margin-top: -12px !important; position: absolute !important; font-size: 12px !important;height: 20px !important;">1</span></button>
+                  <a href="cart"  class="navbar-toggler"><i class="bi bi-cart"></i> <span class="badge badge-primary" style="margin-top: -12px !important; position: absolute !important; font-size: 12px !important;height: 20px !important;">'.countcart().'</span></a>
                  
                   <button style="margin-left:30px !important;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#saasboxNav" aria-controls="saasboxNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-grid"></i></button>
                   <!-- Navbar Nav -->
@@ -152,7 +152,7 @@ function start($title)
                     </ul>
                     <!-- Login Button -->
                     '.$ckt.'
-                    <a class="bi bi-cart btn-sm ms-auto mb-3 mb-lg-0" style="border:1px solid grey;" href="cart"><span style="padding:5px;">'.countcart().'</span></a>
+                    <a class="btn btn-default  ms-auto mb-3 mb-lg-0" href="cart"><i class="bi bi-cart"></i> <span class="badge badge-primary" style="margin-top: 15px !important; position: absolute !important; font-size: 12px !important;height: 20px !important;">'.countcart().'</span></a>
                   </div>
                 </div>
               </nav>
@@ -573,3 +573,6 @@ function checkoutcart()
         echo 'No item in cart';
     }
 }
+
+
+function  
