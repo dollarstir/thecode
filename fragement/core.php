@@ -424,7 +424,7 @@ function addtocart($id)
                 $_SESSION['strcart'] = [];
             }
             if (in_array($id, $_SESSION['strcart'])) {
-                echo 'Product already in cart'.$_SESSION['strcart'][0];
+                echo 'alreadyincart'.$_SESSION['strcart'][0];
             } else {
                 array_push($_SESSION['strcart'], $id);
                 echo 'addedtocart';
@@ -441,22 +441,24 @@ function cartitem()
     session_start();
     if (!empty($_SESSION['strcart'])) {
         $cart = $_SESSION['strcart'];
-        $cart = implode(',', $cart);
-        $cart = customfetch('vproducts', ['id', 'IN', "($cart)"]);
+        // $cart = implode(',', $cart);
+        // $cart = customfetch('vproducts', [['id', 'IN', $cart]]);
         $total = 0;
         foreach ($cart as $c) {
-            $total += $c['price'];
+            $k = customfetch('vproducts', [['id', '=', $c]]);
+            $k = $k[0];
+            $total += $k['price'];
 
             echo '<tr>
-                  <th scope="row"></th>
-                  <td><img src="yolkassets/upload/'.$c['image'].'" alt="Product" style="width:50px;height:50px;"></td>
-                  <td><a href="">'.$c['name'].'</a></td>
-                  <td>&#8373;'.$c['price'].'</td>
+                  <th scope="row"><button class="btn btn-default btn-sm" style="color:red;"><i class="bi bi-x"></i></button></th>
+                  <td><img src="yolkassets/upload/'.$k['image'].'" alt="Product" style="width:50px;height:50px;"></td>
+                  <td><a href="">'.$k['name'].'</a></td>
+                  <td>&#8373;'.$k['price'].'</td>
                   <td>
                     1
                     <!-- <input class="qty-text" type="text" min="1" max="99" name="quantity" value="2"> -->
                   </td>
-                  <td>&#8373;'.$c['price'].'</td>
+                  <td>&#8373;'.$k['price'].'</td>
                  </tr>';
         }
 
@@ -472,15 +474,57 @@ function carttotal()
     session_start();
     if (!empty($_SESSION['strcart'])) {
         $cart = $_SESSION['strcart'];
-        $cart = implode(',', $cart);
-        $cart = customfetch('vproducts', ['id', 'IN', "($cart)"]);
+        // $cart = implode(',', $cart);
+        // $cart = customfetch('vproducts', ['id', 'IN', "($cart)"]);
         $total = 0;
         foreach ($cart as $c) {
-            $total += $c['price'];
+            $k = customfetch('vproducts', [['id', '=', $c]]);
+            $k = $k[0];
+            $total += $k['price'];
         }
 
         return $total;
     } else {
         return 0;
+    }
+}
+
+// display product
+function product($cat)
+{
+    $c = customfetch('vproducts', [['category', '=', $cat]]);
+
+    foreach ($c as $p) {
+        echo  '<!-- Single Pricing Plan-->
+      <div class="col-12 col-sm-9 col-md-7 col-lg-4">
+        <div class="card pricing-card monthly-plan shadow-lg wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="pricing-heading mb-5">
+            <h3>'.$p['name'].'</h3><br>
+            <div class="price-quantity">
+                
+                <h3 class="mb-0 monthly-price">&#8373; '.$p['price'].'<span class="fz-12"></span></h3>
+                
+            </div>
+            <!-- <div class="price"><span class="bg-primary rounded-circle"><i class="bi bi-lock"></i></span>
+                
+             
+            </div> -->
+          </div>
+          <div class="pricing-desc mb-5">
+            <ul class="list-unstyled mb-0">
+              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>1 Month Usage</li>
+              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>Lifetime Updates</li>
+              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>1 Website License</li>
+              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>Free Support</li>
+              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>Download New Release</li>
+            </ul>
+          </div>
+          
+            
+
+          
+          <div class="pricing-btn"><button class="btn btn-primary addtocart" id ="'.$p['id'].'">Buy Now<i class="bi bi-caret-right-fill"></i></button></div>
+        </div>
+      </div>';
     }
 }
