@@ -25,6 +25,18 @@ $(function(){
 
         }
 
+
+        else if(response == "loginsuccess1"){
+
+          $(".mess").html('<div class="alert alert-success"><strong>Login successful</strong> <div class="spinner-border text-success"></div></div>');
+            setTimeout(function(){
+              $(".mess").html('');
+              
+                window.location.reload();
+            },3000);
+
+        }
+
         else if(response == "success"){
 
           $(".mess").html('<div class="alert alert-success"><strong>Operation successful</strong> <div class="spinner-border text-success"></div></div>');
@@ -147,6 +159,23 @@ $(document).on('submit','.login',function(e){
   e.preventDefault();
   var user = {
             url: 'processor/processor.php?action=login',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
+
+$(document).on('submit','.login1',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=login1',
             type: 'post',
             data: new FormData(this),
             cache: false,

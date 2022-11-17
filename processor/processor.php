@@ -15,6 +15,11 @@ if (isset($_GET['action'])) {
             login($email, $password);
             break;
 
+        case 'login1':
+            extract($_POST);
+            login1($email, $password);
+            break;
+
         case 'updaterec':
             extract($_POST);
             updaterec($name, $email, $contact);

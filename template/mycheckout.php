@@ -27,23 +27,31 @@ start('Checkout');
           <!-- Checkout Details Area-->
           <div class="col-12 col-lg-6">
             <div class="checkout-details-area">
+              <?php
 
-            <h3 class="mb-4">Login Details</h3>
-              <form action="#" method="post">
-                <div class="row">
-                  <div class="col-12">
-                    <!-- <label class="mb-2" for="first-name">Email</label> -->
-                    <input class="form-control mb-30" id="first-name" type="email" placeholder="Email" name="email"  required>
+              error_reporting(0);
+              session_start();
+              if (!isset($_SESSION['vuser'])) {
+                  echo '<h3 class="mb-4">Login To Continue</h3>
+                  <form class="login1">
+                  <div class="form-group ">
+                    <input class="form-control rounded-0" type="email" placeholder="Email Address" name="email" required>
                   </div>
-                  <div class="col-12">
-                    <!-- <label class="mb-2" for="last-name">Password</label> -->
-                    <input class="form-control mb-30" id="last-name" type="password" placeholder="password" name="password"  required>
+                  <div class="form-group mb-3">
+                    <label class="label-psswd" for="registerPassword"></label>
+                    <input class="form-control rounded-0" id="registerPassword" type="password" placeholder="Password" name="password" required>
                   </div>
-                  
-                  
-                </div>
-                <button class="btn btn-primary w-100 mt-4" type="submit">Login</button>
-              </form>
+      
+                  <div class="mess">
+      
+                  </div>
+                  <button class="btn btn-primary" type="submit"><i class="bi bi-unlock me-2"></i>Login</button>
+                </form>
+                <br><br>';
+              }
+
+              ?>
+            
               <h3 class="mb-4">Billing Details</h3>
               <form action="#" method="post">
                 <div class="row">

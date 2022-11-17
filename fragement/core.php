@@ -323,6 +323,23 @@ function login($email, $password)
         }
     }
 }
+
+function login1($email, $password)
+{
+    if (empty(trim($email)) || empty(trim($password))) {
+        echo 'All fields are required';
+    } else {
+        if (authenticate('vusers', [['email', '=', $email]]) == 'success') {
+            if (loginauth('vusers', 'vuser', [['email', '=', $email], ['password', '=', md5($password)]], 'AND') == 'success') {
+                echo 'loginsuccess1';
+            } else {
+                echo 'Invalid login credentials';
+            }
+        } else {
+            echo 'Email not found in records';
+        }
+    }
+}
 function updaterec($name, $email, $contact)
 {
     session_start();
