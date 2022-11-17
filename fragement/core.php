@@ -528,3 +528,7 @@ function product($cat)
       </div>';
     }
 }
+
+function checkoutcart()
+{
+}

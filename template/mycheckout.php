@@ -71,14 +71,10 @@ start('Checkout');
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th class="px-3">Bonsai Tree <span> × 1</span></th>
-                      <td class="text-end px-3">$9.63</td>
-                    </tr>
-                    <tr>
-                      <th class="px-3">Sony BS4 <span> × 1</span></th>
-                      <td class="text-end px-3">$7.31</td>
-                    </tr>
+                    
+                     <?php
+                    checkoutcart();
+                     ?>
                   </tbody>
                   <tfoot>
                     <tr>
