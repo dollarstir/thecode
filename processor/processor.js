@@ -1,6 +1,8 @@
 
 $(function(){
 
+  $(".ups").hide();
+
   
 
     function resp(response){

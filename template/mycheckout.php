@@ -57,21 +57,34 @@ start('Checkout');
                 <div class="row">
                   <div class="col-12">
                     <label class="mb-2" for="first-name">Full Name</label>
-                    <input class="form-control mb-30" id="first-name" type="text" placeholder="Full Name" value="<?php echo (isset($_SESSION['vuser'])) ? user()['name'] : ''; ?>" required>
+                    <input class="form-control mb-30" id="first-name" name="name" type="text" placeholder="Full Name" value="<?php echo (isset($_SESSION['vuser'])) ? user()['name'] : ''; ?>" required>
                   </div>
                   
                   
                   <div class="col-12">
                     <label class="mb-2" for="email-address">Email Address</label>
-                    <input class="form-control mb-30" id="email-address" type="email" placeholder="Email Address" name="<?php echo (isset($_SESSION['vuser'])) ? user()['email'] : ''; ?>"  value="<?php echo (isset($_SESSION['vuser'])) ? user()['email'] : ''; ?>" required>
+                    <input class="form-control mb-30" id="email-address" type="email" placeholder="Email Address" name="email"  value="<?php echo (isset($_SESSION['vuser'])) ? user()['email'] : ''; ?>" required>
                   </div>
                   <div class="col-12">
                     <label class="mb-2" for="phone">Phone</label>
-                    <input class="form-control mb-30" id="phone" type="text" placeholder="Phone" name="<?php echo (isset($_SESSION['vuser'])) ? user()['contact'] : ''; ?>" value="<?php echo (isset($_SESSION['vuser'])) ? user()['contact'] : ''; ?>">
+                    <input class="form-control mb-30" id="phone" type="text" placeholder="Phone" name="contact" value="<?php echo (isset($_SESSION['vuser'])) ? user()['contact'] : ''; ?>">
+                  </div>
+
+
+                  <?php echo (!isset($_SESSION['vuser'])) ? '<div class="col-12">
+                    <input  id="tpass" type="checkbox" name="" value="" >
+                    <label class="mb-2" for="phone" style="margin-left: 10px !important;">Create Account?</label>
+                  </div>' : ''; ?>
+                  
+                  
+                  
+                  <div class="col-12 ups">
+                    <label class="mb-2" for="phone">Password</label>
+                    <input  class="form-control mb-30" id="password" type="password" placeholder="New password" name="password" value="<?php echo (isset($_SESSION['vuser'])) ? user()['contact'] : ''; ?>">
                   </div>
                   
                  
-                  <div class="col-12">
+                  <div class="col-12" style="margin-top:40px !important;">
                     <label class="mb-2" for="order-notes">Order Notes (optional)</label>
                     <textarea class="form-control" id="order-notes" placeholder="Notes about your order, e.g. special notes for delivery." rows="3"></textarea>
                   </div>

@@ -87,7 +87,9 @@ function start($title)
                 <div class="container">
                   <!-- Navbar Brand --><a class="navbar-brand" href="home"><img src="template/img/core-img/logo.png" alt=""></a>
                   <!-- Navbar Toggler -->
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#saasboxNav" aria-controls="saasboxNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-grid"></i></button>
+                  <button  class="navbar-toggler" type="button"><i class="bi bi-cart"></i> <span class="badge badge-primary" style="margin-top: -12px !important; position: absolute !important; font-size: 12px !important;height: 20px !important;">1</span></button>
+                 
+                  <button style="margin-left:30px !important;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#saasboxNav" aria-controls="saasboxNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-grid"></i></button>
                   <!-- Navbar Nav -->
                   <div class="collapse navbar-collapse" id="saasboxNav">
                     <ul class="navbar-nav navbar-nav-scroll">
