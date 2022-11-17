@@ -60,9 +60,9 @@ $(function(){
 
         swal({
             title: "Notice!",
-            text: "Product  Added to cart",
+            text: "Product already in cart",
             timer: 3000,
-            type: 'danger',
+            type: 'error',
             padding: "2em",
             onOpen: function () {
               swal.showLoading();

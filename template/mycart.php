@@ -85,7 +85,7 @@ start('Cart');
                     </tr>
                   </tbody>
                 </table>
-              </div><a class="btn btn-primary w-100" href="checkout.php">Proceed To Checkout</a>
+              </div><a class="btn btn-primary w-100" href="checkout">Proceed To Checkout</a>
             </div>
           </div>
         </div>

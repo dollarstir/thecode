@@ -424,7 +424,7 @@ function addtocart($id)
                 $_SESSION['strcart'] = [];
             }
             if (in_array($id, $_SESSION['strcart'])) {
-                echo 'alreadyincart'.$_SESSION['strcart'][0];
+                echo 'alreadyincart';
             } else {
                 array_push($_SESSION['strcart'], $id);
                 echo 'addedtocart';
