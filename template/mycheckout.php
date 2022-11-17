@@ -53,7 +53,7 @@ start('Checkout');
               ?>
             
               <h3 class="mb-4">Billing Details</h3>
-              <form action="#" method="post">
+              <form class="checkout">
                 <div class="row">
                   <div class="col-12">
                     <label class="mb-2" for="first-name">Full Name</label>
@@ -76,7 +76,7 @@ start('Checkout');
                     <textarea class="form-control" id="order-notes" placeholder="Notes about your order, e.g. special notes for delivery." rows="3"></textarea>
                   </div>
                 </div>
-              </form>
+              
             </div>
           </div>
           <!-- Order Form Area-->
@@ -116,7 +116,7 @@ start('Checkout');
               </div>
               <!-- Checkout Payment-->
               <div class="checkout-payment-area">
-                <form action="#">
+                
                   
                   <div class="form-group">
                     <div class="form-check">
@@ -142,28 +142,7 @@ start('Checkout');
       </div>
     </div>
     <div class="mb-120 d-block"></div>
-    <!-- Cool Facts Area -->
-    <!-- <div class="cta-area cta4 bg-gray pt-120 pb-120">
-      <div class="container">
-        <div class="row g-5 align-items-center justify-content-center">
-          <div class="col-12 col-sm-9 col-md-6">
-            <div class="cta-text">
-              <h2 class="text-dark">You want to Sell your Product with Us?</h2>
-              <p class="mb-4">You can Display your adds</p><a class="btn btn-primary rounded-pill" href="#">Start Now</a>
-            </div>
-          </div>
-          <div class="col-12 col-sm-9 col-md-6">
-            <div class="cta-thumb-group">
-              <div class="row">
-                <div class="col-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms"><img src="template/img/bg-img/5.jpg" alt=""></div>
-                <div class="col-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms"><img src="template/http://preview.designing-world.com/saasbox-v2.0.0/img/bg-img/13.jpg" alt=""></div>
-                <div class="col-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms"><img src="template/http://preview.designing-world.com/saasbox-v2.0.0/img/bg-img/14.jpg" alt=""></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    
     <div class="mb-120 d-block"></div>
     <!-- Footer Area-->
     <?php tail(); ?>
