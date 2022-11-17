@@ -36,6 +36,26 @@ $(function(){
 
         }
 
+
+        else if(response == 'addedtocart'){
+
+          swal({
+              title: "Success!",
+              text: "Product  Added to cart",
+              timer: 3000,
+              type: 'success',
+              padding: "2em",
+              onOpen: function () {
+                swal.showLoading();
+              },
+            }).then(function (result) {
+              swal.close();
+              window.location="cart";
+              
+            });
+
+      }
+
         else if(response == "resetlink"){
 
           $(".mess").html('<div class="alert alert-success"><strong>Reset password link sent to email</strong> <div class="spinner-border text-success"></div></div>');

@@ -52,6 +52,7 @@ function start($title)
     
         <!-- All CSS Stylesheet-->
         <link rel="stylesheet" href="template/css/bootstrap.min.css">
+        '.Yolk::uicore('cssa').'
         
         <link rel="stylesheet" href="template/css/all-css-libraries.css">
         
@@ -247,7 +248,7 @@ function start($title)
       <!-- All JavaScript Files-->
       <script src="template/js/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+      '.Yolk::uicore('jsa').'
       <script src="processor/processor.js"></script>
       <script src="template/js/all-js-libraries.js"></script>
       <script src="template/js/active.js"></script>
@@ -426,10 +427,60 @@ function addtocart($id)
                 echo 'Product already in cart'.$_SESSION['strcart'][0];
             } else {
                 array_push($_SESSION['strcart'], $id);
-                echo 'success';
+                echo 'addedtocart';
             }
         } else {
             echo 'Product not found';
         }
+    }
+}
+
+function cartitem()
+{
+    error_reporting(0);
+    session_start();
+    if (!empty($_SESSION['strcart'])) {
+        $cart = $_SESSION['strcart'];
+        $cart = implode(',', $cart);
+        $cart = customfetch('vproducts', ['id', 'IN', "($cart)"]);
+        $total = 0;
+        foreach ($cart as $c) {
+            $total += $c['price'];
+
+            echo '<tr>
+                  <th scope="row"><i class="bi bi-x"></i></th>
+                  <td><img src="yolkassets/upload/'.$c['image'].'" alt="Product" style="width:50px;height:50px;"></td>
+                  <td><a href="">'.$c['name'].'</a></td>
+                  <td>&#8373;'.$c['price'].'</td>
+                  <td>
+                    1
+                    <!-- <input class="qty-text" type="text" min="1" max="99" name="quantity" value="2"> -->
+                  </td>
+                  <td>&#8373;'.$c['price'].'</td>
+                 </tr>';
+        }
+
+        // return $cart;
+    } else {
+        echo 'No item in cart';
+    }
+}
+
+function carttotal()
+{
+    error_reporting(0);
+    session_start();
+    if (!empty($_SESSION['strcart'])) {
+        $cart = $_SESSION['strcart'];
+        $cart = implode(',', $cart);
+        $cart = customfetch('vproducts', ['id', 'IN', "($cart)"]);
+        $total = 0;
+        foreach ($cart as $c) {
+            $total += $c['price'];
+        }
+
+        return $total;
+    } else {
+        return 0;
     }
 }

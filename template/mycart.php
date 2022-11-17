@@ -51,17 +51,7 @@ start('Cart');
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row"><i class="bi bi-x"></i></th>
-                      <td><img src="http://preview.designing-world.com/saasbox-v2.0.0/img/bg-img/shop1.jpg" alt="Product"></td>
-                      <td><a href="#">Bonsai Tree</a></td>
-                      <td>$0.99</td>
-                      <td>
-                        1
-                        <!-- <input class="qty-text" type="text" min="1" max="99" name="quantity" value="2"> -->
-                      </td>
-                      <td>$1.98</td>
-                    </tr>
+                    <?php cartitem(); ?>
                     
                     
                   </tbody>
@@ -79,15 +69,15 @@ start('Cart');
                   <tbody>
                     <tr>
                       <td class="px-3">Sub Total</td>
-                      <td class="px-3">$24.05</td>
+                      <td class="px-3"><?php echo carttotal(); ?></td>
                     </tr>
                     <tr>
                       <td class="px-3">Shipping</td>
-                      <td class="px-3">$2.00</td>
+                      <td class="px-3">$0.00</td>
                     </tr>
                     <tr>
                       <td class="px-3">Total</td>
-                      <td class="px-3">$26.05</td>
+                      <td class="px-3"><?php echo round(carttotal(), 2); ?></td>
                     </tr>
                   </tbody>
                 </table>
@@ -98,18 +88,6 @@ start('Cart');
       </div>
     </div>
     <div class="mb-120 d-block"></div>
-    <!-- Cool Facts Area-->
-    <!-- <div class="cta-area cta3 py-5 bg-info">
-      <div class="container">
-        <div class="row align-items-center justify-content-between">
-          <div class="col-12 col-sm-8">
-            <div class="cta-text mb-4 mb-sm-0 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
-              <h3 class="mb-0">Let's start with the simple way to create a website.</h3>
-            </div>
-          </div>
-          <div class="col-12 col-sm-4 text-sm-end wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms"><a class="btn btn-warning btn-sm" href="#">Buy Now</a></div>
-        </div>
-      </div>
-    </div> -->
+    
     <!-- Footer Area-->
     <?php tail(); ?>

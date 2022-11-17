@@ -24,7 +24,7 @@ addTable('vproducts', [
     addColumn('id', 'int', 11, false, true, true),
     addColumn('name', 'string', 100),
     addColumn('price', 'string', 100),
-    // addColumn('image', 'string', 100),
+    addColumn('image', 'string', 100),
     addColumn('category', 'string', 100),
     addColumn('status', 'string', 100),
     addColumn('dateadded', 'string', 100),
