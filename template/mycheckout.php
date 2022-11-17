@@ -42,6 +42,7 @@ start('Checkout');
                   
                   
                 </div>
+                <button class="btn btn-primary w-100 mt-4" type="submit">Login</button>
               </form>
               <h3 class="mb-4">Billing Details</h3>
               <form action="#" method="post">
