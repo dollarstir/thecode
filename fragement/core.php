@@ -448,7 +448,7 @@ function cartitem()
             $total += $c['price'];
 
             echo '<tr>
-                  <th scope="row"><i class="bi bi-x"></i></th>
+                  <th scope="row"></th>
                   <td><img src="yolkassets/upload/'.$c['image'].'" alt="Product" style="width:50px;height:50px;"></td>
                   <td><a href="">'.$c['name'].'</a></td>
                   <td>&#8373;'.$c['price'].'</td>
