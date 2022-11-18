@@ -86,7 +86,7 @@ start('Checkout');
                  
                   <div class="col-12" style="margin-top:40px !important;">
                     <label class="mb-2" for="order-notes">Order Notes (optional)</label>
-                    <textarea class="form-control" id="order-notes" placeholder="Notes about your order, e.g. special notes for delivery." rows="3"></textarea>
+                    <textarea class="form-control" id="order-notes" placeholder="Notes about your order, e.g. special notes for delivery." name="note" rows="3"></textarea>
                   </div>
                 </div>
               
@@ -146,7 +146,7 @@ start('Checkout');
                     <!-- <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p> -->
                   </div>
                   <div class="mess">
-                    
+
                   </div>
                   <!-- Place Order-->
                   <button class="btn btn-primary w-100 mt-4" type="submit">Proceed to payment</button>

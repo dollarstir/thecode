@@ -597,20 +597,23 @@ function removefromcart($id)
     }
 }
 
-function checkout($name, $email, $contact, $paymenttype, $password)
+function checkout($name, $email, $contact, $note, $paymenttype, $password)
 {
+    error_reporting(0);
     session_start();
     $msg = '';
     $total = 0;
+    $ordno = 0;
     if (empty(trim($name)) || empty(trim($email)) || empty(trim($contact))) {
         $msg = 'All fields are required';
     } else {
         if (empty(trim($password))) {
             if (isset($_SESSION['strcart'])) {
-                $password = password_hash($password, PASSWORD_DEFAULT);
                 $cart = $_SESSION['strcart'];
                 $token = bin2hex(random_bytes(10));
                 $dateadded = date('jS F, Y');
+                $cco = countall('vorders');
+                $ordno = $cco + 1;
 
                 foreach ($cart as $c) {
                     $k = customfetch('vproducts', [['id', '=', $c]]);
@@ -620,11 +623,13 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                     $record = [
                     'userid' => $_SESSION['vuser']['id'],
                     'productid' => $k['id'],
+                    'ordno' => $ordno,
                     'token' => $token,
                     'product' => $k['name'],
                     'email' => $email,
                     'contact' => $contact,
                     'price' => $k['price'],
+                    'note' => $note,
                     'dateadded' => $dateadded,
                     'status' => 'pending',
                     'paymenttype' => $paymenttype,
@@ -653,7 +658,8 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                     $cart = $_SESSION['strcart'];
                     $token = bin2hex(random_bytes(10));
                     $dateadded = date('jS F, Y');
-
+                    $cco = countall('vorders');
+                    $ordno = $cco + 1;
                     foreach ($cart as $c) {
                         $k = customfetch('vproducts', [['id', '=', $c]]);
                         $k = $k[0];
@@ -662,11 +668,13 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                         $record = [
                       'userid' => $_SESSION['vuser']['id'],
                       'productid' => $k['id'],
+                      'ordno' => $ordno,
                       'token' => $token,
                       'product' => $k['name'],
                       'email' => $email,
                       'contact' => $contact,
                       'price' => $k['price'],
+                      'note' => $note,
                       'dateadded' => $dateadded,
                       'status' => 'pending',
                       'paymenttype' => $paymenttype,
@@ -692,4 +700,12 @@ function checkout($name, $email, $contact, $paymenttype, $password)
     } else {
         echo $msg;
     }
+}
+
+function orderno($token)
+{
+    $c = customfetch('vorders', [['token', '=', $token]]);
+    $c = $c[0];
+
+    return $c['ordno'];
 }

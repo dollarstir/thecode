@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
 
         case 'checkout':
             extract($_POST);
-            checkout($name, $email, $contact, $paymenttype, $password);
+            checkout($name, $email, $contact, $note, $paymenttype, $password);
             break;
 
         default:
