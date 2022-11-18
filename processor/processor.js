@@ -48,6 +48,17 @@ $(function(){
 
         }
 
+        else if(response == "Orderinitiated"){
+
+          $(".mess").html('<div class="alert alert-success"><strong>Order initiated</strong> <div class="spinner-border text-success"></div></div>');
+            setTimeout(function(){
+              $(".mess").html('');
+              
+                window.location='payment';
+            },3000);
+
+        }
+
         else if(response == "success"){
 
           $(".mess").html('<div class="alert alert-success"><strong>Operation successful</strong> <div class="spinner-border text-success"></div></div>');

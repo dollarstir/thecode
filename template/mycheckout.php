@@ -145,6 +145,9 @@ start('Checkout');
                   <div class="form-group mt-4">
                     <!-- <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p> -->
                   </div>
+                  <div class="mess">
+                    
+                  </div>
                   <!-- Place Order-->
                   <button class="btn btn-primary w-100 mt-4" type="submit">Proceed to payment</button>
                 </form>

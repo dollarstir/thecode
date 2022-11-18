@@ -601,6 +601,7 @@ function checkout($name, $email, $contact, $paymenttype, $password)
 {
     session_start();
     $msg = '';
+    $total = 0;
     if (empty(trim($name)) || empty(trim($email)) || empty(trim($contact))) {
         $msg = 'All fields are required';
     } else {
@@ -614,6 +615,7 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                 foreach ($cart as $c) {
                     $k = customfetch('vproducts', [['id', '=', $c]]);
                     $k = $k[0];
+                    $total += $k['price'];
 
                     $record = [
                     'userid' => $_SESSION['vuser']['id'],
@@ -629,7 +631,7 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                     'paymentstatus' => 'notpaid',
                 ];
 
-                    $msg .= insert('orders', $record);
+                    $msg .= insert('vorders', $record);
                 }
             } else {
                 $msg = 'No item in cart';
@@ -646,8 +648,8 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                 'status' => 'active',
             ];
             if ($ko = insert('vusers', $data) == 'success') {
+                loginauth('vusers', 'vuser', ['email', '=', $email], ['password', '=', $password]);
                 if (isset($_SESSION['strcart'])) {
-                    $password = password_hash($password, PASSWORD_DEFAULT);
                     $cart = $_SESSION['strcart'];
                     $token = bin2hex(random_bytes(10));
                     $dateadded = date('jS F, Y');
@@ -655,6 +657,7 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                     foreach ($cart as $c) {
                         $k = customfetch('vproducts', [['id', '=', $c]]);
                         $k = $k[0];
+                        $total += $k['price'];
 
                         $record = [
                       'userid' => $_SESSION['vuser']['id'],
@@ -670,7 +673,7 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                       'paymentstatus' => 'notpaid',
                   ];
 
-                        $msg .= insert('orders', $record);
+                        $msg .= insert('vorders', $record);
                     }
                 } else {
                     $msg = 'No item in cart';
@@ -679,5 +682,13 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                 $msg = 'Failed to create user account';
             }
         }
+    }
+
+    if (strpos($msg, 'success') !== false) {
+        unset($_SESSION['strcart']);
+        $_SESSION['token'] = $token;
+        echo 'Orderinitiated';
+    } else {
+        echo $msg;
     }
 }
