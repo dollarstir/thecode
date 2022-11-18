@@ -29,8 +29,9 @@ start('Complete your order');
             <div class="checkout-details-area">
              <center> <h3 class="mb-4">Payment  Instruction</h3></center>
 
-              <p><div class="card text-center bg-gray" style="background-color:grey;padding:10px;border-radius:20px;"><h5>Order Number:<?php echo orderno(); ?> </h5><h5>Kindly Pay the total amount of &#8373;<?php echo orderamount(); ?> to Below Account</h5><br> <strong>Mobile Money Number : <br>0556676471 <br><br>Account Name : <br>Wisdom Kagblor <br><br>Transaction Reference : <br>DSE<?php echo orderno(); ?></strong></div></p>
-              <form action="#" method="post">
+              <p><div class="card text-center bg-gray" style="background-color:grey;padding:10px;border-radius:20px;"><h5>Order Number:<?php echo orderno(); ?> </h5><h5>Kindly Pay the total amount of &#8373;<?php echo orderamount(); ?> to Below Account</h5><br> <strong>Mobile Money Number : <br>0556676471 <br><br>Account Name : <br>Wisdom Kagblor <br><br>Transaction Reference : <br>DSE<?php echo orderno(); ?></strong></div></p><br>
+              <center class="ph"><button class="btn btn-primary pkc">I have paid</button></center>
+              <form class="pay">
                 <div class="row">
                   <div class="col-12">
                     <label class="mb-2" for="first-name">Enter Transaction ID after payment</label>
@@ -48,7 +49,7 @@ start('Complete your order');
                   </div>
                  
                   <div class="col-12">
-                  <button class="btn btn-primary w-100 mt-4" type="submit">I have Paid</button>
+                  <button class="btn btn-primary w-100 mt-4" type="submit">Proceed</button>
                   </div>
                 </div>
               </form>

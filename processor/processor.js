@@ -2,6 +2,7 @@
 $(function(){
 
   $(".ups").hide();
+  $('.pay').hide();
   $("#tpass").click(function(){
     if($("#tpass").is(':checked')){
       $(".ups").show();
@@ -11,6 +12,13 @@ $(function(){
     }
 
   });
+
+  $(".pkc").click(function(){
+    $('.pay').show();
+    $('.pkc').hide();
+
+  }
+
 
   
 
