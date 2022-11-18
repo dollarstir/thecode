@@ -646,8 +646,37 @@ function checkout($name, $email, $contact, $paymenttype, $password)
                 'status' => 'active',
             ];
             if ($ko = insert('vusers', $data) == 'success') {
+                if (isset($_SESSION['strcart'])) {
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                    $cart = $_SESSION['strcart'];
+                    $token = bin2hex(random_bytes(10));
+                    $dateadded = date('jS F, Y');
+
+                    foreach ($cart as $c) {
+                        $k = customfetch('vproducts', [['id', '=', $c]]);
+                        $k = $k[0];
+
+                        $record = [
+                      'userid' => $_SESSION['vuser']['id'],
+                      'productid' => $k['id'],
+                      'token' => $token,
+                      'product' => $k['name'],
+                      'email' => $email,
+                      'contact' => $contact,
+                      'price' => $k['price'],
+                      'dateadded' => $dateadded,
+                      'status' => 'pending',
+                      'paymenttype' => $paymenttype,
+                      'paymentstatus' => 'notpaid',
+                  ];
+
+                        $msg .= insert('orders', $record);
+                    }
+                } else {
+                    $msg = 'No item in cart';
+                }
             } else {
-              $msg =
+                $msg = 'Failed to create user account';
             }
         }
     }
