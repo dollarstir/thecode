@@ -342,6 +342,26 @@ $(document).on('submit','.checkout',function(e){
 
 
 
+// paymentorder
+$(document).on('submit','.pay',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=pay',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
+
+
+
 
     
 })
