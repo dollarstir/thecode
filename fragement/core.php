@@ -702,10 +702,18 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
     }
 }
 
-function orderno($token)
+function orderno()
 {
-    $c = customfetch('vorders', [['token', '=', $token]]);
+    error_reporting(0);
+    session_start();
+    $c = customfetch('vorders', [['token', '=', $_SESSION['token']]]);
     $c = $c[0];
 
-    return $c['ordno'];
+    if (strlen($c['ordno']) == 1) {
+        $ordno = '000'.$c['ordno'];
+    } elseif (strlen($c['ordno']) == 2) {
+        $ordno = '00'.$c['ordno'];
+    }
+
+    return $ordno;
 }
