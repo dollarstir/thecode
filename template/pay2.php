@@ -52,7 +52,13 @@ start('Order Status');
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                     waiting for confirmation...
                                   </button>';
+                                } elseif (orderinfo('paymentstatus') == 'cancelled') {
+                                    echo '<button class="btn btn-danger btn-sm" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Rejected...
+                                  </button>';
                                 }
+
                                 ?>
                             </h5>
 
@@ -71,11 +77,17 @@ start('Order Status');
                                     Pending...
                                   </button>';
                                 } elseif (orderinfo('status') == 'processing') {
-                                    echo '<button class="btn btn-primary btn-sm" type="button" disabled>
+                                    echo '<button class="btn btn-info btn-sm" type="button" disabled>
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                    waiting for confirmation...
+                                    processing...
+                                  </button>';
+                                } elseif (orderinfo('status') == 'cancelled') {
+                                    echo '<button class="btn btn-danger btn-sm" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Cancelled...
                                   </button>';
                                 }
+
                                 ?>
                             </h5>
                         <div class="table-responsive">
