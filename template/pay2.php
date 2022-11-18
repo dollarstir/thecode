@@ -39,7 +39,7 @@ start('Order Status');
                                 <?php
                                 if (orderinfo('paymentstatus') == 'paid') {
                                     echo '<button class="btn btn-success btn-sm" type="button" disabled>
-                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    
                                     Completed
                                   </button>';
                                 } elseif (orderinfo('paymentstatus') == 'pending') {
@@ -62,7 +62,7 @@ start('Order Status');
                                 <?php
                                 if (orderinfo('status') == 'completed') {
                                     echo '<button class="btn btn-success btn-sm" type="button" disabled>
-                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    
                                     Completed
                                   </button>';
                                 } elseif (orderinfo('status') == 'pending') {
@@ -103,6 +103,7 @@ start('Order Status');
                     </div>
                 </p>
               <?php echo (orderinfo('paymentstatus') == 'paid') ? '' : '<center class="eph"><button class="btn btn-primary epkc">Edit Payment Details </button></center>'; ?>
+              <?php echo (orderinfo('status') == 'completed') ? '<br><center class=""><a class="btn btn-primary" href="account">View Orders </a></center>' : ''; ?>
               <form class="editpay">
                 <div class="row">
                   <div class="col-12">

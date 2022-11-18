@@ -791,3 +791,57 @@ function editpay($transactionid, $network)
         echo $msg;
     }
 }
+
+function checkduplicate()
+{
+    $mylist = [];
+    $c = customfetch('vorders', [['userid', '=', $_SESSION['vuser']['id']]], '', ['id' => 'DESC']);
+    foreach ($c as $k) {
+        if (!in_array($k['ordno'], $mylist)) {
+            array_push($mylist, $k['ordno']);
+        }
+    }
+
+    return $mylist;
+}
+
+function myorders()
+{
+    error_reporting(0);
+    session_start();
+    $mylist = checkduplicate();
+    $ms = '';
+    foreach ($mylist as $k) {
+        $c = customfetch('vorders', [['ordno', '=', $k]]);
+        $c = $c[0];
+        $ordno = $c['ordno'];
+        if (strlen($ordno) == 1) {
+            $ordno = '00'.$ordno;
+        }
+        if (strlen($ordno) == 2) {
+            $ordno = '0'.$ordno;
+        }
+        $status = $c['status'];
+        if ($status == 'pending') {
+            $status = '<span class="badge badge-warning">Pending</span>';
+        }
+        if ($status == 'processing') {
+            $status = '<span class="badge badge-info">Processing</span>';
+        }
+        if ($status == 'completed') {
+            $status = '<span class="badge badge-success">Completed</span>';
+        }
+        if ($status == 'cancelled') {
+            $status = '<span class="badge badge-danger">Cancelled</span>';
+        }
+        $ms .= '<tr>
+        <td><a href="#">#'.$ordno.'</a></td>
+        <td>'.$c['dateadded'].'</td>
+        <td>'.$status.'</td>
+        <td>$25.00 </td>
+        <td><button type="button"  class="btn btn-dark btn-sm">View</button></td>
+    </tr>';
+    }
+
+    return $ms;
+}

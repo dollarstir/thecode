@@ -48,27 +48,7 @@ start('Contact Us');
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td><a href="#">#35155</a></td>
-                    <td>November 15, 2022</td>
-                    <td>Completed</td>
-                    <td>$25.00 for 1 item</td>
-                    <td><button type="button"  class="btn btn-dark">View</button></td>
-                </tr>
-                <tr>
-                    <td><a href="#">#35155</a></td>
-                    <td>November 15, 2022</td>
-                    <td>Completed</td>
-                    <td>$25.00 for 1 item</td>
-                    <td><button type="button"  class="btn btn-dark">View</button></td>
-                </tr>
-                <tr>
-                    <td><a href="#">#35155</a></td>
-                    <td>November 15, 2022</td>
-                    <td>Completed</td>
-                    <td>$25.00 for 1 item</td>
-                    <td><button type="button"  class="btn btn-dark">View</button></td>
-                </tr>
+                <?php echo myorders(); ?>
                 </tbody>
             </table>
             </div>
