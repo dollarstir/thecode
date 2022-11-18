@@ -47,7 +47,9 @@ start('Complete your order');
                       
                     </select>
                   </div>
-                 
+                 <div class="mess">
+                  
+                 </div>
                   <div class="col-12">
                   <button class="btn btn-primary w-100 mt-4" type="submit">Proceed</button>
                   </div>
