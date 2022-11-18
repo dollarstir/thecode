@@ -751,7 +751,7 @@ function pay($transactionid, $network)
     }
 
     if (strpos($msg, 'success') !== false) {
-        unset($_SESSION['token']);
+        // unset($_SESSION['token']);
         unset($_SESSION['total']);
         echo 'paymentsuccess';
     } else {
