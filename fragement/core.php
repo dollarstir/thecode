@@ -758,3 +758,13 @@ function pay($transactionid, $network)
         echo $msg;
     }
 }
+
+function orderinfo($data)
+{
+    error_reporting(0);
+    session_start();
+    $c = customfetch('vorders', [['token', '=', $_SESSION['token']]]);
+    $c = $c[0];
+
+    return $c[$data];
+}

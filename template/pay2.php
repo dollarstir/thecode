@@ -1,7 +1,7 @@
 <?php
 involve('core.php');
 
-start('Complete your order');
+start('Order Status');
 
 ?>
   <body>
@@ -12,7 +12,7 @@ start('Complete your order');
         <div class="row h-100 align-items-center">
           <div class="col-12">
             <div class="breadcrumb-content">
-              <h2 class="breadcrumb-title">Payment</h2>
+              <h2 class="breadcrumb-title">Order Details</h2>
               
             </div>
           </div>
@@ -27,11 +27,83 @@ start('Complete your order');
           <!-- Checkout Details Area-->
           <div class="col-12 col-lg-12">
             <div class="checkout-details-area">
-             <center> <h3 class="mb-4">Payment  Instruction</h3></center>
+             <center> <h3 class="mb-4">Order   Details</h3></center>
 
-              <p><div class="card text-center bg-gray" style="background-color:grey;padding:10px;border-radius:20px;"><h5>Order Number:<?php echo orderno(); ?> </h5><h5>Kindly Pay the total amount of &#8373;<?php echo orderamount(); ?> to Below Account</h5><br> <strong>Mobile Money Number : <br>0556676471 <br><br>Account Name : <br>Wisdom Kagblor <br><br>Transaction Reference : <br>DSE<?php echo orderno(); ?></strong></div></p><br>
-              <center class="ph"><button class="btn btn-primary pkc">I have paid</button></center>
-              <form class="pay">
+                <p>
+                    <div class="card text-center bg-gray" style="background-color:grey;padding:10px;border-radius:20px;">
+                        <!-- <h5>Order Number<span class="bi bi-hash"></span>: <span class="badge badge-dark"><?php echo orderno(); ?> </span></h5>
+                        <h5>Total Amount <span class="bi bi-cash"></span> : <span class="badge badge-dark"> &#8373; <?php echo orderamount(); ?></span></h5>
+
+                        <h5>Transaction ID <span class="bi bi-folder"></span> : <span class="badge badge-dark"><?php  orderinfo('transactionid'); ?></span></h5> -->
+                            <h5>Payment Status :   
+                                <?php
+                                if (orderinfo('paymentstatus') == 'paid') {
+                                    echo '<button class="btn btn-success btn-sm" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Completed
+                                  </button>';
+                                } elseif (orderinfo('paymentstatus') == 'pending') {
+                                    echo '<button class="btn btn-warning btn-sm" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    pending...
+                                  </button>';
+                                } elseif (orderinfo('paymentstatus') == 'Waiting for confirmation') {
+                                    echo '<button class="btn btn-warning btn-sm" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    waiting for confirmation...
+                                  </button>';
+                                }
+                                ?>
+                            </h5>
+
+
+
+                            <h5> Order Status :   
+                                <?php
+                                if (orderinfo('status') == 'completed') {
+                                    echo '<button class="btn btn-success btn-sm" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Completed
+                                  </button>';
+                                } elseif (orderinfo('status') == 'pending') {
+                                    echo '<button class="btn btn-warning btn-sm" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Pending...
+                                  </button>';
+                                } elseif (orderinfo('status') == 'processing') {
+                                    echo '<button class="btn btn-primary btn-sm" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    waiting for confirmation...
+                                  </button>';
+                                }
+                                ?>
+                            </h5>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                               
+                                
+                                <th>Order No.<span class="bi bi-hash"></span></th>
+                                <th>Total Amount</th>
+                                <th>Transaction ID</th>
+                                <th>Network</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td><?php echo orderno(); ?> </td>
+                                <td>&#8373; <?php echo orderamount(); ?></td>
+                                <td><?php echo orderinfo('transactionid'); ?></td>
+                                <td><?php echo orderinfo('network'); ?></td>
+                                
+                                
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </p>
+              <?php echo (orderinfo('paymentstatus') == 'paid') ? '' : '<center class="eph"><button class="btn btn-primary epkc">Edit Payment Details </button></center>'; ?>
+              <form class="editpay">
                 <div class="row">
                   <div class="col-12">
                     <label class="mb-2" for="first-name">Enter Transaction ID after payment</label>
@@ -51,7 +123,7 @@ start('Complete your order');
                   
                  </div>
                   <div class="col-12">
-                  <button class="btn btn-primary w-100 mt-4" type="submit">Proceed</button>
+                  <button class="btn btn-primary w-100 mt-4" type="submit">Save</button>
                   </div>
                 </div>
               </form>
