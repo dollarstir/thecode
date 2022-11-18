@@ -17,7 +17,7 @@ $(function(){
     $('.pay').show();
     $('.pkc').hide();
 
-  }
+  });
 
 
   
