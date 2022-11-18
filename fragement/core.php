@@ -768,3 +768,26 @@ function orderinfo($data)
 
     return $c[$data];
 }
+
+function editpay($transactionid, $network)
+{
+    error_reporting(0);
+    session_start();
+    $msg = '';
+    $c = customfetch('vorders', [['token', '=', $_SESSION['token']]]);
+    foreach ($c as $k) {
+        $record = [
+        'transactionid' => $transactionid,
+        'network' => $network,
+      ];
+        $msg .= update('vorders', $record, ['id' => $k['id']]);
+    }
+
+    if (strpos($msg, 'success') !== false) {
+        // unset($_SESSION['token']);
+        unset($_SESSION['total']);
+        echo 'success';
+    } else {
+        echo $msg;
+    }
+}

@@ -65,6 +65,11 @@ if (isset($_GET['action'])) {
             pay($transactionid, $network);
             break;
 
+        case 'editpay':
+            // code...
+            extract($_POST);
+            editpay($transactionid, $network);
+            break;
         default:
 
         break;
