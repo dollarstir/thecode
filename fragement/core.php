@@ -713,6 +713,10 @@ function orderno()
         $ordno = '000'.$c['ordno'];
     } elseif (strlen($c['ordno']) == 2) {
         $ordno = '00'.$c['ordno'];
+    } elseif (strlen($c['ordno']) == 3) {
+        $ordno = '0'.$c['ordno'];
+    } else {
+        $ordno = $c['ordno'];
     }
 
     return $ordno;
