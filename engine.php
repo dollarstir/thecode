@@ -63,6 +63,13 @@ $router = new Router([
     ),
 
     new Route(
+        '/success',
+        function ($context) {
+            return Viewer::view('template/pay2.php', $context);
+        }
+    ),
+
+    new Route(
         '/cart',
         function ($context) {
             return Viewer::view('template/mycart.php', $context);
