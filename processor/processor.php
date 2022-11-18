@@ -60,6 +60,11 @@ if (isset($_GET['action'])) {
             checkout($name, $email, $contact, $note, $paymenttype, $password);
             break;
 
+        case 'pay':
+            extract($_POST);
+            pay($transactionid, );
+            break;
+
         default:
 
         break;

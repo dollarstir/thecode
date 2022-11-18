@@ -58,6 +58,8 @@ addTable('vorders', [
     addColumn('status', 'string', 100),
     addColumn('paymenttype', 'string', 100),
     addColumn('paymentstatus', 'string', 100, true),
+    addColumn('transactionid', 'text', null, true),
+    addColumn('network', 'string', 100, true),
     addColumn('paymentref', 'string', 100, true),
     addColumn('paymentdate', 'string', 100, true),
 ]);
