@@ -133,7 +133,7 @@ start('Checkout');
                   
                   <div class="form-group">
                     <div class="form-check">
-                      <input class="form-check-input" checked id="momo" type="radio" value="momo" name="checkout-payment">
+                      <input class="form-check-input" checked id="momo" type="radio" value="momo" name="paymenttype">
                       <img src="template/img/svg-icon/momo.png" style="height:60px;width:50%;"/>
                       <!-- <label class="form-check-label font-weight-bold" for="momo">Mobile Money</label> -->
                     </div>

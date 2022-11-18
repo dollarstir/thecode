@@ -2,6 +2,15 @@
 $(function(){
 
   $(".ups").hide();
+  $("#tpass").click(function(){
+    if($("#tpass").is(':checked')){
+      $(".ups").show();
+
+    }else{
+      $(".ups").hide();
+    }
+
+  });
 
   
 
@@ -107,6 +116,17 @@ $(function(){
               $(".mess").html('');
               
                 window.location="login";
+            },3000);
+
+        }
+
+        else if(response == "removedfromcart"){
+
+          $(".mess").html('<div class="alert alert-success"><strong>Item removed from cart </strong> <div class="spinner-border text-success"></div></div>');
+            setTimeout(function(){
+              $(".mess").html('');
+              
+                window.location.reload();
             },3000);
 
         }
@@ -263,6 +283,42 @@ $(document).on('click','.addtocart',function(e){
 
   };
   $.ajax(staff);
+});
+
+// remove from cart
+$(document).on('click','.removefromcart',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=removefromcart',
+      type: 'post',
+      data: {"id": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
+
+
+// checkout
+$(document).on('submit','.checkout',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=checkout',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
 });
 
 

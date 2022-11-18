@@ -469,7 +469,7 @@ function cartitem()
             $total += $k['price'];
 
             echo '<tr>
-                  <th scope="row"><button class="btn btn-default btn-sm" style="color:red;"><i class="bi bi-x"></i></button></th>
+                  <th scope="row"><button class="btn btn-default btn-sm removefromcart" id="'.$k['id'].'" style="color:red;"><i class="bi bi-x"></i></button></th>
                   <td><img src="yolkassets/upload/'.$k['image'].'" alt="Product" style="width:50px;height:50px;"></td>
                   <td><a href="">'.$k['name'].'</a></td>
                   <td>&#8373;'.$k['price'].'</td>
@@ -574,5 +574,81 @@ function checkoutcart()
     }
 }
 
+function removefromcart($id)
+{
+    session_start();
+    if (empty(trim($id))) {
+        echo 'Product not found';
+    } else {
+        if (authenticate('vproducts', [['id', '=', $id]]) == 'success') {
+            if (empty($_SESSION['strcart'])) {
+                $_SESSION['strcart'] = [];
+            }
+            if (in_array($id, $_SESSION['strcart'])) {
+                $key = array_search($id, $_SESSION['strcart']);
+                unset($_SESSION['strcart'][$key]);
+                echo 'removedfromcart';
+            } else {
+                echo 'notincart';
+            }
+        } else {
+            echo 'Product not found';
+        }
+    }
+}
 
-function  
+function checkout($name, $email, $contact, $paymenttype, $password)
+{
+    session_start();
+    $msg = '';
+    if (empty(trim($name)) || empty(trim($email)) || empty(trim($contact))) {
+        $msg = 'All fields are required';
+    } else {
+        if (empty(trim($password))) {
+            if (isset($_SESSION['strcart'])) {
+                $password = password_hash($password, PASSWORD_DEFAULT);
+                $cart = $_SESSION['strcart'];
+                $token = bin2hex(random_bytes(10));
+                $dateadded = date('jS F, Y');
+
+                foreach ($cart as $c) {
+                    $k = customfetch('vproducts', [['id', '=', $c]]);
+                    $k = $k[0];
+
+                    $record = [
+                    'userid' => $_SESSION['vuser']['id'],
+                    'productid' => $k['id'],
+                    'token' => $token,
+                    'product' => $k['name'],
+                    'email' => $email,
+                    'contact' => $contact,
+                    'price' => $k['price'],
+                    'dateadded' => $dateadded,
+                    'status' => 'pending',
+                    'paymenttype' => $paymenttype,
+                    'paymentstatus' => 'notpaid',
+                ];
+
+                    $msg .= insert('orders', $record);
+                }
+            } else {
+                $msg = 'No item in cart';
+            }
+        } else {
+            // register new user before orders
+            $password = md5($password);
+            $data = [
+                'name' => $name,
+                'email' => $email,
+                'contact' => $contact,
+                'password' => $password,
+                'datejoined' => date('jS F, Y'),
+                'status' => 'active',
+            ];
+            if ($ko = insert('vusers', $data) == 'success') {
+            } else {
+              $msg =
+            }
+        }
+    }
+}

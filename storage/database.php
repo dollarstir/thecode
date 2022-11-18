@@ -48,11 +48,16 @@ addTable('vorders', [
     addColumn('userid', 'int', 11),
     addColumn('productid', 'int', 11),
     addColumn('token', 'text', null),
+    addColumn('product', 'text', null),
+    addColumn('email', 'string', 100),
+    addColumn('contact', 'string', 100),
+    addColumn('price', 'string', 100),
     addColumn('dateadded', 'string', 100),
     addColumn('status', 'string', 100),
-    addColumn('paymentstatus', 'string', 100),
-    addColumn('paymentref', 'string', 100),
-    addColumn('paymentdate', 'string', 100),
+    addColumn('paymenttype', 'string', 100),
+    addColumn('paymentstatus', 'string', 100, true),
+    addColumn('paymentref', 'string', 100, true),
+    addColumn('paymentdate', 'string', 100, true),
 ]);
 
 addTable('cmd', [

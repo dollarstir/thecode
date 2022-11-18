@@ -41,6 +41,7 @@ start('Cart');
         <div class="row">
           <div class="col-12">
             <!-- Cart Table -->
+            <div class="mess"></div>
             <div class="cart-table mb-5">
               <div class="table-responsive">
                 <table class="table table-bordered">

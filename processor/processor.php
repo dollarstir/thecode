@@ -50,6 +50,16 @@ if (isset($_GET['action'])) {
             // code...
             break;
 
+        case 'removefromcart':
+            extract($_POST);
+            removefromcart($id);
+            break;
+
+        case 'checkout':
+            extract($_POST);
+            checkout($name, $email, $contact, $paymenttype, $password);
+            break;
+
         default:
 
         break;
