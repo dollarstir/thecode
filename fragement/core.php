@@ -687,6 +687,7 @@ function checkout($name, $email, $contact, $paymenttype, $password)
     if (strpos($msg, 'success') !== false) {
         unset($_SESSION['strcart']);
         $_SESSION['token'] = $token;
+        $_SESSION['total'] = $total;
         echo 'Orderinitiated';
     } else {
         echo $msg;
