@@ -139,6 +139,18 @@ $(function(){
 
         }
 
+
+        else if(response == "paymentsuccess"){
+
+          $(".mess").html('<div class="alert alert-success"><strong>Order Successful</strong> <div class="spinner-border text-success"></div></div>');
+            setTimeout(function(){
+              $(".mess").html('');
+              
+                window.location="success";
+            },2000);
+
+        }
+
         else if(response == "removedfromcart"){
 
           $(".mess").html('<div class="alert alert-success"><strong>Item removed from cart </strong> <div class="spinner-border text-success"></div></div>');
