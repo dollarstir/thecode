@@ -805,6 +805,17 @@ function checkduplicate()
     return $mylist;
 }
 
+function mytotal($token)
+{
+    $total = 0;
+    $c = customfetch('vorders', [['token', '=', $token]]);
+    foreach ($c as $k) {
+        $total += $k['price'];
+    }
+
+    return $total;
+}
+
 function myorders()
 {
     error_reporting(0);
@@ -814,6 +825,7 @@ function myorders()
     foreach ($mylist as $k) {
         $c = customfetch('vorders', [['ordno', '=', $k]]);
         $c = $c[0];
+        $total = mytotal($c['token']);
         $ordno = $c['ordno'];
         if (strlen($ordno) == 1) {
             $ordno = '00'.$ordno;
@@ -838,8 +850,8 @@ function myorders()
         <td><a href="#">#'.$ordno.'</a></td>
         <td>'.$c['dateadded'].'</td>
         <td>'.$status.'</td>
-        <td>$25.00 </td>
-        <td><button type="button"  class="btn btn-dark btn-sm">View</button></td>
+        <td>'.$total.' </td>
+        <td><a  href="" class="btn btn-dark btn-sm" style="text-decoration:none!important;color:#ffff !important;"><i class="bi bi-eye"></i></a></td>
     </tr>';
     }
 
