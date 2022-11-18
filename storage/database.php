@@ -53,7 +53,7 @@ addTable('vorders', [
     addColumn('email', 'string', 100),
     addColumn('contact', 'string', 100),
     addColumn('price', 'string', 100),
-    addColumn('note', 'text', null),
+    addColumn('note', 'text', null, true),
     addColumn('dateadded', 'string', 100),
     addColumn('status', 'string', 100),
     addColumn('paymenttype', 'string', 100),

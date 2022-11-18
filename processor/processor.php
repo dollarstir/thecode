@@ -62,7 +62,7 @@ if (isset($_GET['action'])) {
 
         case 'pay':
             extract($_POST);
-            pay($transactionid, );
+            pay($transactionid, $network);
             break;
 
         default:

@@ -732,3 +732,29 @@ function orderamount()
 
     return $total;
 }
+
+function pay($transactionid, $network)
+{
+    error_reporting(0);
+    session_start();
+    $msg = '';
+    $c = customfetch('vorders', [['token', '=', $_SESSION['token']]]);
+    foreach ($c as $k) {
+        $record = [
+        'transactionid' => $transactionid,
+        'network' => $network,
+        'paymentstatus' => 'Waiting for confirmation',
+          'paymentref' => 'DSE'.orderno(),
+        'paymentdate' => date('jS F, Y'),
+      ];
+        $msg .= update('vorders', $record, ['id' => $k['id']]);
+    }
+
+    if (strpos($msg, 'success') !== false) {
+        unset($_SESSION['token']);
+        unset($_SESSION['total']);
+        echo 'paymentsuccess';
+    } else {
+        echo $msg;
+    }
+}

@@ -35,12 +35,12 @@ start('Complete your order');
                 <div class="row">
                   <div class="col-12">
                     <label class="mb-2" for="first-name">Enter Transaction ID after payment</label>
-                    <input class="form-control mb-30" id="first-name" type="text" name="tid" placeholder="Mobile Money Transaction ID" value="" required>
+                    <input class="form-control mb-30" id="first-name" type="text" name="transactionid" placeholder="Mobile Money Transaction ID" value="" required>
                   </div>
                   
                   <div class="col-12">
                     <label class="mb-2" for="country">Select your network operator</label>
-                    <select class="form-select form-control w-100 mb-30" id="country" name="operator">
+                    <select class="form-select form-control w-100 mb-30" id="country" name="network">
                       <option value="mtn">MTN MOBILE MONEY</option>
                       <option value="vodafone">VODAFONE CASH</option>
                       <option value="tigo">TIGO CASH</option>
