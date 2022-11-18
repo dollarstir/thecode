@@ -610,7 +610,7 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
         if (empty(trim($password))) {
             if (isset($_SESSION['strcart'])) {
                 $cart = $_SESSION['strcart'];
-                $token = bin2hex(random_bytes(10));
+                $token = bin2hex(random_bytes(8)).time();
                 $dateadded = date('jS F, Y');
                 $cco = countall('vorders');
                 $ordno = $cco + 1;
@@ -656,7 +656,7 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
                 loginauth('vusers', 'vuser', ['email', '=', $email], ['password', '=', $password]);
                 if (isset($_SESSION['strcart'])) {
                     $cart = $_SESSION['strcart'];
-                    $token = bin2hex(random_bytes(10));
+                    $token = bin2hex(random_bytes(8)).time();
                     $dateadded = date('jS F, Y');
                     $cco = countall('vorders');
                     $ordno = $cco + 1;
@@ -710,14 +710,25 @@ function orderno()
     $c = $c[0];
 
     if (strlen($c['ordno']) == 1) {
-        $ordno = '000'.$c['ordno'];
-    } elseif (strlen($c['ordno']) == 2) {
         $ordno = '00'.$c['ordno'];
-    } elseif (strlen($c['ordno']) == 3) {
+    } elseif (strlen($c['ordno']) == 2) {
         $ordno = '0'.$c['ordno'];
     } else {
         $ordno = $c['ordno'];
     }
 
     return $ordno;
+}
+
+function orderamount()
+{
+    error_reporting(0);
+    session_start();
+    $c = customfetch('vorders', [['token', '=', $_SESSION['token']]]);
+    $total = 0;
+    foreach ($c as $k) {
+        $total += $k['price'];
+    }
+
+    return $total;
 }
