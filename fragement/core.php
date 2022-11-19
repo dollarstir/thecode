@@ -851,9 +851,64 @@ function myorders()
         <td>'.$c['dateadded'].'</td>
         <td>'.$status.'</td>
         <td>'.$total.' </td>
-        <td><a  href="view-orders?dse='.$c['token'].'" class="btn btn-dark btn-sm" style="text-decoration:none!important;color:#ffff !important;"><i class="bi bi-eye"></i></a></td>
+        <td><a  href="view-order?dse='.$c['ordno'].'" class="btn btn-dark btn-sm" style="text-decoration:none!important;color:#ffff !important;"><i class="bi bi-eye"></i></a></td>
     </tr>';
     }
 
     return $ms;
+}
+
+function vieworderdetail($ordno)
+{
+    $c = customfetch('vorders', [['ordno', '=', $ordno]]);
+
+    foreach ($c as $k) {
+        echo '<tr>
+        <td>'.$k['product'].'</td>
+        <td>'.$k['email'].'</td>
+        <td>'.$k['dateadded'].'</td>
+        <td>'.$k['price'].'</td>
+
+        </tr>';
+    }
+}
+
+function detailtotal($ordno)
+{
+    $total = 0;
+    $c = customfetch('vorders', [['ordno', '=', $ordno]]);
+    foreach ($c as $k) {
+        $total += $k['price'];
+    }
+
+    return $total;
+}
+
+function checkpaymentstatus()
+{
+    if (orderinfo('paymentstatus') == 'paid') {
+        echo '<button class="btn btn-success btn-sm" type="button" disabled>
+    
+    Completed
+  </button>';
+    } elseif (orderinfo('paymentstatus') == 'pending') {
+        echo '<button class="btn btn-warning btn-sm" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    pending...
+  </button>';
+    } elseif (orderinfo('paymentstatus') == 'Waiting for confirmation') {
+        echo '<button class="btn btn-warning btn-sm" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    waiting for confirmation...
+  </button>';
+    } elseif (orderinfo('paymentstatus') == 'cancelled') {
+        echo '<button class="btn btn-danger btn-sm" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Rejected...
+  </button>';
+    }
+}
+
+function checkorderstatus()
+{
 }

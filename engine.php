@@ -77,6 +77,13 @@ $router = new Router([
     ),
 
     new Route(
+        '/view-order',
+        function ($context) {
+            return Viewer::view('template/orderdetail.php', $context);
+        }
+    ),
+
+    new Route(
         '/password-reset',
         function ($context) {
             return Viewer::view('template/forget-password.php', $context);

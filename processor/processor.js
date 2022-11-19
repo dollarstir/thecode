@@ -400,6 +400,23 @@ $(document).on('submit','.editpay',function(e){
 
 
 
+// loading order & payment status
+// loading order & payment status
+setInterval(function(){
+
+  $('.pcheker').load('processor/processor.php?action=checkpaystatus');
+$('.ordcheker').load('processor/processor.php?action=checkorderstatus');
+
+
+
+
+
+    
+},5000);
+
+
+
+
 
     
 })

@@ -35,7 +35,7 @@ start('Order Status');
                         <h5>Total Amount <span class="bi bi-cash"></span> : <span class="badge badge-dark"> &#8373; <?php echo orderamount(); ?></span></h5>
 
                         <h5>Transaction ID <span class="bi bi-folder"></span> : <span class="badge badge-dark"><?php  orderinfo('transactionid'); ?></span></h5> -->
-                            <h5>Payment Status :   
+                            <h5>Payment Status : <span class="pcheker">
                                 <?php
                                 if (orderinfo('paymentstatus') == 'paid') {
                                     echo '<button class="btn btn-success btn-sm" type="button" disabled>
@@ -60,11 +60,12 @@ start('Order Status');
                                 }
 
                                 ?>
+                                </span>  
                             </h5>
 
 
 
-                            <h5> Order Status :   
+                            <h5> Order Status : <span class="ordcheker">
                                 <?php
                                 if (orderinfo('status') == 'completed') {
                                     echo '<button class="btn btn-success btn-sm" type="button" disabled>
@@ -89,6 +90,7 @@ start('Order Status');
                                 }
 
                                 ?>
+                                </span> 
                             </h5>
                         <div class="table-responsive">
                             <table class="table table-bordered">
