@@ -70,6 +70,15 @@ if (isset($_GET['action'])) {
             extract($_POST);
             editpay($transactionid, $network);
             break;
+
+        case 'checkpaystatus':
+            checkpaymentstatus();
+            break;
+
+        case 'checkorderstatus':
+            checkorderstatus();
+            break;
+
         default:
 
         break;
