@@ -851,7 +851,7 @@ function myorders()
         <td>'.$c['dateadded'].'</td>
         <td>'.$status.'</td>
         <td>'.$total.' </td>
-        <td><a  href="" class="btn btn-dark btn-sm" style="text-decoration:none!important;color:#ffff !important;"><i class="bi bi-eye"></i></a></td>
+        <td><a  href="view-orders?dse='.$c['token'].'" class="btn btn-dark btn-sm" style="text-decoration:none!important;color:#ffff !important;"><i class="bi bi-eye"></i></a></td>
     </tr>';
     }
 
