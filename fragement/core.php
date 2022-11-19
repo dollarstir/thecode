@@ -911,4 +911,25 @@ function checkpaymentstatus()
 
 function checkorderstatus()
 {
+    if (orderinfo('status') == 'completed') {
+        echo '<button class="btn btn-success btn-sm" type="button" disabled>
+    
+    Completed
+  </button>';
+    } elseif (orderinfo('status') == 'pending') {
+        echo '<button class="btn btn-warning btn-sm" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Pending...
+  </button>';
+    } elseif (orderinfo('status') == 'processing') {
+        echo '<button class="btn btn-info btn-sm" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    processing...
+  </button>';
+    } elseif (orderinfo('status') == 'cancelled') {
+        echo '<button class="btn btn-danger btn-sm" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Cancelled...
+  </button>';
+    }
 }
