@@ -75,7 +75,7 @@ addTable('cmd', [
     addColumn('token', 'text', null, true),
     addColumn('codestatus', 'string', '100', true),
 ]);
-addTable('vpdetais', [
+addTable('vpdetails', [
     addColumn('id', 'int', 11, false, true, true),
-    addColumn('productid', 'int', 11),
+    addColumn('categoryid', 'int', 11),
     addColumn('detail', 'text', null), ]);
