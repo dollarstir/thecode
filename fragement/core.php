@@ -534,11 +534,7 @@ function product($cat)
           </div>
           <div class="pricing-desc mb-5">
             <ul class="list-unstyled mb-0">
-              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>1 Month Usage</li>
-              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>Lifetime Updates</li>
-              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>1 Website License</li>
-              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>Free Support</li>
-              <li><i class="text-info me-2 bi bi-check-circle-fill"></i>Download New Release</li>
+              '.prodoptions($cat).'
             </ul>
           </div>
           
@@ -941,8 +937,8 @@ function prodoptions($category)
 {
     $d = customfetch('vpdetails', [['categoryid', '=', $category]]);
     $ms = '';
-    foreach ($d as $k) {
-        $ms .= '<option value="'.$k['id'].'">'.$k['name'].'</option>';
+    foreach ($d as $e) {
+        $ms .= '<li><i class="text-info me-2 bi bi-check-circle-fill"></i>'.$e['detail'].'</li>';
     }
 
     return $ms;
@@ -974,15 +970,11 @@ function _productlist($category)
 
           </div>
           <div class="pricing-desc mb-5">
-            <ul class="list-unstyled mb-0">';
-
-        foreach ($d as $e) {
-            echo '<li><i class="text-info me-2 bi bi-check-circle-fill"></i>'.$e['detail'].'</li>';
-        }
-
-        echo ' </ul>
+            <ul class="list-unstyled mb-0">'
+          .prodoptions($category).
+        ' </ul>
           </div>
-          <div class="pricing-btn"><button class="btn btn-primary addtocart" id ="'.$p['id'].'">Buy Now<i class="bi bi-caret-right-fill"></i></button></div>
+          <div class="pricing-btn"><button class="btn btn-primary addtocart" id ="'.$k['id'].'">Buy Now<i class="bi bi-caret-right-fill"></i></button></div>
         </div>
       </div>';
     }
