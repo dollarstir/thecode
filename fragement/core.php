@@ -937,6 +937,17 @@ function checkorderstatus()
     }
 }
 
+function prodoptions($category)
+{
+    $d = customfetch('vpdetails', [['categoryid', '=', $category]]);
+    $ms = '';
+    foreach ($d as $k) {
+        $ms .= '<option value="'.$k['id'].'">'.$k['name'].'</option>';
+    }
+
+    return $ms;
+}
+
 function _prodcat($category)
 {
     $c = customfetch('vcategory', [['id', '=', $category]]);
@@ -949,7 +960,7 @@ function _productlist($category)
 {
     $c = customfetch('vproducts', [['category', '=', $category]]);
     foreach ($c as $k) {
-        $d = customfetch('vpdetails', [['categoryid', '=', $category], ['productid', '=', $k['id']]]);
+        $d = customfetch('vpdetails', [['categoryid', '=', $category]]);
         echo '<div class="col-12 col-sm-9 col-md-7 col-lg-4">
         <div class="card pricing-card monthly-plan shadow-lg wow fadeInUp" data-wow-duration="1000ms"
           data-wow-delay="300ms">
@@ -965,10 +976,13 @@ function _productlist($category)
           <div class="pricing-desc mb-5">
             <ul class="list-unstyled mb-0">';
 
+        foreach ($d as $e) {
+            echo '<li><i class="text-info me-2 bi bi-check-circle-fill"></i>'.$e['detail'].'</li>';
+        }
+
         echo ' </ul>
           </div>
-          <div class="pricing-btn"><a class="btn btn-primary" href="cart.html">Buy Now<i
-                class="bi bi-caret-right-fill"></i></a></div>
+          <div class="pricing-btn"><button class="btn btn-primary addtocart" id ="'.$p['id'].'">Buy Now<i class="bi bi-caret-right-fill"></i></button></div>
         </div>
       </div>';
     }
