@@ -79,3 +79,7 @@ addTable('vpdetails', [
     addColumn('id', 'int', 11, false, true, true),
     addColumn('categoryid', 'int', 11),
     addColumn('detail', 'text', null), ]);
+
+addTable('custom', [
+    addColumn('id', 'int', 11, false, true, true),
+    addColumn('state', 'string', 100), ]);

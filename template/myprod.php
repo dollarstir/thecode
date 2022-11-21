@@ -32,7 +32,14 @@ $category = $_GET['optimizationtoken'];
         <div class="col-12">
           <div class="row g-4 justify-content-center">
             <!-- Single Pricing Plan-->
-            <?php product($category); ?>
+            <?php
+
+            if ($category == 8) {
+            } else {
+                product($category);
+            }
+
+              ?>
           </div>
         </div>
       </div>
