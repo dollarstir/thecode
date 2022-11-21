@@ -952,7 +952,7 @@ function prodoptions($category)
     return $ms;
 }
 
-function custom($category)
+function custom()
 {
     $d = fetchall('custom');
     $ms = '';
