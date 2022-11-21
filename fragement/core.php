@@ -94,16 +94,20 @@ function start($title)
                   <div class="collapse navbar-collapse" id="saasboxNav">
                     <ul class="navbar-nav navbar-nav-scroll">
                       <li class=""><a href="home">Home</a>
-                      <li class=""><a href="#">Google Voice</a>
-                      <li class=""><a href="#">RDP</a></li>
-                      <li class=""><a href="#">Cpanel</a></li>
+                      <li class=""><a href="optimizationtoken=1">Google Voice</a>
+                      <li class=""><a href="optimizationtoken=8">Custom States</a></li>
+                      
                       
                       <li class="sb-dropdown"><a href="#">Other Services</a>
                         <ul class="sb-dropdown-menu">
-                            <li class=""><a href="#">Email Leads</a></li>
-                            <li class=""><a href="#">Textnow</a></li>
-                            <li class=""><a href="#">Youtube</a></li>
-                            <li class=""><a href="#">Instagram</a></li>
+                            <li class=""><a href="optimizationtoken=3">RDP</a></li>
+                            <li class=""><a href="optimizationtoken=4">Cpanel</a></li>
+
+                            <li class=""><a href="optimizationtoken=5">Email Leads</a></li>
+                            
+                            <li class=""><a href="optimizationtoken=2">Textnow</a></li>
+                            <li class=""><a href="optimizationtoken=6">Youtube</a></li>
+                            <li class=""><a href="optimizationtoken=7">Instagram</a></li>
                         </ul>
                       </li>
                       <!-- <li><a href="">About</a></li> -->
@@ -439,14 +443,18 @@ function addtocart($id)
         echo 'Product not found';
     } else {
         if (authenticate('vproducts', [['id', '=', $id]]) == 'success') {
-            if (empty($_SESSION['strcart'])) {
-                $_SESSION['strcart'] = [];
-            }
-            if (in_array($id, $_SESSION['strcart'])) {
-                echo 'alreadyincart';
+            if (authenticate('vproducts', [['status', '=', 'inactive']]) == 'success') {
+                echo 'Product is not available';
             } else {
-                array_push($_SESSION['strcart'], $id);
-                echo 'addedtocart';
+                if (empty($_SESSION['strcart'])) {
+                    $_SESSION['strcart'] = [];
+                }
+                if (in_array($id, $_SESSION['strcart'])) {
+                    echo 'alreadyincart';
+                } else {
+                    array_push($_SESSION['strcart'], $id);
+                    echo 'addedtocart';
+                }
             }
         } else {
             echo 'Product not found';
