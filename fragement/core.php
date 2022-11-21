@@ -995,7 +995,7 @@ function _productlist($category)
       </div>';
 }
 
-function admintop()
+function admintop($title)
 {
     echo '<!DOCTYPE html>
   <html lang="en">
@@ -1003,7 +1003,7 @@ function admintop()
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Streetcode</title>
+    <title>Streetcode - '.$title.'</title>
   
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
@@ -1041,5 +1041,490 @@ function admintop()
 
 function adminnav()
 {
-    echo '';
+    echo '<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+      
+      <li class="nav-item">
+        <a href="pages/widgets.html" class="nav-link">
+          
+          <p>
+            Dashboard
+            
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <!-- <i class="nav-icon fas fa-copy"></i> -->
+          <p>
+            Orders
+            <i class="fas fa-angle-left right"></i>
+            <span class="badge badge-info right">6</span>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="pages/layout/top-nav.html" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+              <p>New orders</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+            <i class="nav-icon far fa-circle text-info"></i>
+              <p>Processing </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/layout/boxed.html" class="nav-link">
+            <i class="nav-icon far fa-circle text-success"></i>
+              <p>Completed</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+            <i class="nav-icon far fa-circle text-danger"></i>
+              <p>Cancelled</p>
+            </a>
+          </li>
+          
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <!-- <i class="nav-icon fas fa-chart-pie"></i> -->
+          <p>
+              Products
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="pages/charts/chartjs.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Add New</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/charts/flot.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>View</p>
+            </a>
+          </li>
+          
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <!-- <i class="nav-icon fas fa-tree"></i> -->
+          <p>
+           Users
+            <!-- <i class="fas fa-angle-left right"></i> -->
+          </p>
+        </a>
+        
+      </li>
+
+      
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <!-- <i class="nav-icon fas fa-edit"></i> -->
+          <p>
+            Category
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="pages/forms/general.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Add New</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/forms/advanced.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>View</p>
+            </a>
+          </li>
+          
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <!-- <i class="nav-icon fas fa-table"></i> -->
+          <p>
+            Custom States
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="pages/tables/simple.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Add New</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/tables/data.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>View</p>
+            </a>
+          </li>
+          
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <!-- <i class="nav-icon far fa-envelope"></i> -->
+          <p>
+            Settings
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="pages/mailbox/mailbox.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>App Settings</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/mailbox/compose.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Support</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/mailbox/read-mail.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Read</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-book"></i>
+          <p>
+            Pages
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="pages/examples/invoice.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Invoice</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/profile.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/e-commerce.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>E-commerce</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/projects.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Projects</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/project-add.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Project Add</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/project-edit.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Project Edit</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/project-detail.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Project Detail</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/contacts.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Contacts</p>
+            </a>
+          </li>
+          
+        </ul>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon far fa-plus-square"></i>
+          <p>
+            Extras
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Login & Register v1
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/examples/login.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Login v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/register.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/forgot-password.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Forgot Password v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/recover-password.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Recover Password v1</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Login & Register v2
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/examples/login-v2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Login v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/register-v2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/forgot-password-v2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Forgot Password v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/recover-password-v2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Recover Password v2</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/lockscreen.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Lockscreen</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/legacy-user-menu.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Legacy User Menu</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/language-menu.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Language Menu</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/404.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Error 404</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/500.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Error 500</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/pace.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Pace</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/examples/blank.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Blank Page</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="starter.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Starter Page</p>
+            </a>
+          </li>
+        </ul>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-search"></i>
+          <p>
+            Search
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="pages/search/simple.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Simple Search</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/search/enhanced.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Enhanced</p>
+            </a>
+          </li>
+        </ul>
+      </li> -->
+     
+          
+      
+      
+    </ul>
+  </nav>';
+}
+
+function admintail()
+{
+    echo '<footer class="main-footer">
+    <strong>Copyright &copy; 2022 -  '.date('Y').' <a href="">Streetcode</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+     
+    </div>
+  </footer>
+
+  <aside class="control-sidebar control-sidebar-dark">
+
+  </aside>
+
+</div>
+
+
+<script src="vadmin/plugins/jquery/jquery.min.js"></script>
+
+<script src="vadmin/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<script>
+  $.widget.bridge("uibutton", $.ui.button)
+</script>
+
+<script src="vadmin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- datatables -->
+<script src="vadmin/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="vadmin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="vadmin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="vadmin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="vadmin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="vadmin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="vadmin/plugins/jszip/jszip.min.js"></script>
+<script src="vadmin/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="vadmin/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="vadmin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="vadmin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="vadmin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Datatables -->
+
+<!-- forms -->
+
+<script src="vadmin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- forms -->
+<script src="vadmin/plugins/chart.js/Chart.min.js"></script>
+
+<script src="vadmin/plugins/sparklines/sparkline.js"></script>
+
+<script src="vadmin/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="vadmin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+
+<script src="vadmin/plugins/jquery-knob/jquery.knob.min.js"></script>
+
+<script src="vadmin/plugins/moment/moment.min.js"></script>
+<script src="vadmin/plugins/daterangepicker/daterangepicker.js"></script>
+
+<script src="vadmin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<script src="vadmin/plugins/summernote/summernote-bs4.min.js"></script>
+
+<script src="vadmin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+<script src="vadmin/dist/js/adminlte.js?v=3.2.0"></script>
+
+<script src="vadmin/dist/js/demo.js"></script>
+
+<script src="vadmin/dist/js/pages/dashboard.js"></script>
+<script src="processor/processor.js"></script>
+
+
+<!-- others -->
+
+
+<script>
+$(function () {
+bsCustomFileInput.init();
+});
+</script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo("#example1_wrapper .col-md-6:eq(0)");
+    $("#example2").DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
+
+</body>
+
+</html>';
 }
