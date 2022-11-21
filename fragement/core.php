@@ -1541,6 +1541,32 @@ bsCustomFileInput.init();
 
 </html>';
 }
+
+function adminorderpstauts($token){
+
+  $btn ='';
+  $c = customfetch('vorders', [['token', '=', $token]]);
+  $c = $c[0];
+  $status = $c['paymentstatus'];
+
+  switch($status){
+      case 'Waiting for confirmation':
+          $btn = '<button class="btn btn-success btn-sm payapprove" id="'.$token.'">Approve</button><br><button class="btn btn-danger btn-sm payreject" id="'.$token.'">Reject</button>';
+        break;
+
+      case 'paid':
+          $btn = '<button class="btn btn-danger btn-sm">Reject</button>';
+        break;
+
+      case 'cancelled':
+          $btn = '<button class="btn btn-success btn-sm">Approve</button>';
+        break;
+  }
+
+  return $btn;
+
+
+}
 function adminorderitems($number)
 {
     $n = customfetch('vorders', [['ordno','=', $number]]);
@@ -1606,7 +1632,7 @@ function adminorders($status)
         <td>'.adminorderitems($o).' </td>
         <td>'.$c['note'].'</td>
         <td>'.mytotal($c['token']).'</td>
-        <td>'.$pst.'</td>
+        <td>'.$pst.' <br>'.adminorderpstauts($c['token']).'</td>
         <td>'.$mst.'</td>
       </tr>';
     }
