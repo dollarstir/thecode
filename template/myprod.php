@@ -35,6 +35,7 @@ $category = $_GET['optimizationtoken'];
             <?php
 
             if ($category == 8) {
+                _productlist($category);
             } else {
                 product($category);
             }

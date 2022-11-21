@@ -980,14 +980,14 @@ function _productlist($category)
             <h3>Available states</h3><br>
             <div class="price-quantity">
 
-              <h3 class="mb-0 monthly-price">&#8373; 90<span class="fz-12"></span></h3>
+              <h4 class="mb-0 monthly-price"><span class="fz-12">Kindly add google voice to cart and add name of state as Order  Note</span></h4>
 
             </div>
 
           </div>
           <div class="pricing-desc mb-5">
             <ul class="list-unstyled mb-0">'
-          .prodoptions($category).
+          .custom().
         ' </ul>
           </div>
           
