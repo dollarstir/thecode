@@ -1531,4 +1531,12 @@ bsCustomFileInput.init();
 
 function adminorders($status)
 {
+    if ($status == 'all') {
+        $c = fetchall('vorders');
+    } else {
+        $c = customfetch('vorders', 'status', $status);
+    }
+
+    foreach ($c as $a) {
+    }
 }
