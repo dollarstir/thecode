@@ -1528,3 +1528,7 @@ bsCustomFileInput.init();
 
 </html>';
 }
+
+function adminorders($status)
+{
+}

@@ -140,5 +140,12 @@ $router = new Router([
             return Viewer::view('vadmin/index.php', $context);
         }
     ),
+
+    new Route(
+        '/adminorders',
+        function ($context) {
+            return Viewer::view('vadmin/admin_orders.php', $context);
+        }
+    ),
 ]);
 $router->launch();

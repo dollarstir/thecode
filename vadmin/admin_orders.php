@@ -1,7 +1,30 @@
 <?php
 involve('core.php');
+if (isset($_GET['type'])) {
+    switch ($_GET['type']) {
+        case 'new':
+            // code...
+            $mt = 'pending';
+            break;
+        case 'processing':
+            $mt = 'processing';
+            break;
 
-admintop('Datatable');
+        case 'completed':
+            $mt = 'completed';
+            break;
+        case 'cancelled':
+            $mt = 'cancelled';
+            break;
+
+        default:
+            $mt = 'all';
+            break;
+        }
+} else {
+    $mt = 'all';
+}
+admintop($mt.' orders');
 
 ?>
 
@@ -185,7 +208,7 @@ admintop('Datatable');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>DataTables</h1>
+              <h1><?php echo strtoupper($mt); ?> ORDERS</h1>
             </div>
             
           </div>
