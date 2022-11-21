@@ -947,4 +947,29 @@ function _prodcat($category)
 
 function _productlist($category)
 {
+    $c = customfetch('vproducts', [['category', '=', $category]]);
+    foreach ($c as $k) {
+        $d = customfetch('vpdetails', [['categoryid', '=', $category], ['productid', '=', $k['id']]]);
+        echo '<div class="col-12 col-sm-9 col-md-7 col-lg-4">
+        <div class="card pricing-card monthly-plan shadow-lg wow fadeInUp" data-wow-duration="1000ms"
+          data-wow-delay="300ms">
+          <div class="pricing-heading mb-5">
+            <h3>1 google voice</h3><br>
+            <div class="price-quantity">
+
+              <h3 class="mb-0 monthly-price">&#8373; 90<span class="fz-12"></span></h3>
+
+            </div>
+
+          </div>
+          <div class="pricing-desc mb-5">
+            <ul class="list-unstyled mb-0">';
+
+        echo ' </ul>
+          </div>
+          <div class="pricing-btn"><a class="btn btn-primary" href="cart.html">Buy Now<i
+                class="bi bi-caret-right-fill"></i></a></div>
+        </div>
+      </div>';
+    }
 }
