@@ -131,5 +131,14 @@ $router = new Router([
             return Viewer::view('template/out.php', $context);
         }
     ),
+
+    // admin route
+
+    new Route(
+        '/streetadmin',
+        function ($context) {
+            return Viewer::view('vadmin/index.php', $context);
+        }
+    ),
 ]);
 $router->launch();

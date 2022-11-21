@@ -1,6 +1,8 @@
 
 $(function(){
 
+  
+
   $(".ups").hide();
   $(".editpay").hide();
   $('.pay').hide();

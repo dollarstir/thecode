@@ -94,20 +94,20 @@ function start($title)
                   <div class="collapse navbar-collapse" id="saasboxNav">
                     <ul class="navbar-nav navbar-nav-scroll">
                       <li class=""><a href="home">Home</a>
-                      <li class=""><a href="optimizationtoken=1">Google Voice</a>
-                      <li class=""><a href="optimizationtoken=8">Custom States</a></li>
+                      <li class=""><a href="product?optimizationtoken=1">Google Voice</a>
+                      <li class=""><a href="product?optimizationtoken=8">Custom States</a></li>
                       
                       
                       <li class="sb-dropdown"><a href="#">Other Services</a>
                         <ul class="sb-dropdown-menu">
-                            <li class=""><a href="optimizationtoken=3">RDP</a></li>
-                            <li class=""><a href="optimizationtoken=4">Cpanel</a></li>
+                            <li class=""><a href="product?optimizationtoken=3">RDP</a></li>
+                            <li class=""><a href="product?optimizationtoken=4">Cpanel</a></li>
 
-                            <li class=""><a href="optimizationtoken=5">Email Leads</a></li>
+                            <li class=""><a href="product?optimizationtoken=5">Email Leads</a></li>
                             
-                            <li class=""><a href="optimizationtoken=2">Textnow</a></li>
-                            <li class=""><a href="optimizationtoken=6">Youtube</a></li>
-                            <li class=""><a href="optimizationtoken=7">Instagram</a></li>
+                            <li class=""><a href="product?optimizationtoken=2">Textnow</a></li>
+                            <li class=""><a href="product?optimizationtoken=6">Youtube</a></li>
+                            <li class=""><a href="product?optimizationtoken=7">Instagram</a></li>
                         </ul>
                       </li>
                       <!-- <li><a href="">About</a></li> -->
@@ -980,12 +980,12 @@ function _productlist($category)
             <h3>Available states</h3><br>
             <div class="price-quantity">
 
-              <h4 class="mb-0 monthly-price"><span class="fz-12">Kindly place google voice order. On checkout page add name of state as <strong>Order  Note</strong></span> <span style="color:red;">Note: The ealier you place order the higher the chance of you getting the available state.so can not assure you getting requested state</span></h4>
+              <h4 class="mb-0 monthly-price"><span class="fz-12" style="color:red;">Kindly place google voice order. On checkout page add name of state as <strong>Order  Note</strong> . Note: The ealier you place order the higher the chance of you getting the available state.so we cannot assure you getting requested state</span> </h4>
 
             </div>
 
-          </div>
-          <div class="pricing-desc mb-5">
+          </div><br><br>
+          <div class="pricing-desc mb-5" style="margin-top:20px !important;">
             <ul class="list-unstyled mb-0">'
           .custom().
         ' </ul>

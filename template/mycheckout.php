@@ -86,7 +86,7 @@ start('Checkout');
                  
                   <div class="col-12" style="margin-top:40px !important;">
                     <label class="mb-2" for="order-notes">Order Notes (optional)</label>
-                    <textarea class="form-control" id="order-notes" placeholder="Notes about your order, e.g. special notes for delivery." name="note" rows="3"></textarea>
+                    <textarea class="form-control" id="order-notes" placeholder="Notes about your order, e.g. You request for specific state available in (Custom States)." name="note" rows="3"></textarea>
                   </div>
                 </div>
               
