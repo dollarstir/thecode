@@ -236,9 +236,9 @@ admintop($mt.' orders');
                         <th>Note</th>
                         <th>Total</th>
                         <th>Payment</th>
-                        <th>Order Date</th> 
                         <th>Order Status</th>
-                        <th>Actions</th>
+                        <th>Order Date</th> 
+                        <!-- <th>Actions</th> -->
                       </tr>
                     </thead>
                     <tbody>
@@ -255,9 +255,9 @@ admintop($mt.' orders');
                         <th>Note</th>
                         <th>Total</th>
                         <th>Payment</th>
-                        <th>Order Date</th> 
                         <th>Order Status</th>
-                        <th>Actions</th>
+                        <th>Order Date</th> 
+                        <!-- <th>Actions</th> -->
                       </tr>
                     </tfoot>
                   </table>

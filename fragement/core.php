@@ -1078,7 +1078,7 @@ function adminnav()
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="pages/layout/top-nav.html" class="nav-link">
+            <a href="adminorders?type=new" class="nav-link">
             <i class="nav-icon far fa-circle text-warning"></i>
               <p>New orders</p>
             </a>
@@ -1555,17 +1555,43 @@ function adminorderpstauts($token){
         break;
 
       case 'paid':
-          $btn = '<button class="btn btn-danger btn-sm">Reject</button>';
+          $btn = '<button class="btn btn-danger btn-sm payreject" id="'.$token.'">Reject</button>';
         break;
 
       case 'cancelled':
-          $btn = '<button class="btn btn-success btn-sm">Approve</button>';
+          $btn = '<button class="btn btn-success btn-sm payapprove" id="'.$token.'">Approve</button>';
         break;
   }
 
   return $btn;
 
 
+}
+
+function adminorderstatus($token){
+
+  $btn ='';
+  $c = customfetch('vorders', [['token', '=', $token]]);
+  $c = $c[0];
+  $status = $c['status'];
+
+  switch($status){
+      case 'pending':
+          $btn = '<button class="btn btn-success btn-sm approve" id="'.$token.'">Approve</button><br><button class="btn btn-danger btn-sm reject" id="'.$token.'">Reject</button>';
+        break;
+
+      case 'processing':
+          $btn = '<button class="btn btn-danger btn-sm reject" id="'.$token.'">Reject</button>';
+        break;
+
+        
+
+      case 'cancelled':
+          $btn = '<button class="btn btn-success btn-sm approve" id="'.$token.'">Approve</button>';
+        break;
+  }
+
+  return $btn;
 }
 function adminorderitems($number)
 {
@@ -1632,8 +1658,9 @@ function adminorders($status)
         <td>'.adminorderitems($o).' </td>
         <td>'.$c['note'].'</td>
         <td>'.mytotal($c['token']).'</td>
-        <td>'.$pst.' <br>'.adminorderpstauts($c['token']).'</td>
-        <td>'.$mst.'</td>
+        <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
+        <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
+        <td>'.$c['dateadded'].'</td>
       </tr>';
     }
 }
