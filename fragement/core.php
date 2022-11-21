@@ -1541,20 +1541,73 @@ bsCustomFileInput.init();
 
 </html>';
 }
+function adminorderitems($number)
+{
+    $n = customfetch('vorders', [['ordno','=', $number]]);
+    $mm ='';
+    foreach ($n as $d) {
+      
+      $mm .= '<li>'.$d['product'].'</li>';
+        
+    }
 
+    return ($mm);
+}
 function adminorders($status)
 {
     $mylist = checkduplicate1();
 
     foreach ($mylist as $o) {
         if ($status == 'all') {
-            $c = fetchall('vorders');
+            $c = customfetch('vorders', [['ordno', '=', $o]], 'AND', ['id'=> 'DESC']);
         } else {
-            $c = customfetch('vorders', [['status', '=', $status]]);
+            $c = customfetch('vorders', [['status', '=', $status], ['ordno', '=', $o]], 'AND',['id'=> 'DESC']);
         }
 
         $c = $c[0];
 
-        echo '';
+        $mst = $c['status'];
+        if ($mst == 'pending') {
+            $mst = '<span class="badge badge-warning">Pending</span>';
+        }
+        if ($mst == 'processing') {
+            $mst = '<span class="badge badge-info">Processing</span>';
+        }
+        if ($mst == 'completed') {
+            $mst = '<span class="badge badge-success">Completed</span>';
+        }
+        if ($mst == 'cancelled') {
+            $mst = '<span class="badge badge-danger">Cancelled</span>';
+        }
+        $pst = $c['paymentstatus'];
+        switch($pst){
+            case 'pending':
+                $pst = '<span class="badge badge-warning">Pending</span>';
+                break;
+            case 'paid':
+                $pst = '<span class="badge badge-success">Paid</span>';
+                break;
+            case 'Waiting for confirmation':
+                $pst = '<span class="badge badge-info">Awaiting aproval</span>';
+                break;
+            case 'cancelled':
+                $pst = '<span class="badge badge-danger">Partially Paid</span>';
+                break;
+            default:
+                $pst = '<span class="badge badge-warning">Pending</span>';
+                break;
+        }
+        
+
+        echo '<tr>
+        <td>'.$c['ordno'].'</td>
+        <td>'.$c['email'].' </td>
+        <td>'.$c['contact'].'</td>
+        <td>'.adminorderitems($o).' </td>
+        <td>'.$c['note'].'</td>
+        <td>'.mytotal($c['token']).'</td>
+        <td>'.$pst.'</td>
+        <td>'.$mst.'</td>
+      </tr>';
     }
 }

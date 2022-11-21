@@ -242,31 +242,22 @@ admintop($mt.' orders');
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                          Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                        <td>X</td>
-                      </tr>
+                      <?php adminorders($mt); ?>
                       
-                      <tr>
-                        <td>Other browsers</td>
-                        <td>All others</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>U</td>
-                      </tr>
+                      
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
+                      <th>Ord No.</th>
+                        <th>Bill Email</th>
+                        <th>Contact</th>
+                        <th>Detial</th>
+                        <th>Note</th>
+                        <th>Total</th>
+                        <th>Payment</th>
+                        <th>Order Date</th> 
+                        <th>Order Status</th>
+                        <th>Actions</th>
                       </tr>
                     </tfoot>
                   </table>
