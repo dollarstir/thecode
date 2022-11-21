@@ -957,7 +957,7 @@ function custom($category)
     $d = fetchall('custom');
     $ms = '';
     foreach ($d as $e) {
-        $ms .= '<li><i class="text-info me-2 bi bi-check-circle-fill"></i>'.$e['detail'].'</li>';
+        $ms .= '<li><i class="text-info me-2 bi bi-check-circle-fill"></i>'.$e['state'].'</li>';
     }
 
     return $ms;
