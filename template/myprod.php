@@ -6,7 +6,10 @@ start('Product');
 ?>
 
 <body>
-  <?php navi(); ?>
+  <?php navi();
+$category = $_GET['cat'];
+
+  ?>
 
 
   <!-- Features Area-->

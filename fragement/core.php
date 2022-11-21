@@ -512,6 +512,9 @@ function carttotal()
 function product($cat)
 {
     $c = customfetch('vproducts', [['category', '=', $cat]]);
+    if ($c == []) {
+        echo' prodcut not available';
+    }
 
     foreach ($c as $p) {
         echo  '<!-- Single Pricing Plan-->
@@ -932,4 +935,16 @@ function checkorderstatus()
     Cancelled...
   </button>';
     }
+}
+
+function _prodcat($category)
+{
+    $c = customfetch('vcategory', [['id', '=', $category]]);
+    $c = $c[0];
+
+    return $c['catname'];
+}
+
+function _productlist($category)
+{
 }
