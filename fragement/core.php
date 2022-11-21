@@ -980,7 +980,7 @@ function _productlist($category)
             <h3>Available states</h3><br>
             <div class="price-quantity">
 
-              <h4 class="mb-0 monthly-price"><span class="fz-12">Kindly add google voice to cart and add name of state as Order  Note</span></h4>
+              <h4 class="mb-0 monthly-price"><span class="fz-12">Kindly place google voice order. On checkout page add name of state as <strong>Order  Note</strong></span></h4>
 
             </div>
 
