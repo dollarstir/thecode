@@ -812,6 +812,19 @@ function checkduplicate()
     return $mylist;
 }
 
+function checkduplicate1()
+{
+    $mylist = [];
+    $c = fetchall('vorders', ['id' => 'DESC']);
+    foreach ($c as $k) {
+        if (!in_array($k['ordno'], $mylist)) {
+            array_push($mylist, $k['ordno']);
+        }
+    }
+
+    return $mylist;
+}
+
 function mytotal($token)
 {
     $total = 0;
@@ -1531,12 +1544,17 @@ bsCustomFileInput.init();
 
 function adminorders($status)
 {
-    if ($status == 'all') {
-        $c = fetchall('vorders');
-    } else {
-        $c = customfetch('vorders', 'status', $status);
-    }
+    $mylist = checkduplicate1();
 
-    foreach ($c as $a) {
+    foreach ($mylist as $o) {
+        if ($status == 'all') {
+            $c = fetchall('vorders');
+        } else {
+            $c = customfetch('vorders', [['status', '=', $status]]);
+        }
+
+        $c = $c[0];
+
+        echo '';
     }
 }

@@ -229,11 +229,16 @@ admintop($mt.' orders');
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
+                        <th>Ord No.</th>
+                        <th>Bill Email</th>
+                        <th>Contact</th>
+                        <th>Detial</th>
+                        <th>Note</th>
+                        <th>Total</th>
+                        <th>Payment</th>
+                        <th>Order Date</th> 
+                        <th>Order Status</th>
+                        <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
