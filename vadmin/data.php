@@ -1,4 +1,9 @@
-<?php include 'header.php'; ?>
+<?php
+involve('core.php');
+
+admintop('Datatable');
+
+?>
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -168,7 +173,7 @@
           </div>
         </div>
 
-        <?php include 'sidebar.php'; ?>
+        <?php adminnav(); ?>
 
       </div>
 
@@ -251,4 +256,4 @@
 
     </div>
 
-    <?php include 'footer.php'; ?>
+    <?php admintail(); ?>
