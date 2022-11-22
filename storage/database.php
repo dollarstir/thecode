@@ -83,3 +83,12 @@ addTable('vpdetails', [
 addTable('custom', [
     addColumn('id', 'int', 11, false, true, true),
     addColumn('state', 'string', 100), ]);
+
+    addTable('settings', [
+        // addColumn('id', 'int', 11, false, true, true),
+        addColumn('appname', 'string', 100),
+        addColumn('appemail', 'string', 100),
+        addColumn('appcontact', 'string', 100),
+        addColumn('appaddress', 'text', null), 
+        addColumn('about', 'text', null),
+    ]);

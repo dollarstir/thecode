@@ -1133,7 +1133,7 @@ function adminnav()
         </ul>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="users" class="nav-link">
           <!-- <i class="nav-icon fas fa-tree"></i> -->
           <p>
            Users
@@ -1203,7 +1203,7 @@ function adminnav()
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="pages/mailbox/mailbox.html" class="nav-link">
+            <a href="app" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>App Settings</p>
             </a>
@@ -1965,12 +1965,43 @@ function addproduct($name, $price, $category)
     echo 'All fields are required';
   }
   else{
-    if(insert('vproducts', ['name' => $name, 'price' => $price, 'category' => $category,'status'=>'available' ,'dateadded' => date('jS F, Y')],$_FILES) == 'success'){
+    if(insert('vproducts', ['name' => $name, 'price' => $price, 'category' => $category,'status'=>'available' ,'dateadded' => date('jS F, Y')],$_FILES,'../yolkassets/upload/') == 'success'){
       echo 'success';
     }
     else{
       echo 'failed';
     }
   }
+
+}
+
+function adminusers()
+{
+  $finito ='';
+  $c = fetchall('vusers');
+  
+  foreach ($c as $d) {
+    $status =  $d['status'];
+    switch($status){
+
+      case 'active':
+        $md = '<span class="badge badge-success">'.$d['status'].'</span>';
+        break;
+      case 'inactive':
+        $md = '<span class="badge badge-danger">'.$d['status'].'</span>';
+        break;
+
+    }
+    $finito .= '<tr>
+    <td>'.$d['name'].'</td>
+    <td>'.$d['email'].'</td>
+    <td>'.$d['contact'].'</td>
+    <td>'.$d['datejoined'].'</td>
+    <td>'.$md.'</td>
+    <td><button class="btn btn-danger btn-sm deleteu" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="delu?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
+  </tr>';
+  }
+
+  echo $finito;
 
 }

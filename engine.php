@@ -175,5 +175,18 @@ $router = new Router([
             return Viewer::view('vadmin/new_prod.php', $context);
         }
     ),
+
+    new Route(
+        '/users',
+        function ($context) {
+            return Viewer::view('vadmin/adminusers.php', $context);
+        }
+    ),
+    new Route(
+        '/app',
+        function ($context) {
+            return Viewer::view('vadmin/app_settings.php', $context);
+        }
+    ),
 ]);
 $router->launch();
