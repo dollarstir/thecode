@@ -116,6 +116,12 @@ if (isset($_GET['action'])) {
             # code...
             break;
 
+        case 'editapp':
+            extract($_POST);
+            editapp($appname, $appemail, $appcontact,$appaddress, $about);
+            # code...
+            break;
+
         default:
 
         break;

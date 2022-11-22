@@ -2005,3 +2005,24 @@ function adminusers()
   echo $finito;
 
 }
+
+function app($data){
+  $c = fetchall('settings');
+  $c = $c[0];
+  echo $c[$data];
+}
+
+
+function editapp($appname, $appemail, $appcontact,$appaddress, $about){
+  if(empty($appname) || empty($appemail) || empty($appcontact) || empty($appaddress) || empty($about)){
+    echo 'All fields are required';
+  }
+  else{
+    if(update('settings', ['appname' => $appname, 'appemail' => $appemail, 'appcontact' => $appcontact, 'appaddress' => $appaddress, 'about' => $about]) == 'success'){
+      echo 'success';
+    }
+    else{
+      echo 'failed';
+    }
+  }
+}
