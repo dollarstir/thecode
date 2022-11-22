@@ -110,6 +110,12 @@ if (isset($_GET['action'])) {
             reject($token);
             break;
 
+        case 'addproduct':
+            extract($_POST);
+            addproduct($name, $price, $category);
+            # code...
+            break;
+
         default:
 
         break;

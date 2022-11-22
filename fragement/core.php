@@ -1956,3 +1956,7 @@ function listcategory(){
 
   echo $finito;
 }
+
+
+// add product ++++++++++++++
+function addproduct($name, $price, $category)

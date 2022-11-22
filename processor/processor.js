@@ -552,6 +552,26 @@ $(document).on('click','.payreject',function(e){
 
 
 
+// add products
+$(document).on('submit','.addproduct',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=addproduct',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
+
+
+
 
     
 })
