@@ -1960,3 +1960,17 @@ function listcategory(){
 
 // add product ++++++++++++++
 function addproduct($name, $price, $category)
+{
+  if(empty($name) || empty($price) || empty($category)){
+    echo 'All fields are required';
+  }
+  else{
+    if(insert('vproducts', ['name' => $name, 'price' => $price, 'category' => $category,'status'=>'available' ,'dateadded' => date('jS F, Y')]) == 'success'){
+      echo 'success';
+    }
+    else{
+      echo 'failed';
+    }
+  }
+
+}
