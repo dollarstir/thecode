@@ -1714,6 +1714,18 @@ function complete($token){
   }
 }
 
+
+
+
+function reject($token){
+  
+  if(update('vorders', ['status' => 'cancelled'], ['token'=> $token]) == 'success'){
+    echo 'statussuccess';
+  }
+  else{
+    echo 'statusfailed';
+  }
+}
 function payapprove($token){
     
     if(update('vorders', ['paymentstatus' => 'paid'], ['token'=> $token]) == 'success'){
