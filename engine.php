@@ -188,5 +188,12 @@ $router = new Router([
             return Viewer::view('vadmin/app_settings.php', $context);
         }
     ),
+
+    new Route(
+        '/addcustom',
+        function ($context) {
+            return Viewer::view('vadmin/add_custom.php', $context);
+        }
+    ),
 ]);
 $router->launch();

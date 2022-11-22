@@ -122,6 +122,12 @@ if (isset($_GET['action'])) {
             # code...
             break;
 
+        case 'addcustom':
+            extract($_POST);
+            addcustom($state);
+            # code...
+            break;
+
         default:
 
         break;

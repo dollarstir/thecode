@@ -591,6 +591,25 @@ $(document).on('submit','.editapp',function(e){
 });
 
 
+// add custom
+$(document).on('submit','.addcustom',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=addcustom',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
+
+
 
 
     

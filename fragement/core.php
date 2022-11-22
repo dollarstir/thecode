@@ -2026,3 +2026,18 @@ function editapp($appname, $appemail, $appcontact,$appaddress, $about){
     }
   }
 }
+
+
+function addcustom($state){
+  if(empty($state)){
+    echo 'All fields are required';
+  }
+  else{
+    if(insert('custom', ['state' => $state]) == 'success'){
+      echo 'success';
+    }
+    else{
+      echo 'failed';
+    }
+  }
+}
