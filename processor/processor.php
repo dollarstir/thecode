@@ -104,6 +104,12 @@ if (isset($_GET['action'])) {
             payreject($token);
             break;
 
+        case 'reject':
+                # code...
+            extract($_POST);
+            reject($token);
+            break;
+
         default:
 
         break;

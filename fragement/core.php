@@ -1726,6 +1726,8 @@ function reject($token){
     echo 'statusfailed';
   }
 }
+
+
 function payapprove($token){
     
     if(update('vorders', ['paymentstatus' => 'paid'], ['token'=> $token]) == 'success'){

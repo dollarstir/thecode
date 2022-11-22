@@ -496,6 +496,25 @@ $(document).on('click','.btncomplete',function(e){
 });
 
 
+// reject status
+
+$(document).on('click','.reject',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=reject',
+      type: 'post',
+      data: {"token": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
+
+
 // payment approve
 $(document).on('click','.payapprove',function(e){
 
