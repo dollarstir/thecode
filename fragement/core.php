@@ -1694,7 +1694,7 @@ function adminorders($status)
 
 function processing($token){
   
-  if(update('vorders', ['status' => 'processing'], ['token', '=', $token]) == 'success'){
+  if(update('vorders', ['status' => 'processing'], ['token'=> $token]) == 'success'){
     echo 'statussuccess';
   }
   else{
