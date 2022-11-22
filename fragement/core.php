@@ -2090,3 +2090,14 @@ function deletecategory($id)
     echo 'deletefailed';
   }
 }
+
+
+function deleteuser($id){
+
+  if(delete('vusers', [['id','=', $id]]) == 'success'){
+    echo 'deletesuccess';
+  }
+  else{
+    echo 'deletefailed';
+  }
+}

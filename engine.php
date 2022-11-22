@@ -202,5 +202,12 @@ $router = new Router([
             return Viewer::view('vadmin/add_category.php', $context);
         }
     ),
+
+    new Route(
+        '/authentication',
+        function ($context) {
+            return Viewer::view('vadmin/auth.php', $context);
+        }
+    ),
 ]);
 $router->launch();

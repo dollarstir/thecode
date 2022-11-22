@@ -151,6 +151,12 @@ if (isset($_GET['action'])) {
             # code...
             break;
 
+        case 'deleteuser':
+            extract($_POST);
+            deleteuser($id);
+            # code...
+            break;
+
         default:
 
         break;
