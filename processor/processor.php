@@ -98,6 +98,12 @@ if (isset($_GET['action'])) {
             payapprove($token);
             break;
 
+        case 'payreject':
+                # code...
+            extract($_POST);
+            payreject($token);
+            break;
+
         default:
 
         break;

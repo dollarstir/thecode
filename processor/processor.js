@@ -514,6 +514,23 @@ $(document).on('click','.payapprove',function(e){
 });
 
 
+$(document).on('click','.payreject',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=payreject',
+      type: 'post',
+      data: {"token": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
+
+
 
 
 

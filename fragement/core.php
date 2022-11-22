@@ -1665,7 +1665,7 @@ function adminorders($status)
                 $pst = '<span class="badge badge-info">Awaiting aproval</span>';
                 break;
             case 'cancelled':
-                $pst = '<span class="badge badge-danger">Partially Paid</span>';
+                $pst = '<span class="badge badge-danger">Cancelled</span>';
                 break;
             default:
                 $pst = '<span class="badge badge-warning">Pending</span>';
@@ -1722,6 +1722,16 @@ function payapprove($token){
     else{
       echo 'statusfailed';
     }
+}
+
+function payreject($token){
+    
+  if(update('vorders', ['paymentstatus' => 'cancelled'], ['token'=> $token]) == 'success'){
+    echo 'statussuccess';
+  }
+  else{
+    echo 'statusfailed';
+  }
 }
 
 
