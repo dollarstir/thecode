@@ -1612,11 +1612,24 @@ function adminorders($status)
     foreach ($mylist as $o) {
         if ($status == 'all') {
             $c = customfetch('vorders', [['ordno', '=', $o]], 'AND', ['id'=> 'DESC']);
-        } else {
-            $c = customfetch('vorders', [['status', '=', $status], ['ordno', '=', $o]], 'AND',['id'=> 'DESC']);
+        } elseif($status == 'pending') {
+            $c = customfetch('vorders', [['status', '=', 'pending']], 'AND',['id'=> 'DESC']);
         }
 
-        $c = $c[0];
+        elseif($status == 'completed') {
+          $c = customfetch('vorders', [['status', '=', 'completed']], 'AND',['id'=> 'DESC']);
+        }
+
+        elseif($status == 'cancelled') {
+          $c = customfetch('vorders', [['status', '=', 'cancelled']], 'AND',['id'=> 'DESC']);
+        }
+
+        if($c ==[]){
+          // echo 'No order found';
+        }
+        else{
+
+          $c = $c[0];
 
         $mst = $c['status'];
         if ($mst == 'pending') {
@@ -1662,5 +1675,9 @@ function adminorders($status)
         <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
         <td>'.$c['dateadded'].'</td>
       </tr>';
+
+        }
+
+        
     }
 }
