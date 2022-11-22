@@ -108,6 +108,46 @@ $(function(){
 
       }
 
+
+
+      else if(response == 'deletesuccess'){
+
+        swal({
+            title: "Success!",
+            text: "Deleted successfully",
+            timer: 3000,
+            type: 'success',
+            padding: "2em",
+            onOpen: function () {
+              swal.showLoading();
+            },
+          }).then(function (result) {
+            swal.close();
+            window.location.reload();
+            
+          });
+
+    }
+
+    else if(response == 'deletefailed'){
+
+      swal({
+          title: "Failed!",
+          text: "Failed to delete",
+          timer: 3000,
+          type: 'error',
+          padding: "2em",
+          onOpen: function () {
+            swal.showLoading();
+          },
+        }).then(function (result) {
+          swal.close();
+          // window.location="cart";
+          
+        });
+
+  }
+
       else if(response == 'statussuccess'){
 
         swal({
@@ -609,6 +649,25 @@ $(document).on('submit','.addcustom',function(e){
       $.ajax(user);
 });
 
+
+
+// delete state
+
+$(document).on('click','.deletest',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=deletestate',
+      type: 'post',
+      data: {"id": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
 
 
 

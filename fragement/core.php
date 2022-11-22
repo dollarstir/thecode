@@ -2041,3 +2041,12 @@ function addcustom($state){
     }
   }
 }
+
+function deletestate($id){
+  if(delete('custom', ['id' => $id]) == 'deleted'){
+    echo 'deletesuccess';
+  }
+  else{
+    echo 'deletefailed';
+  }
+}

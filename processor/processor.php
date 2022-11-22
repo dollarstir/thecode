@@ -128,6 +128,12 @@ if (isset($_GET['action'])) {
             # code...
             break;
 
+        case 'deletestate':
+            extract($_POST);
+            deletestate($id);
+            # code...
+            break;
+
         default:
 
         break;
