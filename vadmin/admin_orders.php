@@ -208,7 +208,7 @@ admintop($mt.' orders');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1><?php echo strtoupper($mt); ?> ORDERS</h1>
+              <h1><?php echo ($mt); ?> ORDERS</h1>
             </div>
             
           </div>
