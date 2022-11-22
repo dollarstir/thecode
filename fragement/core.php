@@ -1965,7 +1965,7 @@ function addproduct($name, $price, $category)
     echo 'All fields are required';
   }
   else{
-    if(insert('vproducts', ['name' => $name, 'price' => $price, 'category' => $category,'status'=>'available' ,'dateadded' => date('jS F, Y')]) == 'success'){
+    if(insert('vproducts', ['name' => $name, 'price' => $price, 'category' => $category,'status'=>'available' ,'dateadded' => date('jS F, Y')],$_FILES) == 'success'){
       echo 'success';
     }
     else{
