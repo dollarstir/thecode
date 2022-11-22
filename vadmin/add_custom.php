@@ -198,19 +198,19 @@ admintop('Add states');
             <div class="col-10">
 
               <div class="card card-primary">
-                <!-- <div class="card-header">
-                  <h3 class="card-title">Quick Example</h3>
-                </div> -->
+                
 
 
-                <form class="addcustom">
+                <form>
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">State</label>
                       <input type="text" class="form-control" name="state" id="exampleInputEmail1" placeholder="Name of state">
                     </div>
                     
+                    <div class="mess">
 
+                    </div>
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
