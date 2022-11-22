@@ -1084,19 +1084,19 @@ function adminnav()
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+            <a href="adminorders?type=processing" class="nav-link">
             <i class="nav-icon far fa-circle text-info"></i>
               <p>Processing </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/layout/boxed.html" class="nav-link">
+            <a href="adminorders?type=completed" class="nav-link">
             <i class="nav-icon far fa-circle text-success"></i>
               <p>Completed</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+            <a href="adminorders?type=cancelled" class="nav-link">
             <i class="nav-icon far fa-circle text-danger"></i>
               <p>Cancelled</p>
             </a>
@@ -1581,7 +1581,7 @@ function adminorderstatus($token){
         break;
 
       case 'processing':
-          $btn = '<button class="btn btn-danger btn-sm reject" id="'.$token.'">Reject</button>';
+          $btn = '<button class="btn btn-success btn-sm btncomplete" id="'.$token.'">Complete</button><button class="btn btn-danger btn-sm reject" id="'.$token.'">Reject</button>';
         break;
 
         
@@ -1606,7 +1606,10 @@ function adminorderitems($number)
     return ($mm);
 }
 function adminorders($status)
+
 {
+
+  $finito ='';
     $mylist = checkduplicate1();
 
     foreach ($mylist as $o) {
@@ -1618,6 +1621,10 @@ function adminorders($status)
 
         elseif($status == 'completed') {
           $c = customfetch('vorders', [['status', '=', 'completed']], 'AND',['id'=> 'DESC']);
+        }
+
+        elseif($status == 'processing') {
+          $c = customfetch('vorders', [['status', '=', 'processing']], 'AND',['id'=> 'DESC']);
         }
 
         elseif($status == 'cancelled') {
@@ -1664,11 +1671,11 @@ function adminorders($status)
         }
         
 
-        echo '<tr>
+        $finito .= '<tr>
         <td>'.$c['ordno'].'</td>
         <td>'.$c['email'].' </td>
         <td>'.$c['contact'].'</td>
-        <td>'.adminorderitems($o).' </td>
+        <td>'.adminorderitems($c['ordno']).' </td>
         <td>'.$c['note'].'</td>
         <td>'.mytotal($c['token']).'</td>
         <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
@@ -1680,4 +1687,10 @@ function adminorders($status)
 
         
     }
+
+    return $finito;
 }
+
+
+
+

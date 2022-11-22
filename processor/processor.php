@@ -79,6 +79,12 @@ if (isset($_GET['action'])) {
             checkorderstatus();
             break;
 
+        case '':
+            extract($_POST);
+            processing($token);
+            // code...
+            break;
+
         default:
 
         break;
