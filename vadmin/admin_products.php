@@ -1,7 +1,7 @@
 <?php
 involve('core.php');
 
-admintop('Forms');
+admintop('Products');
 
 ?>
 
@@ -15,11 +15,9 @@ admintop('Forms');
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
+          <a href="streetadmin" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
+       
       </ul>
 
       <ul class="navbar-nav ml-auto">
@@ -148,7 +146,7 @@ admintop('Forms');
       <a href="index3.html" class="brand-link">
         <img src="vadmin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Admininstrator</span>
       </a>
 
       <div class="sidebar">
@@ -174,6 +172,7 @@ admintop('Forms');
         </div>
 
         <?php adminnav(); ?>
+
       </div>
 
     </aside>
@@ -184,7 +183,7 @@ admintop('Forms');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>General Form</h1>
+              <h1>Products</h1>
             </div>
             
           </div>
@@ -194,78 +193,51 @@ admintop('Forms');
       <section class="content">
         <div class="container-fluid">
           <div class="row">
-
-            <div class="col-10">
-
-              <div class="card card-primary">
+            <div class="col-12">
+              
+              <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Quick Example</h3>
+                  <!-- <h3 class="card-title">DataTable with default features</h3> -->
                 </div>
 
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php adminproducts() ;?>
+                      
+                      
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                      <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
 
-                <form>
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                      <label>Minimal</label>
-                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                        data-select2-id="1" tabindex="-1" aria-hidden="true">
-                        <option selected="selected" data-select2-id="3">Alabama</option>
-                        <option data-select2-id="54">Alaska</option>
-                        <option data-select2-id="55">California</option>
-                        <option data-select2-id="56">Delaware</option>
-                        <option data-select2-id="57">Tennessee</option>
-                        <option data-select2-id="58">Texas</option>
-                        <option data-select2-id="59">Washington</option>
-                      </select>
-                      <!--  -->
-                    </div>
-
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </form>
               </div>
 
-
-              
-
-
-              
-
             </div>
-
-
-            
 
           </div>
 
         </div>
+
       </section>
 
     </div>

@@ -1,7 +1,7 @@
 <?php
 involve('core.php');
 
-admintop('Forms');
+admintop('New Product');
 
 ?>
 
@@ -186,7 +186,7 @@ admintop('Forms');
             <div class="col-sm-6">
               <h1>General Form</h1>
             </div>
-            
+
           </div>
         </div>
       </section>
@@ -198,26 +198,32 @@ admintop('Forms');
             <div class="col-10">
 
               <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Quick Example</h3>
-                </div>
-
-
-                <form>
+               
+                <form class="addproduct">
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product Name" name="name">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      <label for="exampleInputPassword1">Price</label>
+                      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Product price" name="price">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Select Category</label>
+                      <select class="form-control select2 select2-hidden-accessible" name="category" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <option value="0">Select Category</option>
+                        <?php listcategory() ;?>
+                       
+                      </select>
+                      <!--  -->
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
+                      <label for="exampleInputFile">Product Image</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile">
+                          <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
                           <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                         </div>
                         <div class="input-group-append">
@@ -225,26 +231,8 @@ admintop('Forms');
                         </div>
                       </div>
                     </div>
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
+                    
                   </div>
-
-                  <div class="form-group">
-                      <label>Minimal</label>
-                      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                        data-select2-id="1" tabindex="-1" aria-hidden="true">
-                        <option selected="selected" data-select2-id="3">Alabama</option>
-                        <option data-select2-id="54">Alaska</option>
-                        <option data-select2-id="55">California</option>
-                        <option data-select2-id="56">Delaware</option>
-                        <option data-select2-id="57">Tennessee</option>
-                        <option data-select2-id="58">Texas</option>
-                        <option data-select2-id="59">Washington</option>
-                      </select>
-                      <!--  -->
-                    </div>
 
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -253,15 +241,15 @@ admintop('Forms');
               </div>
 
 
-              
 
 
-              
+
+
 
             </div>
 
 
-            
+
 
           </div>
 

@@ -1041,6 +1041,9 @@ function admintop($title)
     <link rel="stylesheet" href="vadmin/plugins/summernote/summernote-bs4.min.css">
   
     <!-- others -->
+
+    <link rel="stylesheet" href="vadmin/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="vadmin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
      
     <link rel="stylesheet" href="vadmin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet"
@@ -1060,7 +1063,7 @@ function adminnav()
 
       
       <li class="nav-item">
-        <a href="pages/widgets.html" class="nav-link">
+        <a href="streetadmin" class="nav-link">
           
           <p>
             Dashboard
@@ -1115,13 +1118,13 @@ function adminnav()
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="pages/charts/chartjs.html" class="nav-link">
+            <a href="addproduct" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Add New</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/charts/flot.html" class="nav-link">
+            <a href="adminproducts" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>View</p>
             </a>
@@ -1151,13 +1154,13 @@ function adminnav()
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="pages/forms/general.html" class="nav-link">
+            <a href="addcategory" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Add New</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/forms/advanced.html" class="nav-link">
+            <a href="category" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>View</p>
             </a>
@@ -1175,13 +1178,13 @@ function adminnav()
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="pages/tables/simple.html" class="nav-link">
+            <a href="addcustom" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Add New</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/tables/data.html" class="nav-link">
+            <a href="customstates" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>View</p>
             </a>
@@ -1466,6 +1469,8 @@ function admintail()
 
 <script src="vadmin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script src="vadmin/plugins/select2/js/select2.full.min.js"></script>
+
 <!-- datatables -->
 <script src="vadmin/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="vadmin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -1480,6 +1485,8 @@ function admintail()
 <script src="vadmin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="vadmin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- Datatables -->
+<!--sleect-->
+
 
 <!-- forms -->
 
@@ -1536,6 +1543,142 @@ bsCustomFileInput.init();
       "responsive": true,
     });
   });
+</script>
+
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2()
+
+    //Initialize Select2 Elements
+    $(".select2bs4").select2({
+      theme: "bootstrap4"
+    })
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", { "placeholder": "dd/mm/yyyy" })
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/yyyy", { "placeholder": "mm/dd/yyyy" })
+    //Money Euro
+    $("[data-mask]").inputmask()
+
+    //Date picker
+    $("#reservationdate").datetimepicker({
+        format: "L"
+    });
+
+    //Date and time picker
+    $("#reservationdatetime").datetimepicker({ icons: { time: "far fa-clock" } });
+
+    //Date range picker
+    $("#reservation").daterangepicker()
+    //Date range picker with time picker
+    $("#reservationtime").daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: "MM/DD/YYYY hh:mm A"
+      }
+    })
+    //Date range as a button
+    $("#daterange-btn").daterangepicker(
+      {
+        ranges   : {
+          "Today"       : [moment(), moment()],
+          "Yesterday"   : [moment().subtract(1, "days"), moment().subtract(1, "days")],
+          "Last 7 Days" : [moment().subtract(6, "days"), moment()],
+          "Last 30 Days": [moment().subtract(29, "days"), moment()],
+          "This Month"  : [moment().startOf("month"), moment().endOf("month")],
+          "Last Month"  : [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")]
+        },
+        startDate: moment().subtract(29, "days"),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"))
+      }
+    )
+
+    //Timepicker
+    $("#timepicker").datetimepicker({
+      format: "LT"
+    })
+
+    //Bootstrap Duallistbox
+    $(".duallistbox").bootstrapDualListbox()
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker()
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker()
+
+    $(".my-colorpicker2").on("colorpickerChange", function(event) {
+      $(".my-colorpicker2 .fa-square").css("color", event.color.toString());
+    })
+
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch("state", $(this).prop("checked"));
+    })
+
+  })
+  // BS-Stepper Init
+  document.addEventListener("DOMContentLoaded", function () {
+    window.stepper = new Stepper(document.querySelector(".bs-stepper"))
+  })
+
+  // DropzoneJS Demo Code Start
+  Dropzone.autoDiscover = false
+
+  // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+  var previewNode = document.querySelector("#template")
+  previewNode.id = ""
+  var previewTemplate = previewNode.parentNode.innerHTML
+  previewNode.parentNode.removeChild(previewNode)
+
+  var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+    url: "/target-url", // Set the url
+    thumbnailWidth: 80,
+    thumbnailHeight: 80,
+    parallelUploads: 20,
+    previewTemplate: previewTemplate,
+    autoQueue: false, // Make sure the files aren\'t queued until manually added
+    previewsContainer: "#previews", // Define the container to display the previews
+    clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+  })
+
+  myDropzone.on("addedfile", function(file) {
+    // Hookup the start button
+    file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file) }
+  })
+
+  // Update the total progress bar
+  myDropzone.on("totaluploadprogress", function(progress) {
+    document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
+  })
+
+  myDropzone.on("sending", function(file) {
+    // Show the total progress bar when upload starts
+    document.querySelector("#total-progress").style.opacity = "1"
+    // And disable the start button
+    file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
+  })
+
+  // Hide the total progress bar when nothing\'s uploading anymore
+  myDropzone.on("queuecomplete", function(progress) {
+    document.querySelector("#total-progress").style.opacity = "0"
+  })
+
+  // Setup the buttons for all transfers
+  // The "add files" button doesn\'t need to be setup because the config
+  // `clickable` has already been specified.
+  document.querySelector("#actions .start").onclick = function() {
+    myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+  }
+  document.querySelector("#actions .cancel").onclick = function() {
+    myDropzone.removeAllFiles(true)
+  }
+  // DropzoneJS Demo Code End
 </script>
 
 
@@ -1680,6 +1823,7 @@ function adminorders($status)
         <td>'.adminorderitems($c['ordno']).' </td>
         <td>'.$c['note'].'</td>
         <td>'.mytotal($c['token']).'</td>
+        <td>'.$c['transactionid'].'</td>
         <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
         <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
         <td>'.$c['dateadded'].'</td>
@@ -1751,3 +1895,64 @@ function payreject($token){
 
 
 
+
+
+
+function adminproducts(){
+  $finito ='';
+  $c = fetchall('vproducts');
+  foreach ($c as $d) {
+    $cat = customfetch('vcategory', [['id', '=', $d['category']]]);
+    $cat = $cat[0]['catname'];
+    $finito .= '<tr>
+    <td>'.$d['name'].'</td>
+    <td>'.$d['price'].'</td>
+    <td>'.$cat.'</td>
+    <td><img src="yolkassets/upload/'.$d['image'].'" style="width:50px;height:50px;"></td>
+    <td>'.$d['dateadded'].'</td>
+    <td><button class="btn btn-danger btn-sm deletep" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="delp?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
+  </tr>';
+  }
+
+  echo $finito;
+}
+
+
+function category(){
+  $finito ='';
+  $c = fetchall('vcategory');
+  foreach ($c as $d) {
+    $finito .= '<tr>
+    <td>'.$d['id'].'</td>
+    <td>'.$d['catname'].'</td>
+    <td><button class="btn btn-danger btn-sm deletec" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="delc?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
+  </tr>';
+  }
+
+  echo $finito;
+}
+
+function customstate(){
+  $finito ='';
+  $c = fetchall('custom');
+  foreach ($c as $d) {
+    $finito .= '<tr>
+    
+    <td>'.$d['state'].'</td>
+    <td><button class="btn btn-danger btn-sm deletest" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="dels?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
+  </tr>';
+  }
+
+  echo $finito;
+}
+
+
+function listcategory(){
+  $finito ='';
+  $c = fetchall('vcategory');
+  foreach ($c as $d) {
+    $finito .= '<option value="'.$d['id'].'">'.$d['catname'].'</option>';
+  }
+
+  echo $finito;
+}

@@ -147,5 +147,33 @@ $router = new Router([
             return Viewer::view('vadmin/admin_orders.php', $context);
         }
     ),
+
+    new Route(
+        '/adminproducts',
+        function ($context) {
+            return Viewer::view('vadmin/admin_products.php', $context);
+        }
+    ),
+
+    new Route(
+        '/category',
+        function ($context) {
+            return Viewer::view('vadmin/cate.php', $context);
+        }
+    ),
+
+    new Route(
+        '/customstates',
+        function ($context) {
+            return Viewer::view('vadmin/custom_states.php', $context);
+        }
+    ),
+
+    new Route(
+        '/addproduct',
+        function ($context) {
+            return Viewer::view('vadmin/new_prod.php', $context);
+        }
+    ),
 ]);
 $router->launch();

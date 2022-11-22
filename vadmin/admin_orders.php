@@ -235,6 +235,7 @@ admintop($mt.' orders');
                         <th>Detial</th>
                         <th>Note</th>
                         <th>Total</th>
+                        <th>Trans. ID</th>
                         <th>Payment</th>
                         <th>Order Status</th>
                         <th>Order Date</th> 
