@@ -32,7 +32,7 @@ class Del extends Database
                 }
             }
             $sel->execute();
-            $msg = 'deleted';
+            $msg = 'success';
         } catch (PDOException $e) {
             $msg = $e->getMessage();
         }

@@ -133,6 +133,23 @@ if (isset($_GET['action'])) {
             deletestate($id);
             # code...
             break;
+        case 'deleteproduct':
+            extract($_POST);
+            deleteproduct($id);
+            # code...
+            break;
+
+        case 'addcategory':
+            extract($_POST);
+            addcategory($catname);
+            # code...
+            break;
+
+        case 'deletecategory':
+            extract($_POST);
+            deletecategory($id);
+            # code...
+            break;
 
         default:
 

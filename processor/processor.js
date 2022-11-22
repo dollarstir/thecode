@@ -649,6 +649,25 @@ $(document).on('submit','.addcustom',function(e){
       $.ajax(user);
 });
 
+// add category
+
+$(document).on('submit','.addcategory',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=addcategory',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
+
 
 
 // delete state
@@ -669,6 +688,61 @@ $(document).on('click','.deletest',function(e){
   $.ajax(staff);
 });
 
+
+
+// delete product
+$(document).on('click','.deletep',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=deleteproduct',
+      type: 'post',
+      data: {"id": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
+
+// delete category
+
+$(document).on('click','.deletec',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=deletecategory',
+      type: 'post',
+      data: {"id": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
+
+
+// delete user
+
+$(document).on('click','.deleteu',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=deleteuser',
+      type: 'post',
+      data: {"id": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
 
 
     

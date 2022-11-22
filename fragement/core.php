@@ -2043,7 +2043,47 @@ function addcustom($state){
 }
 
 function deletestate($id){
-  if(delete('custom', ['id' => $id]) == 'deleted'){
+  if(delete('custom', [['id','=', $id]]) == 'success'){
+    echo 'deletesuccess';
+  }
+  else{
+    echo 'deletefailed';
+  }
+}
+
+function deleteproduct($id)
+{
+  if(delete('vproducts', [['id','=', $id]]) == 'success'){
+    echo 'deletesuccess';
+  }
+  else{
+    echo 'deletefailed';
+  }
+}
+
+
+
+function addcategory($catname){
+  if(empty($catname)){
+    echo 'All fields are required';
+  }
+  else{
+    if(insert('vcategory', ['catname' => $catname]) == 'success'){
+      echo 'success';
+    }
+    else{
+      echo 'failed';
+    }
+  }
+
+
+  
+}
+
+
+function deletecategory($id)
+{
+  if(delete('vcategory', [['id','=', $id]]) == 'success'){
     echo 'deletesuccess';
   }
   else{

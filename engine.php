@@ -195,5 +195,12 @@ $router = new Router([
             return Viewer::view('vadmin/add_custom.php', $context);
         }
     ),
+
+    new Route(
+        '/addcategory',
+        function ($context) {
+            return Viewer::view('vadmin/add_category.php', $context);
+        }
+    ),
 ]);
 $router->launch();
