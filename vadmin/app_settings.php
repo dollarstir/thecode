@@ -214,23 +214,23 @@ admintop('App Settings');
 
                     <div class="form-group">
                       <label for="exampleInputPassword1">Contact</label>
-                      <input type="email" class="form-control" id="exampleInputPassword1" name="appcontact" value="<?php app('appcontact') ;?>" placeholder="Contact">
+                      <input type="number" class="form-control" id="exampleInputPassword1" name="appcontact" value="<?php app('appcontact') ;?>" placeholder="Contact">
                     </div>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1">App Address</label>
-                      <input type="email" class="form-control" id="exampleInputPassword1" name="appaddress" value="<?php app('appaddress') ;?>" placeholder="Address">
+                      <input type="text" class="form-control" id="exampleInputPassword1" name="appaddress" value="<?php app('appaddress') ;?>" placeholder="Address">
                     </div>
 
                     <div class="form-group">
                       <label for="exampleInputPassword1">About</label>
-                      <textarea  class="form-control"  name="about" value="<?php app('about') ;?>" placeholder="About App"></textarea>
+                      <textarea  class="form-control"  name="about"  placeholder="About App"><?php app('about') ;?></textarea>
                     </div>
                     
                   </div>
 
                     <div class="mess">
-                        
+
                     </div>
 
                   <div class="card-footer">
