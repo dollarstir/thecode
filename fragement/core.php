@@ -1028,6 +1028,7 @@ function admintop($title)
     <link rel="stylesheet" href="vadmin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   
     <link rel="stylesheet" href="vadmin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    '.Yolk::uicore('cssa').'
   
     <link rel="stylesheet" href="vadmin/plugins/jqvmap/jqvmap.min.css">
   
@@ -1507,6 +1508,7 @@ function admintail()
 <script src="vadmin/dist/js/demo.js"></script>
 
 <script src="vadmin/dist/js/pages/dashboard.js"></script>
+'.yolk::uicore('jsa').'
 <script src="processor/processor.js"></script>
 
 
@@ -1700,6 +1702,26 @@ function processing($token){
   else{
     echo 'statusfailed';
   }
+}
+
+function complete($token){
+  
+  if(update('vorders', ['status' => 'completed'], ['token'=> $token]) == 'success'){
+    echo 'statussuccess';
+  }
+  else{
+    echo 'statusfailed';
+  }
+}
+
+function payapprove($token){
+    
+    if(update('vorders', ['paymentstatus' => 'paid'], ['token'=> $token]) == 'success'){
+      echo 'statussuccess';
+    }
+    else{
+      echo 'statusfailed';
+    }
 }
 
 

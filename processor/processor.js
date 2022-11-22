@@ -108,6 +108,46 @@ $(function(){
 
       }
 
+      else if(response == 'statussuccess'){
+
+        swal({
+            title: "Success!",
+            text: "Status Updated",
+            timer: 2000,
+            type: 'success',
+            padding: "2em",
+            onOpen: function () {
+              swal.showLoading();
+            },
+          }).then(function (result) {
+            swal.close();
+            window.location.reload();
+            
+          });
+
+    }
+
+
+
+    else if(response == 'statusfailed'){
+
+      swal({
+          title: "Failed!",
+          text: "Failed to update",
+          timer: 2000,
+          type: 'success',
+          padding: "2em",
+          onOpen: function () {
+            swal.showLoading();
+          },
+        }).then(function (result) {
+          swal.close();
+          // window.location.reload();
+          
+        });
+
+  }
+
       else if(response == 'alreadyincart'){
 
         swal({
@@ -427,6 +467,43 @@ $(document).on('click','.approve',function(e){
   var id = $(this).attr('id');
   var staff = {
       url: 'processor/processor.php?action=processing',
+      type: 'post',
+      data: {"token": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
+
+
+// approve status
+
+$(document).on('click','.btncomplete',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=complete',
+      type: 'post',
+      data: {"token": id},
+      beforeSend: before,
+      success: resp
+
+  };
+  $.ajax(staff);
+});
+
+
+// payment approve
+$(document).on('click','.payapprove',function(e){
+
+  e.preventDefault();
+  
+  var id = $(this).attr('id');
+  var staff = {
+      url: 'processor/processor.php?action=payapprove',
       type: 'post',
       data: {"token": id},
       beforeSend: before,

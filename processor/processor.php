@@ -79,10 +79,23 @@ if (isset($_GET['action'])) {
             checkorderstatus();
             break;
 
-        case '':
+        case 'processing':
             extract($_POST);
             processing($token);
             // code...
+            break;
+
+        case 'complete':
+
+            extract($_POST);
+            complete($token);
+            // code...
+            break;
+
+        case 'payapprove':
+            # code...
+            extract($_POST);
+            payapprove($token);
             break;
 
         default:
