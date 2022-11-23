@@ -760,6 +760,9 @@ function pay($transactionid, $network)
 
     if (strpos($msg, 'success') !== false) {
         // unset($_SESSION['token']);
+        sms('Street Code',$c[0]['contact'], 'Your payment for order with order number '.orderno().' is being reviewed. You will be notified when your order is ready. Thank you for shopping with us.');
+        // sms('Street Code',$c[0]['contact'], 'Your order with order number '.orderno().' has been received and is being processed. You will be notified when your order is ready for pickup. Thank you for shopping with us.');
+
         sms("Street Code", '0556676471', 'Payment request for  '.$c[0]['ordno'].' and total amount of '.mytotal($c[0]['token']).' from '.$c[0]['name'].' with transaction id '.$transactionid.' and network '.$network);
         unset($_SESSION['total']);
         echo 'paymentsuccess';
@@ -2000,7 +2003,7 @@ function complete($token){
      $subject = 'Order Completed';
      $to = $c[0]['email'];
 
-
+      sms('Street Code',$c[0]['contact'],'Your order has been completed. Your order number is '.$c[0]['ordno'].'. Kindly check your email for more details.');
      sendmail('phpyolk.com',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
     echo 'statussuccess';
   }
@@ -2097,7 +2100,7 @@ function payapprove($token){
       $subject = 'Order Received';
       $to = $c[0]['email'];
 
-
+      sms('Street Code',$c[0]['contact'], 'Your order with order number '.orderno().' has been received and is being processed. ');
       sendmail('phpyolk.com',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
       echo 'statussuccess';
     }
