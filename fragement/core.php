@@ -1897,9 +1897,10 @@ function complete($token){
         body{
           font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
         }
+        
         table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
+          border: 1px solid black !important;
+          border-collapse: collapse !important;
         }
 
         h1{
@@ -1937,7 +1938,7 @@ function complete($token){
 
     <p>Total Amount : '.mytotal($c[0]['token']).'</p>
     
-    <table><tr><th>Item</th><th>Price</th></tr><tbody>';
+    <table style="border: 1px solid black !important;"><tr><th>Item</th><th>Price</th></tr><tbody>';
     foreach($c as $d){
       $bd .= '<tr><td>'.$d['product'].'</td><td>'.$d['price'].'</td></tr>';
     }
