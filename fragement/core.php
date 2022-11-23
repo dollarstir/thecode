@@ -1939,9 +1939,16 @@ function complete($token){
 
     <p>Total Amount : '.mytotal($c[0]['token']).'</p></h4>
     
-    <table style="border: 1px solid black !important;"><tr><th>Item</th><th>Price</th></tr><tbody>';
+    <table style="color:#747474;border:0;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;border-top-width:1px;border-top-style:dashed;width:100%;padding-left:0;padding-right:0;text-align:right"
+		width="100%" cellspacing="0" cellpadding="6" border="0"><thead><tr><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Quantity</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Price</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Price</th></tr></thead><tbody>';
     foreach($c as $d){
-      $bd .= '<tr><td>'.$d['product'].'</td><td>'.$d['price'].'</td></tr>';
+      $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="left">'.$d['product'].'</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="left">1</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="left">'.$d['price'].'</td></tr>';
     }
     $bd .= '</tbody></table>';
     $bd .= '<h3>Billing Address</h3>';
