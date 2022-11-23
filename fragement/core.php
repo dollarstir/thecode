@@ -1919,7 +1919,7 @@ function processing($token){
     <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
     <h1>Thank you for your order</h1>
     <p class="pm">Hi '.$u[0]['name'].', Your order has been  processed. We will try to deliver very fast. It may take a maximum of 30 minute to 6 hours. Your order details are shown below for your reference:</p>
-      <h3>Order etials</h3></center>
+      <h3>Order details</h3></center>
     <center><h4 style="padding:10px;"><p>Order Number : '.$c[0]['ordno'].'</p>
 
     <p>status : '.$c[0]['status'].'</p>
@@ -2005,7 +2005,7 @@ function complete($token){
     <p class="pm">Hi '.$u[0]['name'].'. Your recent order on streetkode.tk has been completed. We\'ve also sent you another email (Order #'.$c[0]['ordno'].') where your delivery file has been sent. Your order details are shown below for your reference:
 
       If you do not see another email in your inbox, check the spam folder.</p>
-      <h3>Order etials</h3></center>
+      <h3>Order details</h3></center>
     <center><h4 style="padding:10px;"><p>Order Number : '.$c[0]['ordno'].'</p>
 
     <p>status : '.$c[0]['status'].'</p>
@@ -2102,7 +2102,7 @@ function payapprove($token){
     <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
     <h1>Thank you for your order</h1>
     <p class="pm">Hi '.$u[0]['name'].', Your order has been received and is now being processed. We will try to deliver very fast. It may take a maximum of 30 minute to 6 hours. Your order details are shown below for your reference:</p>
-      <h3>Order etials</h3></center>
+      <h3>Order details</h3></center>
     <center><h4 style="padding:10px;"><p>Order Number : '.$c[0]['ordno'].'</p>
 
     <p>status : '.$c[0]['status'].'</p>
