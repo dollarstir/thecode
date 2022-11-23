@@ -1842,34 +1842,72 @@ function processing($token){
   
   if(update('vorders', ['status' => 'processing'], ['token'=> $token]) == 'success'){
     $c = customfetch('vorders', [['token', '=', $token]]);
-     $bd = '<html><head>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
-         <style>
-         table, th, td {
-           border: 1px solid black;
-           border-collapse: collapse;
-         }
-         </style>
-    </head><body>
-     <p>Order : '.$c[0]['ordno'].'</p>
+    $u = customfetch('vusers', [['email', '=', $c[0]['email']]]);
+    $bd = '<html><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
+        <style>
 
-     <p>status : '.$c[0]['status'].'</p>
+        body{
+          font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+        }
+        
+       
 
-      <p>Payment status : '.$c[0]['paymentstatus'].'</p>
+        h1{
+          display: block;
+          text-align: center;
+          padding-top: 36px;
+          padding-bottom: 36px;
+          padding-left: 48px;
+          padding-right: 48px;
+        }
+
+        .pm{
+          color: #747474;
+          text-align: left;
+          font-size: 14px;
+          line-height: 24px;
+          font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+          font-weight: 400;
+          margin:0 0 16px;
+        }
+        p{
+        </style>
+   </head><body>
+    <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
+    <h1>Thank you for your order</h1>
+    <p class="pm">Hi '.$u[0]['name'].', Your order has been  processed. We will try to deliver very fast. It may take a maximum of 30 minute to 6 hours. Your order details are shown below for your reference:</p>
+      <h3>Order etials</h3></center>
+    <center><h4 style="padding:10px;"><p>Order Number : '.$c[0]['ordno'].'</p>
+
+    <p>status : '.$c[0]['status'].'</p>
+
+     <p>Payment status : '.$c[0]['paymentstatus'].'</p>
 
 
-     <p>Total Amount : '.mytotal($c[0]['token']).'</p>
-     
-     <table><tr><th>Item</th><th>Price</th></tr><tbody>';
-     foreach($c as $d){
-       $bd .= '<tr><td>'.$d['product'].'</td></tr>';
-     }
-     $bd .= '</tbody></table>';
-      $bd .= '<p>Thank you for shopping with us</p>';
-      $bd .= '<p>Regards</p>';
-      $bd .= '<p>Team Streetcode</p>';
-      $bd .= '<p>www.streetkode.tk</p></body></html>';
+    <p>Total Amount : '.mytotal($c[0]['token']).'</p></h4>
+    
+    <table style="color:#747474;border:0;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;border-top-width:1px;border-top-style:dashed;width:100%;padding-left:0;padding-right:0;text-align:right"
+		width="100%" cellspacing="0" cellpadding="6" border="0"><thead><tr><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Quantity</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Price</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Price</th></tr></thead><tbody>';
+    foreach($c as $d){
+      $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="left">'.$d['product'].'</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="center">1</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="right">'.$d['price'].'</td></tr>';
+    }
+    $bd .= '</tbody></table>';
+    $bd .= '<h3>Billing Address</h3>';
+    $bd .= '<p>'.$u[0]['name'].'</p>';
+    $bd .= '<p>'.$c[0]['email'].'</p>';
+    $bd .= '<p>'.$c[0]['contact'].'</p>';
+     $bd .= '<p>Thank you for shopping with us</p>';
+     $bd .= '<p>Regards</p>';
+     $bd .= '<p>Team Streetcode</p>';
+     $bd .= '<p>www.streetkode.tk</p></center></body></html>';
 
       $subject = 'Order Processing';
       $to = $c[0]['email'];
@@ -1987,34 +2025,72 @@ function payapprove($token){
     
     if(update('vorders', ['paymentstatus' => 'paid'], ['token'=> $token]) == 'success'){
      $c = customfetch('vorders', [['token', '=', $token]]);
+     $u = customfetch('vusers', [['email', '=', $c[0]['email']]]);
      $bd = '<html><head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
-          <style>
-          table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-          }
-          </style>
-     </head><body>
-     <p>Order : '.$c[0]['ordno'].'</p>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
+        <style>
 
-     <p>status : '.$c[0]['status'].'</p>
+        body{
+          font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+        }
+        
+       
 
-      <p>Payment status : '.$c[0]['paymentstatus'].'</p>
+        h1{
+          display: block;
+          text-align: center;
+          padding-top: 36px;
+          padding-bottom: 36px;
+          padding-left: 48px;
+          padding-right: 48px;
+        }
+
+        .pm{
+          color: #747474;
+          text-align: left;
+          font-size: 14px;
+          line-height: 24px;
+          font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+          font-weight: 400;
+          margin:0 0 16px;
+        }
+        p{
+        </style>
+   </head><body>
+    <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
+    <h1>Thank you for your order</h1>
+    <p class="pm">Hi '.$u[0]['name'].', Your order has been received and is now being processed. We will try to deliver very fast. It may take a maximum of 30 minute to 6 hours. Your order details are shown below for your reference:</p>
+      <h3>Order etials</h3></center>
+    <center><h4 style="padding:10px;"><p>Order Number : '.$c[0]['ordno'].'</p>
+
+    <p>status : '.$c[0]['status'].'</p>
+
+     <p>Payment status : '.$c[0]['paymentstatus'].'</p>
 
 
-     <p>Total Amount : '.mytotal($c[0]['token']).'</p>
-     
-     <table style="width:100%;" ><tr><th>Item</th><th>Price</th></tr><tbody>';
-     foreach($c as $d){
-       $bd .= '<tr><td>'.$d['product'].'</td><td>'.$d['price'].'</td></tr>';
-     }
-     $bd .= '</tbody></table>';
-      $bd .= '<p>Thank you for shopping with us</p>';
-      $bd .= '<p>Regards</p>';
-      $bd .= '<p>Team Streetcode</p>';
-      $bd .= '<p>www.streetkode.tk</p></body></html>';
+    <p>Total Amount : '.mytotal($c[0]['token']).'</p></h4>
+    
+    <table style="color:#747474;border:0;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;border-top-width:1px;border-top-style:dashed;width:100%;padding-left:0;padding-right:0;text-align:right"
+		width="100%" cellspacing="0" cellpadding="6" border="0"><thead><tr><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Quantity</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Price</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
+    align="left">Price</th></tr></thead><tbody>';
+    foreach($c as $d){
+      $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="left">'.$d['product'].'</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="center">1</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="right">'.$d['price'].'</td></tr>';
+    }
+    $bd .= '</tbody></table>';
+    $bd .= '<h3>Billing Address</h3>';
+    $bd .= '<p>'.$u[0]['name'].'</p>';
+    $bd .= '<p>'.$c[0]['email'].'</p>';
+    $bd .= '<p>'.$c[0]['contact'].'</p>';
+     $bd .= '<p>Thank you for shopping with us</p>';
+     $bd .= '<p>Regards</p>';
+     $bd .= '<p>Team Streetcode</p>';
+     $bd .= '<p>www.streetkode.tk</p></center></body></html>';
 
       $subject = 'Order Received';
       $to = $c[0]['email'];
