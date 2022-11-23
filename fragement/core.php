@@ -2136,7 +2136,7 @@ function payapprove($token){
       $subject = 'Order Received';
       $to = $c[0]['email'];
 
-      sms('Street Code',$c[0]['contact'], 'Your order with order number '.orderno().' has been received and is being processed. ');
+      sms('Street Code',$c[0]['contact'], 'Your order # '.orderno().' is being processed. ');
       sendmail('phpyolk.com',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
       echo 'statussuccess';
     }
