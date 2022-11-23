@@ -1893,6 +1893,10 @@ function complete($token){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
         <style>
+
+        body{
+          font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+        }
         table, th, td {
           border: 1px solid black;
           border-collapse: collapse;
