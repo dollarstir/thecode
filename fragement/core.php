@@ -1929,7 +1929,7 @@ function complete($token){
     <p class="pm">Hi '.$u[0]['name'].'. Your recent order on PvaBay.com has been completed. We\'ve also sent you another email (Order #35494) where your delivery file has been sent. Your order details are shown below for your reference:
 
       If you do not see another email in your inbox, check the spam folder.</p>
-      <h3>Order etials/h3></center>
+      <h3>Order etials</h3></center>
     <center><h4><p>Order Number : '.$c[0]['ordno'].'</p>
 
     <p>status : '.$c[0]['status'].'</p>
