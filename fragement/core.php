@@ -1914,13 +1914,14 @@ function complete($token){
           font-weight: 400;
           margin:0 0 16px;
         }
+        p{
         </style>
    </head><body>
     <h1>Thank you for your order</h1>
     <p class="pm">Hi Frederick. Your recent order on PvaBay.com has been completed. We\'ve also sent you another email (Order #35494) where your delivery file has been sent. Your order details are shown below for your reference:
 
       If you do not see another email in your inbox, check the spam folder.</p>
-    <p>Order : '.$c[0]['ordno'].'</p>
+    <center><p>Order : '.$c[0]['ordno'].'</p>
 
     <p>status : '.$c[0]['status'].'</p>
 
@@ -1937,7 +1938,7 @@ function complete($token){
      $bd .= '<p>Thank you for shopping with us</p>';
      $bd .= '<p>Regards</p>';
      $bd .= '<p>Team Streetcode</p>';
-     $bd .= '<p>www.streetkode.tk</p></body></html>';
+     $bd .= '<p>www.streetkode.tk</p></center></body></html>';
 
      $subject = 'Order Completed';
      $to = $c[0]['email'];
