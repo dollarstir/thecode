@@ -1952,7 +1952,7 @@ function payapprove($token){
       $to = $c[0]['email'];
 
 
-      sendmail('streetkode.tk',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
+      sendmail('phpyolk.com',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
       echo 'statussuccess';
     }
     else{
