@@ -302,8 +302,8 @@ function register($name, $email, $contact, $password, $repass)
                 'datejoined' => date('jS F, Y'),
                 'status' => 'active',
             ];
-                $result = insert('vusers', $data);
-                if ($result == 'success') {
+                
+                if ($result = insert('vusers', $data) == 'success') {
                     echo 'registration_success';
                 } else {
                     echo 'Failed to register';
