@@ -650,52 +650,88 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
             }
         } else {
             // register new user before orders
-            $password = md5($password);
-            $data = [
-                'name' => $name,
-                'email' => $email,
-                'contact' => $contact,
-                'password' => $password,
-                'datejoined' => date('jS F, Y'),
-                'status' => 'active',
-            ];
-            if ($ko = insert('vusers', $data) == 'success') {
-                loginauth('vusers', 'vuser', ['email', '=', $email], ['password', '=', $password]);
+            if(isset($_SESSION['vuser'])){
                 if (isset($_SESSION['strcart'])) {
-                    $cart = $_SESSION['strcart'];
-                    $token = bin2hex(random_bytes(8)).time();
-                    $dateadded = date('jS F, Y');
-                    $cco = countall('vorders');
-                    $ordno = $cco + 1;
-                    foreach ($cart as $c) {
-                        $k = customfetch('vproducts', [['id', '=', $c]]);
-                        $k = $k[0];
-                        $total += $k['price'];
+                  $cart = $_SESSION['strcart'];
+                  $token = bin2hex(random_bytes(8)).time();
+                  $dateadded = date('jS F, Y');
+                  $cco = countall('vorders');
+                  $ordno = $cco + 1;
+                  foreach ($cart as $c) {
+                      $k = customfetch('vproducts', [['id', '=', $c]]);
+                      $k = $k[0];
+                      $total += $k['price'];
 
-                        $record = [
-                      'userid' => $_SESSION['vuser']['id'],
-                      'productid' => $k['id'],
-                      'ordno' => $ordno,
-                      'token' => $token,
-                      'product' => $k['name'],
+                      $record = [
+                    'userid' => $_SESSION['vuser']['id'],
+                    'productid' => $k['id'],
+                    'ordno' => $ordno,
+                    'token' => $token,
+                    'product' => $k['name'],
+                    'email' => $email,
+                    'contact' => $contact,
+                    'price' => $k['price'],
+                    'note' => $note,
+                    'dateadded' => $dateadded,
+                    'status' => 'pending',
+                    'paymenttype' => $paymenttype,
+                    'paymentstatus' => 'notpaid',
+                ];
+
+                      $msg .= insert('vorders', $record);
+                  }
+              } else {
+                  $msg = 'No item in cart';
+              }
+            }else{
+                  $password = md5($password);
+                  $data = [
+                      'name' => $name,
                       'email' => $email,
                       'contact' => $contact,
-                      'price' => $k['price'],
-                      'note' => $note,
-                      'dateadded' => $dateadded,
-                      'status' => 'pending',
-                      'paymenttype' => $paymenttype,
-                      'paymentstatus' => 'notpaid',
+                      'password' => $password,
+                      'datejoined' => date('jS F, Y'),
+                      'status' => 'active',
                   ];
+                  if ($ko = insert('vusers', $data) == 'success') {
+                      loginauth('vusers', 'vuser', ['email', '=', $email], ['password', '=', $password]);
+                      if (isset($_SESSION['strcart'])) {
+                          $cart = $_SESSION['strcart'];
+                          $token = bin2hex(random_bytes(8)).time();
+                          $dateadded = date('jS F, Y');
+                          $cco = countall('vorders');
+                          $ordno = $cco + 1;
+                          foreach ($cart as $c) {
+                              $k = customfetch('vproducts', [['id', '=', $c]]);
+                              $k = $k[0];
+                              $total += $k['price'];
 
-                        $msg .= insert('vorders', $record);
-                    }
-                } else {
-                    $msg = 'No item in cart';
-                }
-            } else {
-                $msg = 'Failed to create user account';
+                              $record = [
+                            'userid' => $_SESSION['vuser']['id'],
+                            'productid' => $k['id'],
+                            'ordno' => $ordno,
+                            'token' => $token,
+                            'product' => $k['name'],
+                            'email' => $email,
+                            'contact' => $contact,
+                            'price' => $k['price'],
+                            'note' => $note,
+                            'dateadded' => $dateadded,
+                            'status' => 'pending',
+                            'paymenttype' => $paymenttype,
+                            'paymentstatus' => 'notpaid',
+                        ];
+
+                              $msg .= insert('vorders', $record);
+                          }
+                      } else {
+                          $msg = 'No item in cart';
+                      }
+                  } else {
+                      $msg = 'Failed to create user account';
+                  }
             }
+            
         }
     }
 
