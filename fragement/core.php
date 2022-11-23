@@ -1841,6 +1841,32 @@ function adminorders($status)
 function processing($token){
   
   if(update('vorders', ['status' => 'processing'], ['token'=> $token]) == 'success'){
+    $c = customfetch('vorders', [['token', '=', $token]]);
+     $bd = '
+     <p>Order : '.$c[0]['ordno'].'</p>
+
+     <p>status : '.$c[0]['status'].'</p>
+
+      <p>Payment status : '.$c[0]['paymentstatus'].'</p>
+
+
+     <p>Total Amount : '.mytotal($c[0]['token']).'</p>
+     
+     <table><tr><th>Item</th><th>Price</th></tr><tbody>';
+     foreach($c as $d){
+       $bd .= '<tr><td>'.$d['product'].'</td></tr>';
+     }
+     $bd .= '</tbody></table>';
+      $bd .= '<p>Thank you for shopping with us</p>';
+      $bd .= '<p>Regards</p>';
+      $bd .= '<p>Team Streetcode</p>';
+      $bd .= '<p>www.streetkode.tk</p>';
+
+      $subject = 'Order Processing';
+      $to = $c[0]['email'];
+
+
+      sendmail('streetkode.tk',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
     echo 'statussuccess';
   }
   else{
@@ -1851,6 +1877,32 @@ function processing($token){
 function complete($token){
   
   if(update('vorders', ['status' => 'completed'], ['token'=> $token]) == 'success'){
+    $c = customfetch('vorders', [['token', '=', $token]]);
+    $bd = '
+    <p>Order : '.$c[0]['ordno'].'</p>
+
+    <p>status : '.$c[0]['status'].'</p>
+
+     <p>Payment status : '.$c[0]['paymentstatus'].'</p>
+
+
+    <p>Total Amount : '.mytotal($c[0]['token']).'</p>
+    
+    <table><tr><th>Item</th><th>Price</th></tr><tbody>';
+    foreach($c as $d){
+      $bd .= '<tr><td>'.$d['product'].'</td></tr>';
+    }
+    $bd .= '</tbody></table>';
+     $bd .= '<p>Thank you for shopping with us</p>';
+     $bd .= '<p>Regards</p>';
+     $bd .= '<p>Team Streetcode</p>';
+     $bd .= '<p>www.streetkode.tk</p>';
+
+     $subject = 'Order Completed';
+     $to = $c[0]['email'];
+
+
+     sendmail('streetkode.tk',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
     echo 'statussuccess';
   }
   else{
