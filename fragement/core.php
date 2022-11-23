@@ -1923,7 +1923,7 @@ function complete($token){
    </head><body>
     <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
     <h1>Thank you for your order</h1>
-    <p class="pm">Hi '.$u[0]['name'].'. Your recent order on PvaBay.com has been completed. We\'ve also sent you another email (Order #35494) where your delivery file has been sent. Your order details are shown below for your reference:
+    <p class="pm">Hi '.$u[0]['name'].'. Your recent order on streetkode.tk has been completed. We\'ve also sent you another email (Order #'.$c[0]['ordno'].') where your delivery file has been sent. Your order details are shown below for your reference:
 
       If you do not see another email in your inbox, check the spam folder.</p>
       <h3>Order etials</h3></center>
