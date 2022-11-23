@@ -700,7 +700,7 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
     }
 
     if (strpos($msg, 'success') !== false) {
-      sms("Dollarsoft", '0556676471', 'New order from '.$name.' with order number '.$ordno.' and total amount of '.$total);
+      sms("Street Code", '0556676471', 'New order from '.$name.' with order number '.$ordno.' and total amount of '.$total);
         unset($_SESSION['strcart']);
         $_SESSION['token'] = $token;
         $_SESSION['total'] = $total;
@@ -760,6 +760,7 @@ function pay($transactionid, $network)
 
     if (strpos($msg, 'success') !== false) {
         // unset($_SESSION['token']);
+        sms("Street Code", '0556676471', 'Payment request for  '.$c[0]['ordno'].' and total amount of '.mytotal($c[0]['token']).' from '.$c[0]['name'].' with transaction id '.$transactionid.' and network '.$network);
         unset($_SESSION['total']);
         echo 'paymentsuccess';
     } else {
