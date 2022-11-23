@@ -1940,7 +1940,7 @@ function payapprove($token){
      
      <table><tr><th>Item</th><th>Price</th></tr><tbody>';
      foreach($c as $d){
-       $bd .= '<tr><td>'.$d['product'].'</td></tr>';
+       $bd .= '<tr><td>'.$d['product'].'</td><td>'.$d['price'].'</td></tr>';
      }
      $bd .= '</tbody></table>';
       $bd .= '<p>Thank you for shopping with us</p>';
