@@ -1924,19 +1924,20 @@ function complete($token){
         p{
         </style>
    </head><body>
-    <center><img src="http://streetkode.tk/template/img/core-img/logo.png"></center>
+    <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
     <h1>Thank you for your order</h1>
     <p class="pm">Hi '.$u[0]['name'].'. Your recent order on PvaBay.com has been completed. We\'ve also sent you another email (Order #35494) where your delivery file has been sent. Your order details are shown below for your reference:
 
       If you do not see another email in your inbox, check the spam folder.</p>
-    <center><p>Order : '.$c[0]['ordno'].'</p>
+      <h3>Order etials/h3></center>
+    <center><h4><p>Order Number : '.$c[0]['ordno'].'</p>
 
     <p>status : '.$c[0]['status'].'</p>
 
      <p>Payment status : '.$c[0]['paymentstatus'].'</p>
 
 
-    <p>Total Amount : '.mytotal($c[0]['token']).'</p>
+    <p>Total Amount : '.mytotal($c[0]['token']).'</p></h4>
     
     <table style="border: 1px solid black !important;"><tr><th>Item</th><th>Price</th></tr><tbody>';
     foreach($c as $d){
