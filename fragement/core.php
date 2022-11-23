@@ -78,9 +78,9 @@ function start($title)
         }
 
         echo '<!-- Preloader-->
-        <div class="preloader" id="preloader">
+            <!--<div class="preloader" id="preloader">
               <div class="spinner-grow text-light" role="status"><span class="visually-hidden">Loading...</span></div>
-            </div>
+            </div>-->
             <!-- Header Area-->
             <header class="header-area header-2">
               <nav class="navbar navbar-expand-lg">
