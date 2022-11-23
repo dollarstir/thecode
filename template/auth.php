@@ -58,7 +58,7 @@ start('Log In');
                     <div class="form-check mt-3">
                       <input class="form-check-input" id="rememberMe" type="checkbox" value="" checked>
                       <label class="form-check-label" for="rememberMe">Keep me logged in</label>
-                    </div><a class="forgot-password mt-3" href="forgotpassword">Forgot Password?</a>
+                    </div><a class="forgot-password mt-3" href="password-reset">Forgot Password?</a>
                   </div>
                 </div>
                 <!-- Sign in via others -->
