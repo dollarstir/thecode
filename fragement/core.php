@@ -1888,6 +1888,7 @@ function complete($token){
     $c = customfetch('vorders', [['token', '=', $token]]);
     $bd = '<html><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
         <style>
         table, th, td {
           border: 1px solid black;
@@ -1895,6 +1896,10 @@ function complete($token){
         }
         </style>
    </head><body>
+    <h1>Thank you for your order</h1>
+    <p>Hi Frederick. Your recent order on PvaBay.com has been completed. We\'ve also sent you another email (Order #35494) where your delivery file has been sent. Your order details are shown below for your reference:
+
+      If you do not see another email in your inbox, check the spam folder.</p>
     <p>Order : '.$c[0]['ordno'].'</p>
 
     <p>status : '.$c[0]['status'].'</p>
