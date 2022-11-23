@@ -1844,6 +1844,7 @@ function processing($token){
     $c = customfetch('vorders', [['token', '=', $token]]);
      $bd = '<html><head>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
          <style>
          table, th, td {
            border: 1px solid black;
@@ -1951,6 +1952,7 @@ function payapprove($token){
      $c = customfetch('vorders', [['token', '=', $token]]);
      $bd = '<html><head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
           <style>
           table, th, td {
             border: 1px solid black;
