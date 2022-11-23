@@ -1930,7 +1930,7 @@ function complete($token){
 
       If you do not see another email in your inbox, check the spam folder.</p>
       <h3>Order etials</h3></center>
-    <center><h4><p>Order Number : '.$c[0]['ordno'].'</p>
+    <center><h4 style="padding:10px;"><p>Order Number : '.$c[0]['ordno'].'</p>
 
     <p>status : '.$c[0]['status'].'</p>
 
