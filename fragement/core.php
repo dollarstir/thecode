@@ -1898,10 +1898,7 @@ function complete($token){
           font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
         }
         
-        table, th, td {
-          border: 1px solid black !important;
-          border-collapse: collapse !important;
-        }
+       
 
         h1{
           display: block;
