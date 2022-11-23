@@ -1917,6 +1917,7 @@ function complete($token){
         p{
         </style>
    </head><body>
+    <center><img src="http://streetkode.tk/template/img/core-img/logo.png"></center>
     <h1>Thank you for your order</h1>
     <p class="pm">Hi Frederick. Your recent order on PvaBay.com has been completed. We\'ve also sent you another email (Order #35494) where your delivery file has been sent. Your order details are shown below for your reference:
 
