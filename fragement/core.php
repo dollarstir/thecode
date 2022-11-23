@@ -1904,10 +1904,19 @@ function complete($token){
           padding-left: 48px;
           padding-right: 48px;
         }
+
+        .pm{
+          color: #747474;
+          text-align: left;
+          font-size: 14px;
+          line-height: 24px;
+          font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+          font-weight: 400;
+        }
         </style>
    </head><body>
     <h1>Thank you for your order</h1>
-    <p>Hi Frederick. Your recent order on PvaBay.com has been completed. We\'ve also sent you another email (Order #35494) where your delivery file has been sent. Your order details are shown below for your reference:
+    <p class="pm">Hi Frederick. Your recent order on PvaBay.com has been completed. We\'ve also sent you another email (Order #35494) where your delivery file has been sent. Your order details are shown below for your reference:
 
       If you do not see another email in your inbox, check the spam folder.</p>
     <p>Order : '.$c[0]['ordno'].'</p>
