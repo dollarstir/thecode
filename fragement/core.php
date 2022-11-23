@@ -1928,7 +1928,14 @@ function payapprove($token){
     
     if(update('vorders', ['paymentstatus' => 'paid'], ['token'=> $token]) == 'success'){
      $c = customfetch('vorders', [['token', '=', $token]]);
-     $bd = '
+     $bd = '<html><head>
+          <style>
+          table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+          }
+          </style>
+     </head><body>
      <p>Order : '.$c[0]['ordno'].'</p>
 
      <p>status : '.$c[0]['status'].'</p>
@@ -1938,7 +1945,7 @@ function payapprove($token){
 
      <p>Total Amount : '.mytotal($c[0]['token']).'</p>
      
-     <table><tr><th>Item</th><th>Price</th></tr><tbody>';
+     <table ><tr><th>Item</th><th>Price</th></tr><tbody>';
      foreach($c as $d){
        $bd .= '<tr><td>'.$d['product'].'</td><td>'.$d['price'].'</td></tr>';
      }
@@ -1946,7 +1953,7 @@ function payapprove($token){
       $bd .= '<p>Thank you for shopping with us</p>';
       $bd .= '<p>Regards</p>';
       $bd .= '<p>Team Streetcode</p>';
-      $bd .= '<p>www.streetkode.tk</p>';
+      $bd .= '<p>www.streetkode.tk</p></body></html>';
 
       $subject = 'Order Received';
       $to = $c[0]['email'];
