@@ -736,7 +736,7 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
     }
 
     if (strpos($msg, 'success') !== false) {
-      sms("Street Code", '0556676471', 'New order from '.$name.' with order number '.$ordno.' and total amount of '.$total);
+      // sms("Street Code", '0556676471', 'New order from '.$name.' with order number '.$ordno.' and total amount of '.$total);
         unset($_SESSION['strcart']);
         $_SESSION['token'] = $token;
         $_SESSION['total'] = $total;
