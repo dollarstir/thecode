@@ -1947,8 +1947,8 @@ function complete($token){
     foreach($c as $d){
       $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="left">'.$d['product'].'</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
-      align="left">1</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
-      align="left">'.$d['price'].'</td></tr>';
+      align="center">1</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+      align="right">'.$d['price'].'</td></tr>';
     }
     $bd .= '</tbody></table>';
     $bd .= '<h3>Billing Address</h3>';
