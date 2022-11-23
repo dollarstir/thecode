@@ -1935,9 +1935,13 @@ function complete($token){
     
     <table><tr><th>Item</th><th>Price</th></tr><tbody>';
     foreach($c as $d){
-      $bd .= '<tr><td>'.$d['product'].'</td></tr>';
+      $bd .= '<tr><td>'.$d['product'].'</td><td>'.$d['price'].'</td></tr>';
     }
     $bd .= '</tbody></table>';
+    $bd .= '<h3>Billing Address</h3>';
+    $bd .= '<p>'.$u[0]['name'].'</p>';
+    $bd .= '<p>'.$c[0]['email'].'</p>';
+    $bd .= '<p>'.$c[0]['contact'].'</p>';
      $bd .= '<p>Thank you for shopping with us</p>';
      $bd .= '<p>Regards</p>';
      $bd .= '<p>Team Streetcode</p>';
