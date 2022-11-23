@@ -1912,6 +1912,7 @@ function complete($token){
           line-height: 24px;
           font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
           font-weight: 400;
+          margin:0 0 16px;
         }
         </style>
    </head><body>
