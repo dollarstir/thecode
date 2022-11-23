@@ -1895,6 +1895,15 @@ function complete($token){
           border: 1px solid black;
           border-collapse: collapse;
         }
+
+        h1{
+          display: block;
+          text-align: center;
+          padding-top: 36px;
+          padding-bottom: 36px;
+          padding-left: 48px;
+          padding-right: 48px;
+        }
         </style>
    </head><body>
     <h1>Thank you for your order</h1>
