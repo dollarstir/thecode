@@ -1121,7 +1121,7 @@ function adminnav()
           <p>
             Orders
             <i class="fas fa-angle-left right"></i>
-            <span class="badge badge-info right">'.customcount('vorders', [['status', '=', 'pending']]).'</span>
+            <span class="badge badge-warning right">'.customcount('vorders', [['status', '=', 'pending']]).'</span>
           </p>
         </a>
         <ul class="nav nav-treeview">
@@ -1136,18 +1136,21 @@ function adminnav()
             <a href="adminorders?type=processing" class="nav-link">
             <i class="nav-icon far fa-circle text-info"></i>
               <p>Processing </p>
+              <span class="badge badge-info right">'.customcount('vorders', [['status', '=', 'processing']]).'</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="adminorders?type=completed" class="nav-link">
             <i class="nav-icon far fa-circle text-success"></i>
               <p>Completed</p>
+              <span class="badge badge-success right">'.customcount('vorders', [['status', '=', 'completed']]).'</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="adminorders?type=cancelled" class="nav-link">
             <i class="nav-icon far fa-circle text-danger"></i>
               <p>Cancelled</p>
+              <span class="badge badge-danger right">'.customcount('vorders', [['status', '=', 'cancelled']]).'</span>
             </a>
           </li>
           
