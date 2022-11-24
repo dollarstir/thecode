@@ -1129,6 +1129,7 @@ function adminnav()
             <a href="adminorders?type=new" class="nav-link">
             <i class="nav-icon far fa-circle text-warning"></i>
               <p>New orders</p>
+              <span class="badge badge-warning right">'.customcount('vorders', [['status', '=', 'pending']]).'</span>
             </a>
           </li>
           <li class="nav-item">
