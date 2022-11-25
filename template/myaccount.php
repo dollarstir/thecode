@@ -4,13 +4,21 @@ involve('core.php');
 
 start('Contact Us');
 
+
+
 ?>
   <body>
     <!-- Preloader-->
     <?php navi();
+    error_reporting(0);
+    
+    
+    
     if (!isset($_SESSION['vuser'])) {
         echo '<script>window.location.href = "login";</script>';
     }
+
+    
     ?>
     <!-- Breadcrumb Area-->
     <div class="breadcrumb-wrapper breadcrumb-bg-light">
