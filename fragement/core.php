@@ -654,7 +654,7 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
                 if (isset($_SESSION['strcart'])) {
                   $cart = $_SESSION['strcart'];
                   $token = bin2hex(random_bytes(8)).time();
-                  $dateadded = date('jS F, Y');
+                  $dateadded = date('jS F, Y').' at '.date('h:i:s A');
                   $cco = countall('vorders');
                   $ordno = $cco + 1;
                   foreach ($cart as $c) {
@@ -698,7 +698,7 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
                       if (isset($_SESSION['strcart'])) {
                           $cart = $_SESSION['strcart'];
                           $token = bin2hex(random_bytes(8)).time();
-                          $dateadded = date('jS F, Y');
+                          $dateadded = date('jS F, Y').' at '.date('h:i:s A');
                           $cco = countall('vorders');
                           $ordno = $cco + 1;
                           foreach ($cart as $c) {
