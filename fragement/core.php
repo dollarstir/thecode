@@ -802,7 +802,7 @@ function pay($transactionid, $network)
         // sms("Street Code", '0556676471', 'Payment request for order  '.$c[0]['ordno'].' amount'.mytotal($c[0]['token']).'transaction id '.$transactionid.' . network '.$network);
         sendmail('tuceehub.org',"Payment Request", 'Payment request for order#  '.$c[0]['ordno'].' amount GHc'.mytotal($c[0]['token']).' transaction id '.$transactionid.' . network '.$network,'Street Code',['services@streetkode.tk']);
         
-        sendmail('tuceehub.org',"Payment Request", 'Payment request for order  '.$c[0]['ordno'].' amount GHc'.mytotal($c[0]['token']).' transaction id '.$transactionid.' . network '.$network,'Street Code',[$c[0]['email']]);
+        sendmail('tuceehub.org',"Payment Request", 'Payment request for order#  '.$c[0]['ordno'].' amount GHc'.mytotal($c[0]['token']).' transaction id '.$transactionid.' . network '.$network,'Street Code',[$c[0]['email']]);
         unset($_SESSION['total']);
         echo 'paymentsuccess';
     } else {
