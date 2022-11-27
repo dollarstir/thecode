@@ -1993,7 +1993,8 @@ function processingorders()
 function completedorders()
 {
     $finito = '';
-    // $mylist = checkduplicate1();
+    $mylist = [];
+
     $c = customfetch('vorders', [['status', '=', 'completed']], 'AND', ['id' => 'DESC']);
 
     foreach ($c as $o) {
@@ -2002,22 +2003,24 @@ function completedorders()
             // echo 'No order found';
         } else {
             // $c = $c[0];
+            if (!in_array($o['ordno'], $mylist)) {
+                array_push($mylist, $o['ordno']);
 
-            $mst = $o['status'];
-            if ($mst == 'pending') {
-                $mst = '<span class="badge badge-warning">Pending</span>';
-            }
-            if ($mst == 'processing') {
-                $mst = '<span class="badge badge-info">Processing</span>';
-            }
-            if ($mst == 'completed') {
-                $mst = '<span class="badge badge-success">Completed</span>';
-            }
-            if ($mst == 'cancelled') {
-                $mst = '<span class="badge badge-danger">Cancelled</span>';
-            }
-            $pst = $o['paymentstatus'];
-            switch ($pst) {
+                $mst = $o['status'];
+                if ($mst == 'pending') {
+                    $mst = '<span class="badge badge-warning">Pending</span>';
+                }
+                if ($mst == 'processing') {
+                    $mst = '<span class="badge badge-info">Processing</span>';
+                }
+                if ($mst == 'completed') {
+                    $mst = '<span class="badge badge-success">Completed</span>';
+                }
+                if ($mst == 'cancelled') {
+                    $mst = '<span class="badge badge-danger">Cancelled</span>';
+                }
+                $pst = $o['paymentstatus'];
+                switch ($pst) {
           case 'pending':
               $pst = '<span class="badge badge-warning">Pending</span>';
               break;
@@ -2035,7 +2038,7 @@ function completedorders()
               break;
       }
 
-            $finito .= '<tr>
+                $finito .= '<tr>
       <td>'.$o['ordno'].'</td>
       <td>'.$o['email'].' </td>
       <td>'.$o['contact'].'</td>
@@ -2047,6 +2050,7 @@ function completedorders()
       <td>'.$mst.'<br><br>'.adminorderstatus($o['token']).'</td>
       <td>'.$o['dateadded'].'</td>
     </tr>';
+            }
         }
     }
 
