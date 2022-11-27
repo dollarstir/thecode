@@ -1930,17 +1930,17 @@ function neworders()
 function processingorders()
 {
     $finito = '';
-    $mylist = checkduplicate1();
+    // $mylist = checkduplicate1();
+    $c = customfetch('vorders', [['status', '=', 'processing']], 'AND', ['id' => 'DESC']);
 
-    foreach ($mylist as $o) {
-        $c = customfetch('vorders', [['status', '=', 'processing']], 'AND', ['id' => 'DESC']);
-
+    foreach ($c as $o) {
+        // $c = customfetch('vorders', [['status', '=', 'pending']]);
         if ($c == []) {
             // echo 'No order found';
         } else {
-            $c = $c[0];
+            // $c = $c[0];
 
-            $mst = $c['status'];
+            $mst = $o['status'];
             if ($mst == 'pending') {
                 $mst = '<span class="badge badge-warning">Pending</span>';
             }
@@ -1953,7 +1953,7 @@ function processingorders()
             if ($mst == 'cancelled') {
                 $mst = '<span class="badge badge-danger">Cancelled</span>';
             }
-            $pst = $c['paymentstatus'];
+            $pst = $o['paymentstatus'];
             switch ($pst) {
           case 'pending':
               $pst = '<span class="badge badge-warning">Pending</span>';
@@ -1973,16 +1973,16 @@ function processingorders()
       }
 
             $finito .= '<tr>
-      <td>'.$c['ordno'].'</td>
-      <td>'.$c['email'].' </td>
-      <td>'.$c['contact'].'</td>
-      <td>'.adminorderitems($c['ordno']).' </td>
-      <td>'.$c['note'].'</td>
-      <td>'.mytotal($c['token']).'</td>
-      <td>'.$c['transactionid'].'</td>
-      <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
-      <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
-      <td>'.$c['dateadded'].'</td>
+      <td>'.$o['ordno'].'</td>
+      <td>'.$o['email'].' </td>
+      <td>'.$o['contact'].'</td>
+      <td>'.adminorderitems($o['ordno']).' </td>
+      <td>'.$o['note'].'</td>
+      <td>'.mytotal($o['token']).'</td>
+      <td>'.$o['transactionid'].'</td>
+      <td>'.$pst.'<br> <br>'.adminorderpstauts($o['token']).'</td>
+      <td>'.$mst.'<br><br>'.adminorderstatus($o['token']).'</td>
+      <td>'.$o['dateadded'].'</td>
     </tr>';
         }
     }
@@ -1993,17 +1993,17 @@ function processingorders()
 function completedorders()
 {
     $finito = '';
-    $mylist = checkduplicate1();
+    // $mylist = checkduplicate1();
+    $c = customfetch('vorders', [['status', '=', 'completed']], 'AND', ['id' => 'DESC']);
 
-    foreach ($mylist as $o) {
-        $c = customfetch('vorders', [['status', '=', 'completed']], 'AND', ['id' => 'DESC']);
-
+    foreach ($c as $o) {
+        // $c = customfetch('vorders', [['status', '=', 'pending']]);
         if ($c == []) {
             // echo 'No order found';
         } else {
-            $c = $c[0];
+            // $c = $c[0];
 
-            $mst = $c['status'];
+            $mst = $o['status'];
             if ($mst == 'pending') {
                 $mst = '<span class="badge badge-warning">Pending</span>';
             }
@@ -2016,7 +2016,7 @@ function completedorders()
             if ($mst == 'cancelled') {
                 $mst = '<span class="badge badge-danger">Cancelled</span>';
             }
-            $pst = $c['paymentstatus'];
+            $pst = $o['paymentstatus'];
             switch ($pst) {
           case 'pending':
               $pst = '<span class="badge badge-warning">Pending</span>';
@@ -2036,16 +2036,16 @@ function completedorders()
       }
 
             $finito .= '<tr>
-      <td>'.$c['ordno'].'</td>
-      <td>'.$c['email'].' </td>
-      <td>'.$c['contact'].'</td>
-      <td>'.adminorderitems($c['ordno']).' </td>
-      <td>'.$c['note'].'</td>
-      <td>'.mytotal($c['token']).'</td>
-      <td>'.$c['transactionid'].'</td>
-      <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
-      <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
-      <td>'.$c['dateadded'].'</td>
+      <td>'.$o['ordno'].'</td>
+      <td>'.$o['email'].' </td>
+      <td>'.$o['contact'].'</td>
+      <td>'.adminorderitems($o['ordno']).' </td>
+      <td>'.$o['note'].'</td>
+      <td>'.mytotal($o['token']).'</td>
+      <td>'.$o['transactionid'].'</td>
+      <td>'.$pst.'<br> <br>'.adminorderpstauts($o['token']).'</td>
+      <td>'.$mst.'<br><br>'.adminorderstatus($o['token']).'</td>
+      <td>'.$o['dateadded'].'</td>
     </tr>';
         }
     }
@@ -2056,17 +2056,17 @@ function completedorders()
 function cancelledorders()
 {
     $finito = '';
-    $mylist = checkduplicate1();
+    // $mylist = checkduplicate1();
+    $c = customfetch('vorders', [['status', '=', 'cancelled']], 'AND', ['id' => 'DESC']);
 
-    foreach ($mylist as $o) {
-        $c = customfetch('vorders', [['status', '=', 'cancelled']], 'AND', ['id' => 'DESC']);
-
+    foreach ($c as $o) {
+        // $c = customfetch('vorders', [['status', '=', 'pending']]);
         if ($c == []) {
             // echo 'No order found';
         } else {
-            $c = $c[0];
+            // $c = $c[0];
 
-            $mst = $c['status'];
+            $mst = $o['status'];
             if ($mst == 'pending') {
                 $mst = '<span class="badge badge-warning">Pending</span>';
             }
@@ -2079,37 +2079,37 @@ function cancelledorders()
             if ($mst == 'cancelled') {
                 $mst = '<span class="badge badge-danger">Cancelled</span>';
             }
-            $pst = $c['paymentstatus'];
+            $pst = $o['paymentstatus'];
             switch ($pst) {
-            case 'pending':
-                $pst = '<span class="badge badge-warning">Pending</span>';
-                break;
-            case 'paid':
-                $pst = '<span class="badge badge-success">Paid</span>';
-                break;
-            case 'Waiting for confirmation':
-                $pst = '<span class="badge badge-info">Awaiting aproval</span>';
-                break;
-            case 'cancelled':
-                $pst = '<span class="badge badge-danger">Cancelled</span>';
-                break;
-            default:
-                $pst = '<span class="badge badge-warning">Pending</span>';
-                break;
-        }
+          case 'pending':
+              $pst = '<span class="badge badge-warning">Pending</span>';
+              break;
+          case 'paid':
+              $pst = '<span class="badge badge-success">Paid</span>';
+              break;
+          case 'Waiting for confirmation':
+              $pst = '<span class="badge badge-info">Awaiting aproval</span>';
+              break;
+          case 'cancelled':
+              $pst = '<span class="badge badge-danger">Cancelled</span>';
+              break;
+          default:
+              $pst = '<span class="badge badge-warning">Pending</span>';
+              break;
+      }
 
             $finito .= '<tr>
-        <td>'.$c['ordno'].'</td>
-        <td>'.$c['email'].' </td>
-        <td>'.$c['contact'].'</td>
-        <td>'.adminorderitems($c['ordno']).' </td>
-        <td>'.$c['note'].'</td>
-        <td>'.mytotal($c['token']).'</td>
-        <td>'.$c['transactionid'].'</td>
-        <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
-        <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
-        <td>'.$c['dateadded'].'</td>
-      </tr>';
+      <td>'.$o['ordno'].'</td>
+      <td>'.$o['email'].' </td>
+      <td>'.$o['contact'].'</td>
+      <td>'.adminorderitems($o['ordno']).' </td>
+      <td>'.$o['note'].'</td>
+      <td>'.mytotal($o['token']).'</td>
+      <td>'.$o['transactionid'].'</td>
+      <td>'.$pst.'<br> <br>'.adminorderpstauts($o['token']).'</td>
+      <td>'.$mst.'<br><br>'.adminorderstatus($o['token']).'</td>
+      <td>'.$o['dateadded'].'</td>
+    </tr>';
         }
     }
 
