@@ -1867,14 +1867,14 @@ function adminorders($status)
 function neworders()
 {
     $finito = '';
-    // $mylist = checkduplicate1();
-    $mylist = customfetch('vorders', [['status', '=', 'pending']], 'AND', ['id' => 'DESC']);
+    $mylist = checkduplicate1();
+
     foreach ($mylist as $o) {
         $c = customfetch('vorders', [['status', '=', 'pending']]);
         if ($c == []) {
             // echo 'No order found';
         } else {
-            $c = $c[0];
+            // $c = $c[0];
 
             $mst = $c['status'];
             if ($mst == 'pending') {
