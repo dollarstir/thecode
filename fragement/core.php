@@ -1870,7 +1870,7 @@ function neworders()
     $mylist = checkduplicate1();
 
     foreach ($mylist as $o) {
-        $c = customfetch('vorders', [['status', '=', 'pending']], '', ['id' => 'DESC']);
+        $c = customfetch('vorders', [['status', '=', 'pending']]);
         if ($c == []) {
             // echo 'No order found';
         } else {
