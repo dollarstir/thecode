@@ -302,7 +302,7 @@ function register($name, $email, $contact, $password, $repass)
                 'datejoined' => date('jS F, Y'),
                 'status' => 'active',
             ];
-                
+
                 if ($result = insert('vusers', $data) == 'success') {
                     echo 'registration_success';
                 } else {
@@ -650,19 +650,19 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
             }
         } else {
             // register new user before orders
-            if(isset($_SESSION['vuser'])){
+            if (isset($_SESSION['vuser'])) {
                 if (isset($_SESSION['strcart'])) {
-                  $cart = $_SESSION['strcart'];
-                  $token = bin2hex(random_bytes(8)).time();
-                  $dateadded = date('jS F, Y').' at '.date('h:i:s A');
-                  $cco = countall('vorders');
-                  $ordno = $cco + 1;
-                  foreach ($cart as $c) {
-                      $k = customfetch('vproducts', [['id', '=', $c]]);
-                      $k = $k[0];
-                      $total += $k['price'];
+                    $cart = $_SESSION['strcart'];
+                    $token = bin2hex(random_bytes(8)).time();
+                    $dateadded = date('jS F, Y').' at '.date('h:i:s A');
+                    $cco = countall('vorders');
+                    $ordno = $cco + 1;
+                    foreach ($cart as $c) {
+                        $k = customfetch('vproducts', [['id', '=', $c]]);
+                        $k = $k[0];
+                        $total += $k['price'];
 
-                      $record = [
+                        $record = [
                     'userid' => $_SESSION['vuser']['id'],
                     'productid' => $k['id'],
                     'ordno' => $ordno,
@@ -678,14 +678,14 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
                     'paymentstatus' => 'notpaid',
                 ];
 
-                      $msg .= insert('vorders', $record);
-                  }
-              } else {
-                  $msg = 'No item in cart';
-              }
-            }else{
-                  $password = md5($password);
-                  $data = [
+                        $msg .= insert('vorders', $record);
+                    }
+                } else {
+                    $msg = 'No item in cart';
+                }
+            } else {
+                $password = md5($password);
+                $data = [
                       'name' => $name,
                       'email' => $email,
                       'contact' => $contact,
@@ -693,20 +693,20 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
                       'datejoined' => date('jS F, Y'),
                       'status' => 'active',
                   ];
-                  if ($ko = insert('vusers', $data) == 'success') {
-                      loginauth('vusers', 'vuser', ['email', '=', $email], ['password', '=', $password]);
-                      if (isset($_SESSION['strcart'])) {
-                          $cart = $_SESSION['strcart'];
-                          $token = bin2hex(random_bytes(8)).time();
-                          $dateadded = date('jS F, Y').' at '.date('h:i:s A');
-                          $cco = countall('vorders');
-                          $ordno = $cco + 1;
-                          foreach ($cart as $c) {
-                              $k = customfetch('vproducts', [['id', '=', $c]]);
-                              $k = $k[0];
-                              $total += $k['price'];
+                if ($ko = insert('vusers', $data) == 'success') {
+                    loginauth('vusers', 'vuser', ['email', '=', $email], ['password', '=', $password]);
+                    if (isset($_SESSION['strcart'])) {
+                        $cart = $_SESSION['strcart'];
+                        $token = bin2hex(random_bytes(8)).time();
+                        $dateadded = date('jS F, Y').' at '.date('h:i:s A');
+                        $cco = countall('vorders');
+                        $ordno = $cco + 1;
+                        foreach ($cart as $c) {
+                            $k = customfetch('vproducts', [['id', '=', $c]]);
+                            $k = $k[0];
+                            $total += $k['price'];
 
-                              $record = [
+                            $record = [
                             'userid' => $_SESSION['vuser']['id'],
                             'productid' => $k['id'],
                             'ordno' => $ordno,
@@ -722,21 +722,20 @@ function checkout($name, $email, $contact, $note, $paymenttype, $password)
                             'paymentstatus' => 'notpaid',
                         ];
 
-                              $msg .= insert('vorders', $record);
-                          }
-                      } else {
-                          $msg = 'No item in cart';
-                      }
-                  } else {
-                      $msg = 'Failed to create user account';
-                  }
+                            $msg .= insert('vorders', $record);
+                        }
+                    } else {
+                        $msg = 'No item in cart';
+                    }
+                } else {
+                    $msg = 'Failed to create user account';
+                }
             }
-            
         }
     }
 
     if (strpos($msg, 'success') !== false) {
-      // sms("Street Code", '0556676471', 'New order from '.$name.' with order number '.$ordno.' and total amount of '.$total);
+        // sms("Street Code", '0556676471', 'New order from '.$name.' with order number '.$ordno.' and total amount of '.$total);
         unset($_SESSION['strcart']);
         $_SESSION['token'] = $token;
         $_SESSION['total'] = $total;
@@ -800,9 +799,9 @@ function pay($transactionid, $network)
         // sms('Street Code',$c[0]['contact'], 'Your order with order number '.orderno().' has been received and is being processed. You will be notified when your order is ready for pickup. Thank you for shopping with us.');
 
         // sms("Street Code", '0556676471', 'Payment request for order  '.$c[0]['ordno'].' amount'.mytotal($c[0]['token']).'transaction id '.$transactionid.' . network '.$network);
-        sendmail('tuceehub.org',"Payment Request", 'Payment request for order#  '.$c[0]['ordno'].' amount GHc'.mytotal($c[0]['token']).' transaction id '.$transactionid.' . network '.$network,'Street Code',['services@streetkode.tk']);
-        
-        sendmail('tuceehub.org',"Payment Request", 'Payment request for order#  '.$c[0]['ordno'].' amount GHc'.mytotal($c[0]['token']).' transaction id '.$transactionid.' . network '.$network,'Street Code',[$c[0]['email']]);
+        sendmail('tuceehub.org', 'Payment Request', 'Payment request for order#  '.$c[0]['ordno'].' amount GHc'.mytotal($c[0]['token']).' transaction id '.$transactionid.' . network '.$network, 'Street Code', ['services@streetkode.tk']);
+
+        sendmail('tuceehub.org', 'Payment Request', 'Payment request for order#  '.$c[0]['ordno'].' amount GHc'.mytotal($c[0]['token']).' transaction id '.$transactionid.' . network '.$network, 'Street Code', [$c[0]['email']]);
         unset($_SESSION['total']);
         echo 'paymentsuccess';
     } else {
@@ -1126,28 +1125,28 @@ function adminnav()
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="adminorders?type=new" class="nav-link">
+            <a href="neworders" class="nav-link">
             <i class="nav-icon far fa-circle text-warning"></i>
               <p>New orders</p>
               <span class="badge badge-warning right">'.customcount('vorders', [['status', '=', 'pending']]).'</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="adminorders?type=processing" class="nav-link">
+            <a href="processingorders" class="nav-link">
             <i class="nav-icon far fa-circle text-info"></i>
               <p>Processing </p>
               <span class="badge badge-info right">'.customcount('vorders', [['status', '=', 'processing']]).'</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="adminorders?type=completed" class="nav-link">
+            <a href="completedorders" class="nav-link">
             <i class="nav-icon far fa-circle text-success"></i>
               <p>Completed</p>
               <span class="badge badge-success right">'.customcount('vorders', [['status', '=', 'completed']]).'</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="adminorders?type=cancelled" class="nav-link">
+            <a href="cancelledorders" class="nav-link">
             <i class="nav-icon far fa-circle text-danger"></i>
               <p>Cancelled</p>
               <span class="badge badge-danger right">'.customcount('vorders', [['status', '=', 'cancelled']]).'</span>
@@ -1735,14 +1734,14 @@ bsCustomFileInput.init();
 </html>';
 }
 
-function adminorderpstauts($token){
+function adminorderpstauts($token)
+{
+    $btn = '';
+    $c = customfetch('vorders', [['token', '=', $token]]);
+    $c = $c[0];
+    $status = $c['paymentstatus'];
 
-  $btn ='';
-  $c = customfetch('vorders', [['token', '=', $token]]);
-  $c = $c[0];
-  $status = $c['paymentstatus'];
-
-  switch($status){
+    switch ($status) {
       case 'Waiting for confirmation':
           $btn = '<button class="btn btn-success btn-sm payapprove" id="'.$token.'">Approve</button><br><button class="btn btn-danger btn-sm payreject" id="'.$token.'">Reject</button>';
         break;
@@ -1756,19 +1755,17 @@ function adminorderpstauts($token){
         break;
   }
 
-  return $btn;
-
-
+    return $btn;
 }
 
-function adminorderstatus($token){
+function adminorderstatus($token)
+{
+    $btn = '';
+    $c = customfetch('vorders', [['token', '=', $token]]);
+    $c = $c[0];
+    $status = $c['status'];
 
-  $btn ='';
-  $c = customfetch('vorders', [['token', '=', $token]]);
-  $c = $c[0];
-  $status = $c['status'];
-
-  switch($status){
+    switch ($status) {
       case 'pending':
           $btn = '<button class="btn btn-success btn-sm approve" id="'.$token.'">Approve</button><br><button class="btn btn-danger btn-sm reject" id="'.$token.'">Reject</button>';
         break;
@@ -1777,75 +1774,61 @@ function adminorderstatus($token){
           $btn = '<button class="btn btn-success btn-sm btncomplete" id="'.$token.'">Complete</button><button class="btn btn-danger btn-sm reject" id="'.$token.'">Reject</button>';
         break;
 
-        
-
       case 'cancelled':
           $btn = '<button class="btn btn-success btn-sm approve" id="'.$token.'">Approve</button>';
         break;
   }
 
-  return $btn;
+    return $btn;
 }
 function adminorderitems($number)
 {
-    $n = customfetch('vorders', [['ordno','=', $number]]);
-    $mm ='';
+    $n = customfetch('vorders', [['ordno', '=', $number]]);
+    $mm = '';
     foreach ($n as $d) {
-      
-      $mm .= '<li>'.$d['product'].'</li>';
-        
+        $mm .= '<li>'.$d['product'].'</li>';
     }
 
-    return ($mm);
+    return $mm;
 }
 function adminorders($status)
-
 {
-
-  $finito ='';
+    $finito = '';
     $mylist = checkduplicate1();
 
     foreach ($mylist as $o) {
         if ($status == 'all') {
-            $c = customfetch('vorders', [['ordno', '=', $o]], 'AND', ['id'=> 'DESC']);
-        } elseif($status == 'pending') {
-            $c = customfetch('vorders', [['status', '=', 'pending']], 'AND',['id'=> 'DESC']);
+            $c = customfetch('vorders', [['ordno', '=', $o]], 'AND', ['id' => 'DESC']);
+        } elseif ($status == 'pending') {
+            $c = customfetch('vorders', [['status', '=', 'pending']], 'AND', ['id' => 'DESC']);
+        } elseif ($status == 'completed') {
+            $c = customfetch('vorders', [['status', '=', 'completed']], 'AND', ['id' => 'DESC']);
+        } elseif ($status == 'processing') {
+            $c = customfetch('vorders', [['status', '=', 'processing']], 'AND', ['id' => 'DESC']);
+        } elseif ($status == 'cancelled') {
+            $c = customfetch('vorders', [['status', '=', 'cancelled']], 'AND', ['id' => 'DESC']);
         }
 
-        elseif($status == 'completed') {
-          $c = customfetch('vorders', [['status', '=', 'completed']], 'AND',['id'=> 'DESC']);
-        }
+        if ($c == []) {
+            // echo 'No order found';
+        } else {
+            $c = $c[0];
 
-        elseif($status == 'processing') {
-          $c = customfetch('vorders', [['status', '=', 'processing']], 'AND',['id'=> 'DESC']);
-        }
-
-        elseif($status == 'cancelled') {
-          $c = customfetch('vorders', [['status', '=', 'cancelled']], 'AND',['id'=> 'DESC']);
-        }
-
-        if($c ==[]){
-          // echo 'No order found';
-        }
-        else{
-
-          $c = $c[0];
-
-        $mst = $c['status'];
-        if ($mst == 'pending') {
-            $mst = '<span class="badge badge-warning">Pending</span>';
-        }
-        if ($mst == 'processing') {
-            $mst = '<span class="badge badge-info">Processing</span>';
-        }
-        if ($mst == 'completed') {
-            $mst = '<span class="badge badge-success">Completed</span>';
-        }
-        if ($mst == 'cancelled') {
-            $mst = '<span class="badge badge-danger">Cancelled</span>';
-        }
-        $pst = $c['paymentstatus'];
-        switch($pst){
+            $mst = $c['status'];
+            if ($mst == 'pending') {
+                $mst = '<span class="badge badge-warning">Pending</span>';
+            }
+            if ($mst == 'processing') {
+                $mst = '<span class="badge badge-info">Processing</span>';
+            }
+            if ($mst == 'completed') {
+                $mst = '<span class="badge badge-success">Completed</span>';
+            }
+            if ($mst == 'cancelled') {
+                $mst = '<span class="badge badge-danger">Cancelled</span>';
+            }
+            $pst = $c['paymentstatus'];
+            switch ($pst) {
             case 'pending':
                 $pst = '<span class="badge badge-warning">Pending</span>';
                 break;
@@ -1862,9 +1845,8 @@ function adminorders($status)
                 $pst = '<span class="badge badge-warning">Pending</span>';
                 break;
         }
-        
 
-        $finito .= '<tr>
+            $finito .= '<tr>
         <td>'.$c['ordno'].'</td>
         <td>'.$c['email'].' </td>
         <td>'.$c['contact'].'</td>
@@ -1876,22 +1858,269 @@ function adminorders($status)
         <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
         <td>'.$c['dateadded'].'</td>
       </tr>';
-
         }
-
-        
     }
 
     return $finito;
 }
 
+function neworders()
+{
+    $finito = '';
+    $mylist = checkduplicate1();
 
-function processing($token){
-  
-  if(update('vorders', ['status' => 'processing'], ['token'=> $token]) == 'success'){
-    $c = customfetch('vorders', [['token', '=', $token]]);
-    $u = customfetch('vusers', [['email', '=', $c[0]['email']]]);
-    $bd = '<html><head>
+    foreach ($mylist as $o) {
+        $c = customfetch('vorders', [['status', '=', 'pending']], 'AND', ['id' => 'DESC']);
+        if ($c == []) {
+            // echo 'No order found';
+        } else {
+            $c = $c[0];
+
+            $mst = $c['status'];
+            if ($mst == 'pending') {
+                $mst = '<span class="badge badge-warning">Pending</span>';
+            }
+            if ($mst == 'processing') {
+                $mst = '<span class="badge badge-info">Processing</span>';
+            }
+            if ($mst == 'completed') {
+                $mst = '<span class="badge badge-success">Completed</span>';
+            }
+            if ($mst == 'cancelled') {
+                $mst = '<span class="badge badge-danger">Cancelled</span>';
+            }
+            $pst = $c['paymentstatus'];
+            switch ($pst) {
+            case 'pending':
+                $pst = '<span class="badge badge-warning">Pending</span>';
+                break;
+            case 'paid':
+                $pst = '<span class="badge badge-success">Paid</span>';
+                break;
+            case 'Waiting for confirmation':
+                $pst = '<span class="badge badge-info">Awaiting aproval</span>';
+                break;
+            case 'cancelled':
+                $pst = '<span class="badge badge-danger">Cancelled</span>';
+                break;
+            default:
+                $pst = '<span class="badge badge-warning">Pending</span>';
+                break;
+        }
+
+            $finito .= '<tr>
+        <td>'.$c['ordno'].'</td>
+        <td>'.$c['email'].' </td>
+        <td>'.$c['contact'].'</td>
+        <td>'.adminorderitems($c['ordno']).' </td>
+        <td>'.$c['note'].'</td>
+        <td>'.mytotal($c['token']).'</td>
+        <td>'.$c['transactionid'].'</td>
+        <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
+        <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
+        <td>'.$c['dateadded'].'</td>
+      </tr>';
+        }
+    }
+
+    return $finito;
+}
+
+function processingorders()
+{
+    $finito = '';
+    $mylist = checkduplicate1();
+
+    foreach ($mylist as $o) {
+        $c = customfetch('vorders', [['status', '=', 'processing']], 'AND', ['id' => 'DESC']);
+
+        if ($c == []) {
+            // echo 'No order found';
+        } else {
+            $c = $c[0];
+
+            $mst = $c['status'];
+            if ($mst == 'pending') {
+                $mst = '<span class="badge badge-warning">Pending</span>';
+            }
+            if ($mst == 'processing') {
+                $mst = '<span class="badge badge-info">Processing</span>';
+            }
+            if ($mst == 'completed') {
+                $mst = '<span class="badge badge-success">Completed</span>';
+            }
+            if ($mst == 'cancelled') {
+                $mst = '<span class="badge badge-danger">Cancelled</span>';
+            }
+            $pst = $c['paymentstatus'];
+            switch ($pst) {
+          case 'pending':
+              $pst = '<span class="badge badge-warning">Pending</span>';
+              break;
+          case 'paid':
+              $pst = '<span class="badge badge-success">Paid</span>';
+              break;
+          case 'Waiting for confirmation':
+              $pst = '<span class="badge badge-info">Awaiting aproval</span>';
+              break;
+          case 'cancelled':
+              $pst = '<span class="badge badge-danger">Cancelled</span>';
+              break;
+          default:
+              $pst = '<span class="badge badge-warning">Pending</span>';
+              break;
+      }
+
+            $finito .= '<tr>
+      <td>'.$c['ordno'].'</td>
+      <td>'.$c['email'].' </td>
+      <td>'.$c['contact'].'</td>
+      <td>'.adminorderitems($c['ordno']).' </td>
+      <td>'.$c['note'].'</td>
+      <td>'.mytotal($c['token']).'</td>
+      <td>'.$c['transactionid'].'</td>
+      <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
+      <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
+      <td>'.$c['dateadded'].'</td>
+    </tr>';
+        }
+    }
+
+    return $finito;
+}
+
+function completedorders()
+{
+    $finito = '';
+    $mylist = checkduplicate1();
+
+    foreach ($mylist as $o) {
+        $c = customfetch('vorders', [['status', '=', 'completed']], 'AND', ['id' => 'DESC']);
+
+        if ($c == []) {
+            // echo 'No order found';
+        } else {
+            $c = $c[0];
+
+            $mst = $c['status'];
+            if ($mst == 'pending') {
+                $mst = '<span class="badge badge-warning">Pending</span>';
+            }
+            if ($mst == 'processing') {
+                $mst = '<span class="badge badge-info">Processing</span>';
+            }
+            if ($mst == 'completed') {
+                $mst = '<span class="badge badge-success">Completed</span>';
+            }
+            if ($mst == 'cancelled') {
+                $mst = '<span class="badge badge-danger">Cancelled</span>';
+            }
+            $pst = $c['paymentstatus'];
+            switch ($pst) {
+          case 'pending':
+              $pst = '<span class="badge badge-warning">Pending</span>';
+              break;
+          case 'paid':
+              $pst = '<span class="badge badge-success">Paid</span>';
+              break;
+          case 'Waiting for confirmation':
+              $pst = '<span class="badge badge-info">Awaiting aproval</span>';
+              break;
+          case 'cancelled':
+              $pst = '<span class="badge badge-danger">Cancelled</span>';
+              break;
+          default:
+              $pst = '<span class="badge badge-warning">Pending</span>';
+              break;
+      }
+
+            $finito .= '<tr>
+      <td>'.$c['ordno'].'</td>
+      <td>'.$c['email'].' </td>
+      <td>'.$c['contact'].'</td>
+      <td>'.adminorderitems($c['ordno']).' </td>
+      <td>'.$c['note'].'</td>
+      <td>'.mytotal($c['token']).'</td>
+      <td>'.$c['transactionid'].'</td>
+      <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
+      <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
+      <td>'.$c['dateadded'].'</td>
+    </tr>';
+        }
+    }
+
+    return $finito;
+}
+
+function cancelledorders()
+{
+    $finito = '';
+    $mylist = checkduplicate1();
+
+    foreach ($mylist as $o) {
+        $c = customfetch('vorders', [['status', '=', 'cancelled']], 'AND', ['id' => 'DESC']);
+
+        if ($c == []) {
+            // echo 'No order found';
+        } else {
+            $c = $c[0];
+
+            $mst = $c['status'];
+            if ($mst == 'pending') {
+                $mst = '<span class="badge badge-warning">Pending</span>';
+            }
+            if ($mst == 'processing') {
+                $mst = '<span class="badge badge-info">Processing</span>';
+            }
+            if ($mst == 'completed') {
+                $mst = '<span class="badge badge-success">Completed</span>';
+            }
+            if ($mst == 'cancelled') {
+                $mst = '<span class="badge badge-danger">Cancelled</span>';
+            }
+            $pst = $c['paymentstatus'];
+            switch ($pst) {
+            case 'pending':
+                $pst = '<span class="badge badge-warning">Pending</span>';
+                break;
+            case 'paid':
+                $pst = '<span class="badge badge-success">Paid</span>';
+                break;
+            case 'Waiting for confirmation':
+                $pst = '<span class="badge badge-info">Awaiting aproval</span>';
+                break;
+            case 'cancelled':
+                $pst = '<span class="badge badge-danger">Cancelled</span>';
+                break;
+            default:
+                $pst = '<span class="badge badge-warning">Pending</span>';
+                break;
+        }
+
+            $finito .= '<tr>
+        <td>'.$c['ordno'].'</td>
+        <td>'.$c['email'].' </td>
+        <td>'.$c['contact'].'</td>
+        <td>'.adminorderitems($c['ordno']).' </td>
+        <td>'.$c['note'].'</td>
+        <td>'.mytotal($c['token']).'</td>
+        <td>'.$c['transactionid'].'</td>
+        <td>'.$pst.'<br> <br>'.adminorderpstauts($c['token']).'</td>
+        <td>'.$mst.'<br><br>'.adminorderstatus($c['token']).'</td>
+        <td>'.$c['dateadded'].'</td>
+      </tr>';
+        }
+    }
+
+    return $finito;
+}
+
+function processing($token)
+{
+    if (update('vorders', ['status' => 'processing'], ['token' => $token]) == 'success') {
+        $c = customfetch('vorders', [['token', '=', $token]]);
+        $u = customfetch('vusers', [['email', '=', $c[0]['email']]]);
+        $bd = '<html><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
         <style>
@@ -1941,41 +2170,39 @@ function processing($token){
     align="left">Quantity</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
     align="left">Price</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
     align="left">Price</th></tr></thead><tbody>';
-    foreach($c as $d){
-      $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+        foreach ($c as $d) {
+            $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="left">'.$d['product'].'</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="center">1</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="right">'.$d['price'].'</td></tr>';
+        }
+        $bd .= '</tbody></table>';
+        $bd .= '<h3>Billing Address</h3>';
+        $bd .= '<p>'.$u[0]['name'].'</p>';
+        $bd .= '<p>'.$c[0]['email'].'</p>';
+        $bd .= '<p>'.$c[0]['contact'].'</p>';
+        $bd .= '<p>Thank you for shopping with us</p>';
+        $bd .= '<p>Regards</p>';
+        $bd .= '<p>Team Streetcode</p>';
+        $bd .= '<p>www.streetkode.tk</p></center></body></html>';
+
+        $subject = 'Order Processing';
+        $to = $c[0]['email'];
+
+        sendmail('phpyolk.com', $subject, $bd, 'Street Code', [$to], 'support@streetkode.tk', 'support@streetkode.tk');
+        echo 'statussuccess';
+    } else {
+        echo 'statusfailed';
     }
-    $bd .= '</tbody></table>';
-    $bd .= '<h3>Billing Address</h3>';
-    $bd .= '<p>'.$u[0]['name'].'</p>';
-    $bd .= '<p>'.$c[0]['email'].'</p>';
-    $bd .= '<p>'.$c[0]['contact'].'</p>';
-     $bd .= '<p>Thank you for shopping with us</p>';
-     $bd .= '<p>Regards</p>';
-     $bd .= '<p>Team Streetcode</p>';
-     $bd .= '<p>www.streetkode.tk</p></center></body></html>';
-
-      $subject = 'Order Processing';
-      $to = $c[0]['email'];
-
-
-      sendmail('phpyolk.com',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
-    echo 'statussuccess';
-  }
-  else{
-    echo 'statusfailed';
-  }
 }
 
-function complete($token){
-  
-  if(update('vorders', ['status' => 'completed'], ['token'=> $token]) == 'success'){
-    $c = customfetch('vorders', [['token', '=', $token]]);
-    $u = customfetch('vusers', [['email', '=', $c[0]['email']]]);
+function complete($token)
+{
+    if (update('vorders', ['status' => 'completed'], ['token' => $token]) == 'success') {
+        $c = customfetch('vorders', [['token', '=', $token]]);
+        $u = customfetch('vusers', [['email', '=', $c[0]['email']]]);
 
-    $bd = '<html><head>
+        $bd = '<html><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
         <style>
@@ -2027,54 +2254,48 @@ function complete($token){
     align="left">Quantity</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
     align="left">Price</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
     align="left">Price</th></tr></thead><tbody>';
-    foreach($c as $d){
-      $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+        foreach ($c as $d) {
+            $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="left">'.$d['product'].'</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="center">1</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="right">'.$d['price'].'</td></tr>';
+        }
+        $bd .= '</tbody></table>';
+        $bd .= '<h3>Billing Address</h3>';
+        $bd .= '<p>'.$u[0]['name'].'</p>';
+        $bd .= '<p>'.$c[0]['email'].'</p>';
+        $bd .= '<p>'.$c[0]['contact'].'</p>';
+        $bd .= '<p>Thank you for shopping with us</p>';
+        $bd .= '<p>Regards</p>';
+        $bd .= '<p>Team Streetcode</p>';
+        $bd .= '<p>www.streetkode.tk</p></center></body></html>';
+
+        $subject = 'Order Completed';
+        $to = $c[0]['email'];
+
+        sms('Street Code', $c[0]['contact'], 'Your order has been completed. Your order number is '.$c[0]['ordno'].'. Kindly check your email for more details.');
+        sendmail('phpyolk.com', $subject, $bd, 'Street Code', [$to], 'support@streetkode.tk', 'support@streetkode.tk');
+        echo 'statussuccess';
+    } else {
+        echo 'statusfailed';
     }
-    $bd .= '</tbody></table>';
-    $bd .= '<h3>Billing Address</h3>';
-    $bd .= '<p>'.$u[0]['name'].'</p>';
-    $bd .= '<p>'.$c[0]['email'].'</p>';
-    $bd .= '<p>'.$c[0]['contact'].'</p>';
-     $bd .= '<p>Thank you for shopping with us</p>';
-     $bd .= '<p>Regards</p>';
-     $bd .= '<p>Team Streetcode</p>';
-     $bd .= '<p>www.streetkode.tk</p></center></body></html>';
-
-     $subject = 'Order Completed';
-     $to = $c[0]['email'];
-
-      sms('Street Code',$c[0]['contact'],'Your order has been completed. Your order number is '.$c[0]['ordno'].'. Kindly check your email for more details.');
-     sendmail('phpyolk.com',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
-    echo 'statussuccess';
-  }
-  else{
-    echo 'statusfailed';
-  }
 }
 
-
-
-
-function reject($token){
-  
-  if(update('vorders', ['status' => 'cancelled'], ['token'=> $token]) == 'success'){
-    echo 'statussuccess';
-  }
-  else{
-    echo 'statusfailed';
-  }
+function reject($token)
+{
+    if (update('vorders', ['status' => 'cancelled'], ['token' => $token]) == 'success') {
+        echo 'statussuccess';
+    } else {
+        echo 'statusfailed';
+    }
 }
 
-
-function payapprove($token){
-    
-    if(update('vorders', ['paymentstatus' => 'paid'], ['token'=> $token]) == 'success'){
-     $c = customfetch('vorders', [['token', '=', $token]]);
-     $u = customfetch('vusers', [['email', '=', $c[0]['email']]]);
-     $bd = '<html><head>
+function payapprove($token)
+{
+    if (update('vorders', ['paymentstatus' => 'paid'], ['token' => $token]) == 'success') {
+        $c = customfetch('vorders', [['token', '=', $token]]);
+        $u = customfetch('vusers', [['email', '=', $c[0]['email']]]);
+        $bd = '<html><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
         <style>
@@ -2124,57 +2345,50 @@ function payapprove($token){
     align="left">Quantity</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
     align="left">Price</th><th style="color:#747474;font-weight:bold;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;padding-left:0;text-align:left"
     align="left">Price</th></tr></thead><tbody>';
-    foreach($c as $d){
-      $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
+        foreach ($c as $d) {
+            $bd .= '<tr><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="left">'.$d['product'].'</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="center">1</td><td style="color:#747474;border:0;padding:12px;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;border-color:#e5e5e5;padding-top:12px;padding-bottom:12px;border-bottom-width:1px;border-bottom-style:dashed;vertical-align:middle;word-wrap:break-word;padding-left:0;text-align:left"
       align="right">'.$d['price'].'</td></tr>';
-    }
-    $bd .= '</tbody></table>';
-    $bd .= '<h3>Billing Address</h3>';
-    $bd .= '<p>'.$u[0]['name'].'</p>';
-    $bd .= '<p>'.$c[0]['email'].'</p>';
-    $bd .= '<p>'.$c[0]['contact'].'</p>';
-     $bd .= '<p>Thank you for shopping with us</p>';
-     $bd .= '<p>Regards</p>';
-     $bd .= '<p>Team Streetcode</p>';
-     $bd .= '<p>www.streetkode.tk</p></center></body></html>';
+        }
+        $bd .= '</tbody></table>';
+        $bd .= '<h3>Billing Address</h3>';
+        $bd .= '<p>'.$u[0]['name'].'</p>';
+        $bd .= '<p>'.$c[0]['email'].'</p>';
+        $bd .= '<p>'.$c[0]['contact'].'</p>';
+        $bd .= '<p>Thank you for shopping with us</p>';
+        $bd .= '<p>Regards</p>';
+        $bd .= '<p>Team Streetcode</p>';
+        $bd .= '<p>www.streetkode.tk</p></center></body></html>';
 
-      $subject = 'Order Received';
-      $to = $c[0]['email'];
+        $subject = 'Order Received';
+        $to = $c[0]['email'];
 
-      sms('Street Code',$c[0]['contact'], 'Your order # '.orderno().' is being processed. ');
-      sendmail('phpyolk.com',$subject,$bd,'Street Code',[$to],'support@streetkode.tk','support@streetkode.tk');
-      echo 'statussuccess';
-    }
-    else{
-      echo 'statusfailed';
+        sms('Street Code', $c[0]['contact'], 'Your order # '.orderno().' is being processed. ');
+        sendmail('phpyolk.com', $subject, $bd, 'Street Code', [$to], 'support@streetkode.tk', 'support@streetkode.tk');
+        echo 'statussuccess';
+    } else {
+        echo 'statusfailed';
     }
 }
 
-function payreject($token){
-    
-  if(update('vorders', ['paymentstatus' => 'cancelled'], ['token'=> $token]) == 'success'){
-    echo 'statussuccess';
-  }
-  else{
-    echo 'statusfailed';
-  }
+function payreject($token)
+{
+    if (update('vorders', ['paymentstatus' => 'cancelled'], ['token' => $token]) == 'success') {
+        echo 'statussuccess';
+    } else {
+        echo 'statusfailed';
+    }
 }
 
-
-
-
-
-
-
-function adminproducts(){
-  $finito ='';
-  $c = fetchall('vproducts');
-  foreach ($c as $d) {
-    $cat = customfetch('vcategory', [['id', '=', $d['category']]]);
-    $cat = $cat[0]['catname'];
-    $finito .= '<tr>
+function adminproducts()
+{
+    $finito = '';
+    $c = fetchall('vproducts');
+    foreach ($c as $d) {
+        $cat = customfetch('vcategory', [['id', '=', $d['category']]]);
+        $cat = $cat[0]['catname'];
+        $finito .= '<tr>
     <td>'.$d['name'].'</td>
     <td>'.$d['price'].'</td>
     <td>'.$cat.'</td>
@@ -2182,87 +2396,82 @@ function adminproducts(){
     <td>'.$d['dateadded'].'</td>
     <td><button class="btn btn-danger btn-sm deletep" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="editp?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
   </tr>';
-  }
+    }
 
-  echo $finito;
+    echo $finito;
 }
 
-
-function category(){
-  $finito ='';
-  $c = fetchall('vcategory');
-  foreach ($c as $d) {
-    $finito .= '<tr>
+function category()
+{
+    $finito = '';
+    $c = fetchall('vcategory');
+    foreach ($c as $d) {
+        $finito .= '<tr>
     <td>'.$d['id'].'</td>
     <td>'.$d['catname'].'</td>
     <td><button class="btn btn-danger btn-sm deletec" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="delc?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
   </tr>';
-  }
+    }
 
-  echo $finito;
+    echo $finito;
 }
 
-function customstate(){
-  $finito ='';
-  $c = fetchall('custom');
-  foreach ($c as $d) {
-    $finito .= '<tr>
+function customstate()
+{
+    $finito = '';
+    $c = fetchall('custom');
+    foreach ($c as $d) {
+        $finito .= '<tr>
     
     <td>'.$d['state'].'</td>
     <td><button class="btn btn-danger btn-sm deletest" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="dels?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
   </tr>';
-  }
+    }
 
-  echo $finito;
+    echo $finito;
 }
 
+function listcategory()
+{
+    $finito = '';
+    $c = fetchall('vcategory');
+    foreach ($c as $d) {
+        $finito .= '<option value="'.$d['id'].'">'.$d['catname'].'</option>';
+    }
 
-function listcategory(){
-  $finito ='';
-  $c = fetchall('vcategory');
-  foreach ($c as $d) {
-    $finito .= '<option value="'.$d['id'].'">'.$d['catname'].'</option>';
-  }
-
-  echo $finito;
+    echo $finito;
 }
-
 
 // add product ++++++++++++++
 function addproduct($name, $price, $category)
 {
-  if(empty($name) || empty($price) || empty($category)){
-    echo 'All fields are required';
-  }
-  else{
-    if(insert('vproducts', ['name' => $name, 'price' => $price, 'category' => $category,'status'=>'available' ,'dateadded' => date('jS F, Y')],$_FILES,'../yolkassets/upload/') == 'success'){
-      echo 'success';
+    if (empty($name) || empty($price) || empty($category)) {
+        echo 'All fields are required';
+    } else {
+        if (insert('vproducts', ['name' => $name, 'price' => $price, 'category' => $category, 'status' => 'available', 'dateadded' => date('jS F, Y')], $_FILES, '../yolkassets/upload/') == 'success') {
+            echo 'success';
+        } else {
+            echo 'failed';
+        }
     }
-    else{
-      echo 'failed';
-    }
-  }
-
 }
 
 function adminusers()
 {
-  $finito ='';
-  $c = fetchall('vusers');
-  
-  foreach ($c as $d) {
-    $status =  $d['status'];
-    switch($status){
+    $finito = '';
+    $c = fetchall('vusers');
 
+    foreach ($c as $d) {
+        $status = $d['status'];
+        switch ($status) {
       case 'active':
         $md = '<span class="badge badge-success">'.$d['status'].'</span>';
         break;
       case 'inactive':
         $md = '<span class="badge badge-danger">'.$d['status'].'</span>';
         break;
-
     }
-    $finito .= '<tr>
+        $finito .= '<tr>
     <td>'.$d['name'].'</td>
     <td>'.$d['email'].'</td>
     <td>'.$d['contact'].'</td>
@@ -2270,104 +2479,89 @@ function adminusers()
     <td>'.$md.'</td>
     <td><button class="btn btn-danger btn-sm deleteu" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="delu?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
   </tr>';
-  }
+    }
 
-  echo $finito;
-
+    echo $finito;
 }
 
-function app($data){
-  $c = fetchall('settings');
-  $c = $c[0];
-  echo $c[$data];
+function app($data)
+{
+    $c = fetchall('settings');
+    $c = $c[0];
+    echo $c[$data];
 }
 
-
-function editapp($appname, $appemail, $appcontact,$appaddress, $about){
-  if(empty($appname) || empty($appemail) || empty($appcontact) || empty($appaddress) || empty($about)){
-    echo 'All fields are required';
-  }
-  else{
-    if(update('settings', ['appname' => $appname, 'appemail' => $appemail, 'appcontact' => $appcontact, 'appaddress' => $appaddress, 'about' => $about]) == 'success'){
-      echo 'success';
+function editapp($appname, $appemail, $appcontact, $appaddress, $about)
+{
+    if (empty($appname) || empty($appemail) || empty($appcontact) || empty($appaddress) || empty($about)) {
+        echo 'All fields are required';
+    } else {
+        if (update('settings', ['appname' => $appname, 'appemail' => $appemail, 'appcontact' => $appcontact, 'appaddress' => $appaddress, 'about' => $about]) == 'success') {
+            echo 'success';
+        } else {
+            echo 'failed';
+        }
     }
-    else{
-      echo 'failed';
-    }
-  }
 }
 
-
-function addcustom($state){
-  if(empty($state)){
-    echo 'All fields are required';
-  }
-  else{
-    if(insert('custom', ['state' => $state]) == 'success'){
-      echo 'success';
+function addcustom($state)
+{
+    if (empty($state)) {
+        echo 'All fields are required';
+    } else {
+        if (insert('custom', ['state' => $state]) == 'success') {
+            echo 'success';
+        } else {
+            echo 'failed';
+        }
     }
-    else{
-      echo 'failed';
-    }
-  }
 }
 
-function deletestate($id){
-  if(delete('custom', [['id','=', $id]]) == 'success'){
-    echo 'deletesuccess';
-  }
-  else{
-    echo 'deletefailed';
-  }
+function deletestate($id)
+{
+    if (delete('custom', [['id', '=', $id]]) == 'success') {
+        echo 'deletesuccess';
+    } else {
+        echo 'deletefailed';
+    }
 }
 
 function deleteproduct($id)
 {
-  if(delete('vproducts', [['id','=', $id]]) == 'success'){
-    echo 'deletesuccess';
-  }
-  else{
-    echo 'deletefailed';
-  }
+    if (delete('vproducts', [['id', '=', $id]]) == 'success') {
+        echo 'deletesuccess';
+    } else {
+        echo 'deletefailed';
+    }
 }
 
-
-
-function addcategory($catname){
-  if(empty($catname)){
-    echo 'All fields are required';
-  }
-  else{
-    if(insert('vcategory', ['catname' => $catname]) == 'success'){
-      echo 'success';
+function addcategory($catname)
+{
+    if (empty($catname)) {
+        echo 'All fields are required';
+    } else {
+        if (insert('vcategory', ['catname' => $catname]) == 'success') {
+            echo 'success';
+        } else {
+            echo 'failed';
+        }
     }
-    else{
-      echo 'failed';
-    }
-  }
-
-
-  
 }
-
 
 function deletecategory($id)
 {
-  if(delete('vcategory', [['id','=', $id]]) == 'success'){
-    echo 'deletesuccess';
-  }
-  else{
-    echo 'deletefailed';
-  }
+    if (delete('vcategory', [['id', '=', $id]]) == 'success') {
+        echo 'deletesuccess';
+    } else {
+        echo 'deletefailed';
+    }
 }
 
-
-function deleteuser($id){
-
-  if(delete('vusers', [['id','=', $id]]) == 'success'){
-    echo 'deletesuccess';
-  }
-  else{
-    echo 'deletefailed';
-  }
+function deleteuser($id)
+{
+    if (delete('vusers', [['id', '=', $id]]) == 'success') {
+        echo 'deletesuccess';
+    } else {
+        echo 'deletefailed';
+    }
 }

@@ -149,6 +149,34 @@ $router = new Router([
     ),
 
     new Route(
+        '/neworders',
+        function ($context) {
+            return Viewer::view('vadmin/new_orders.php', $context);
+        }
+    ),
+
+    new Route(
+        '/processingorders',
+        function ($context) {
+            return Viewer::view('vadmin/p_orders.php', $context);
+        }
+    ),
+
+    new Route(
+        '/completedorders',
+        function ($context) {
+            return Viewer::view('vadmin/completed_orders.php', $context);
+        }
+    ),
+
+    new Route(
+        '/cancelledorders',
+        function ($context) {
+            return Viewer::view('vadmin/cancelled_orders.php', $context);
+        }
+    ),
+
+    new Route(
         '/adminproducts',
         function ($context) {
             return Viewer::view('vadmin/admin_products.php', $context);
