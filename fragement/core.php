@@ -1867,8 +1867,8 @@ function adminorders($status)
 function neworders()
 {
     $finito = '';
-    $mylist = checkduplicate1();
-
+    // $mylist = checkduplicate1();
+    $mylist = customfetch('vorders', [['status', '=', 'pending']], 'AND', ['id' => 'DESC']);
     foreach ($mylist as $o) {
         $c = customfetch('vorders', [['status', '=', 'pending']]);
         if ($c == []) {
