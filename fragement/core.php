@@ -2582,3 +2582,11 @@ function deleteuser($id)
         echo 'deletefailed';
     }
 }
+
+
+
+function app1(){
+    $c = fetchall('settings');
+    $c = $c[0];
+    return $c['appname'];
+}
