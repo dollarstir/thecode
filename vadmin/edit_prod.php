@@ -200,21 +200,21 @@ $id = $_GET['id'];
 
               <div class="card card-primary">
                
-                <form class="addproduct">
+                <form class="editproduct">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product Name" name="name" value="">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product Name" name="name" value="<?php echo item('vproducts',$id,'name');?>">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Price</label>
-                      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Product price" name="price">
+                      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Product price" name="price" value="<?php echo item('vproducts',$id,'price');?>">
                     </div>
 
                     <div class="form-group">
                       <label>Select Category</label>
                       <select class="form-control select2 select2-hidden-accessible" name="category" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                        <option value="0">Select Category</option>
+                        <option value="<?php echo item('vproducts',$id,'category');?>"><?php echo item('vproducts',$id,'category');?></option>
                         <?php listcategory() ;?>
                        
                       </select>
