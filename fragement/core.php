@@ -2588,5 +2588,5 @@ function deleteuser($id)
 function app1($data){
     $c = fetchall('settings');
     $c = $c[0];
-    return $c[0][$data];
+    return $c[$data];
 }
