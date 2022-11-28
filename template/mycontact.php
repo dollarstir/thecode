@@ -40,7 +40,7 @@ start('Contact Us');
 
                 <div class="contact-mini-card">
                   <div class="contact-mini-card-icon"><i class="bi bi-whatsapp"></i></div>
-                  <p><?php echo app1('appemail') ;?></p>
+                  <p>+233556676471</p>
                 </div>
                 <!-- Contact Mini Card-->
                 <div class="contact-mini-card">
