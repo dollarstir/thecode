@@ -1870,35 +1870,35 @@ function adminorders($status)
 
 function neworders()
 {
-  $finito = '';
-  $mylist = [];
+    $finito = '';
+    $mylist = [];
 
-  $c = customfetch('vorders', [['status', '=', 'pending']], 'AND', ['id' => 'DESC']);
+    $c = customfetch('vorders', [['status', '=', 'pending']], 'AND', ['id' => 'DESC']);
 
-  foreach ($c as $o) {
-      // $c = customfetch('vorders', [['status', '=', 'pending']]);
-      if ($c == []) {
-          // echo 'No order found';
-      } else {
-          // $c = $c[0];
-          if (!in_array($o['ordno'], $mylist)) {
-              array_push($mylist, $o['ordno']);
+    foreach ($c as $o) {
+        // $c = customfetch('vorders', [['status', '=', 'pending']]);
+        if ($c == []) {
+            // echo 'No order found';
+        } else {
+            // $c = $c[0];
+            if (!in_array($o['ordno'], $mylist)) {
+                array_push($mylist, $o['ordno']);
 
-              $mst = $o['status'];
-              if ($mst == 'pending') {
-                  $mst = '<span class="badge badge-warning">Pending</span>';
-              }
-              if ($mst == 'processing') {
-                  $mst = '<span class="badge badge-info">Processing</span>';
-              }
-              if ($mst == 'completed') {
-                  $mst = '<span class="badge badge-success">Completed</span>';
-              }
-              if ($mst == 'cancelled') {
-                  $mst = '<span class="badge badge-danger">Cancelled</span>';
-              }
-              $pst = $o['paymentstatus'];
-              switch ($pst) {
+                $mst = $o['status'];
+                if ($mst == 'pending') {
+                    $mst = '<span class="badge badge-warning">Pending</span>';
+                }
+                if ($mst == 'processing') {
+                    $mst = '<span class="badge badge-info">Processing</span>';
+                }
+                if ($mst == 'completed') {
+                    $mst = '<span class="badge badge-success">Completed</span>';
+                }
+                if ($mst == 'cancelled') {
+                    $mst = '<span class="badge badge-danger">Cancelled</span>';
+                }
+                $pst = $o['paymentstatus'];
+                switch ($pst) {
         case 'pending':
             $pst = '<span class="badge badge-warning">Pending</span>';
             break;
@@ -1916,7 +1916,7 @@ function neworders()
             break;
     }
 
-              $finito .= '<tr>
+                $finito .= '<tr>
     <td>'.$o['ordno'].'</td>
     <td>'.$o['email'].' </td>
     <td>'.$o['contact'].'</td>
@@ -1928,11 +1928,11 @@ function neworders()
     <td>'.$mst.'<br><br>'.adminorderstatus($o['token']).'</td>
     <td>'.$o['dateadded'].'</td>
   </tr>';
-          }
-      }
-  }
+            }
+        }
+    }
 
-  return $finito;
+    return $finito;
 }
 
 function processingorders()
@@ -2071,35 +2071,35 @@ function completedorders()
 
 function cancelledorders()
 {
-  $finito = '';
-  $mylist = [];
+    $finito = '';
+    $mylist = [];
 
-  $c = customfetch('vorders', [['status', '=', 'cancelled']], 'AND', ['id' => 'DESC']);
+    $c = customfetch('vorders', [['status', '=', 'cancelled']], 'AND', ['id' => 'DESC']);
 
-  foreach ($c as $o) {
-      // $c = customfetch('vorders', [['status', '=', 'pending']]);
-      if ($c == []) {
-          // echo 'No order found';
-      } else {
-          // $c = $c[0];
-          if (!in_array($o['ordno'], $mylist)) {
-              array_push($mylist, $o['ordno']);
+    foreach ($c as $o) {
+        // $c = customfetch('vorders', [['status', '=', 'pending']]);
+        if ($c == []) {
+            // echo 'No order found';
+        } else {
+            // $c = $c[0];
+            if (!in_array($o['ordno'], $mylist)) {
+                array_push($mylist, $o['ordno']);
 
-              $mst = $o['status'];
-              if ($mst == 'pending') {
-                  $mst = '<span class="badge badge-warning">Pending</span>';
-              }
-              if ($mst == 'processing') {
-                  $mst = '<span class="badge badge-info">Processing</span>';
-              }
-              if ($mst == 'completed') {
-                  $mst = '<span class="badge badge-success">Completed</span>';
-              }
-              if ($mst == 'cancelled') {
-                  $mst = '<span class="badge badge-danger">Cancelled</span>';
-              }
-              $pst = $o['paymentstatus'];
-              switch ($pst) {
+                $mst = $o['status'];
+                if ($mst == 'pending') {
+                    $mst = '<span class="badge badge-warning">Pending</span>';
+                }
+                if ($mst == 'processing') {
+                    $mst = '<span class="badge badge-info">Processing</span>';
+                }
+                if ($mst == 'completed') {
+                    $mst = '<span class="badge badge-success">Completed</span>';
+                }
+                if ($mst == 'cancelled') {
+                    $mst = '<span class="badge badge-danger">Cancelled</span>';
+                }
+                $pst = $o['paymentstatus'];
+                switch ($pst) {
         case 'pending':
             $pst = '<span class="badge badge-warning">Pending</span>';
             break;
@@ -2117,7 +2117,7 @@ function cancelledorders()
             break;
     }
 
-              $finito .= '<tr>
+                $finito .= '<tr>
     <td>'.$o['ordno'].'</td>
     <td>'.$o['email'].' </td>
     <td>'.$o['contact'].'</td>
@@ -2129,11 +2129,11 @@ function cancelledorders()
     <td>'.$mst.'<br><br>'.adminorderstatus($o['token']).'</td>
     <td>'.$o['dateadded'].'</td>
   </tr>';
-          }
-      }
-  }
+            }
+        }
+    }
 
-  return $finito;
+    return $finito;
 }
 
 function processing($token)
@@ -2175,7 +2175,7 @@ function processing($token)
    </head><body>
     <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
     <h1>Thank you for your order</h1>
-    <p class="pm">Hi '.$u[0]['name'].', Your order has been  processed. We will try to deliver very fast. It may take a maximum of 30 minute to 6 hours. Your order details are shown below for your reference:</p>
+    <p class="pm">Hi '.$u[0]['name'].', Your order has been  processed. We will try to deliver very fast. It may take a maximum of 5 minute to 2 hours. Your order details are shown below for your reference:</p>
       <h3>Order details</h3></center>
     <center><h4 style="padding:10px;"><p>Order Number : '.$c[0]['ordno'].'</p>
 
@@ -2587,43 +2587,43 @@ function deleteuser($id)
     }
 }
 
-
-
-function app1($data){
+function app1($data)
+{
     $c = fetchall('settings');
     $c = $c[0];
+
     return $c[$data];
 }
 
-
-
-function item($table,$id,$data)
+function item($table, $id, $data)
 {
-  $c = customfetch($table,[['id','=',$id]]);
-  $c = $c[0];
-  return $c[$data];
-    
+    $c = customfetch($table, [['id', '=', $id]]);
+    $c = $c[0];
+
+    return $c[$data];
 }
 
-function editproduct($id, $name, $price, $category){
-    if(empty($name) || empty($price) || empty($category)){
+function editproduct($id, $name, $price, $category)
+{
+    if (empty($name) || empty($price) || empty($category)) {
         echo 'All fields are required';
-    }else{
-        if(update('vproducts',['name'=>$name,'price'=>$price,'category'=>$category],['id'=>$id],$_FILES,'../yolkassets/upload/') == 'success'){
+    } else {
+        if (update('vproducts', ['name' => $name, 'price' => $price, 'category' => $category], ['id' => $id], $_FILES, '../yolkassets/upload/') == 'success') {
             echo 'success';
-        }else{
+        } else {
             echo 'failed';
         }
     }
 }
 
-function editcategory($id, $catname){
-    if(empty($catname)){
+function editcategory($id, $catname)
+{
+    if (empty($catname)) {
         echo 'All fields are required';
-    }else{
-        if(update('vcategory',['catname'=>$catname],['id'=>$id]) == 'success'){
+    } else {
+        if (update('vcategory', ['catname' => $catname], ['id' => $id]) == 'success') {
             echo 'success';
-        }else{
+        } else {
             echo 'failed';
         }
     }
