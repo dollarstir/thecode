@@ -221,6 +221,7 @@ $id = $_GET['id'];
                       <!--  -->
                     </div>
                     <div class="form-group">
+                      <img src="yolkassets/upload/<?php echo item('vproducts',$id,'image');?>" style="width:100px;height:100px;">
                       <label for="exampleInputFile">Product Image</label>
                       <div class="input-group">
                         <div class="custom-file">
