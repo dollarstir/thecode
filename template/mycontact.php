@@ -34,7 +34,13 @@ start('Contact Us');
                 <!-- Contact Mini Card-->
                 <div class="contact-mini-card">
                   <div class="contact-mini-card-icon"><i class="bi bi-envelope"></i></div>
-                  <p>example@domain.com</p>
+                  <p><?php echo app1('appemail') ;?></p>
+                </div>
+
+
+                <div class="contact-mini-card">
+                  <div class="contact-mini-card-icon"><i class="bi bi-whatsapp"></i></div>
+                  <p><?php echo app1('appemail') ;?></p>
                 </div>
                 <!-- Contact Mini Card-->
                 <div class="contact-mini-card">
@@ -44,7 +50,7 @@ start('Contact Us');
                 <!-- Contact Mini Card-->
                 <div class="contact-mini-card">
                   <div class="contact-mini-card-icon"><i class="bi bi-tag"></i></div>
-                  <p>We are open from 9am — 5pm business days.</p>
+                  <p>We are open from 9am — 5pm every days.</p>
                 </div>
               </div>
             </div>
