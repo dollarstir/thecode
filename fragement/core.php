@@ -190,11 +190,11 @@ function start($title)
               <div class="footer-widget-area">
                 <h5 class="mb-4 text-white">Our Products</h5>
                 <ul class="list-unstyled">
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Suha Mobile</a></li>
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Affan Mobile</a></li>
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Newsten Blog</a></li>
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Classy Multipurpose</a></li>
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Educamp Education</a></li>
+                  <li><a href="product?optimizationtoken=1" target="_blank"><i class="bi bi-caret-right"></i>Google Voice</a></li>
+                  <li><a href="product?optimizationtoken=3" target="_blank"><i class="bi bi-caret-right"></i>RDP</a></li>
+                  <li><a href="product?optimizationtoken=2" target="_blank"><i class="bi bi-caret-right"></i>Text Now</a></li>
+                  <li><a href="product?optimizationtoken=4" target="_blank"><i class="bi bi-caret-right"></i>Cpanel</a></li>
+                  <li><a href="product?optimizationtoken=6" target="_blank"><i class="bi bi-caret-right"></i>Youtube</a></li>
                 </ul>
               </div>
             </div>
@@ -203,11 +203,11 @@ function start($title)
               <div class="footer-widget-area">
                 <h5 class="mb-4 text-white">Important Links</h5>
                 <ul class="list-unstyled">
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Community &amp; Forum</a></li>
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>About Licences</a></li>
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Careers</a></li>
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Terms &amp; Conditions</a></li>
-                  <li><a href="#" target="_blank"><i class="bi bi-caret-right"></i>Privacy Policy</a></li>
+                  <li><a href="contact" target="_blank"><i class="bi bi-caret-right"></i>Contact US</a></li>
+                  <li><a href="contact" target="_blank"><i class="bi bi-caret-right"></i>Support</a></li>
+                  <li><a href="about" target="_blank"><i class="bi bi-caret-right"></i>About</a></li>
+                  <li><a href="product?optimizationtoken=8" target="_blank"><i class="bi bi-caret-right"></i>Available States</a></li>
+                  <li><a href="home" target="_blank"><i class="bi bi-caret-right"></i>Home</a></li>
                 </ul>
               </div>
             </div>
@@ -215,8 +215,8 @@ function start($title)
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="footer-widget-area">
                 <h5 class="mb-4 text-white">Our Location</h5>
-                <p class="lh-base mb-3">Designing World Inc. <br> 1604 NSD, Dhaka, BD</p>
-                <p class="mb-0">Call: +123 456 789 <br> Email: help@example.com</p>
+                <p class="lh-base mb-3">'.app1('appname').' <br> '.app1('appaddress').'</p>
+                <p class="mb-0">Call: '.app1('appcontact').' <br> Email: '.app1('appemail').'</p>
                 <!-- Footer Social Icon -->
                 <div class="footer-social-icon d-flex align-items-center mt-3"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Facbook"><i class="bi bi-facebook"></i></a><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter"><i class="bi bi-twitter"></i></a><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><i class="bi bi-instagram"></i></a><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Linkedin"><i class="bi bi-linkedin"></i></a><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><i class="bi bi-youtube"></i></a></div>
               </div>
@@ -227,14 +227,14 @@ function start($title)
           <div class="copywrite-wrapper mt-5 rounded d-lg-flex align-items-lg-center justify-content-lg-between">
             <!-- Copywrite Text -->
             <div class="copywrite-text text-center text-lg-start mb-3 mb-lg-0 me-lg-4">
-              <p class="mb-0">2022 &copy; All rights reserved Street Code</p>
+              <p class="mb-0">'.date('Y').' &copy; All rights reserved '.app1('appname').'</p>
             </div>
             <!-- Footer Nav -->
             <div class="footer-nav mb-3 mb-lg-0 me-lg-4">
               <ul class="mb-0 d-flex flex-wrap justify-content-center list-unstyled">
                 <li><a href="#" target="_blank">Privacy Policy</a></li>
                 <li><a href="#" target="_blank">Terms &amp; Conditions</a></li>
-                <li><a href="#" target="_blank">Get Support</a></li>
+                <li><a href="https://wa.me/message/6UDCDX7L66GKF1" target="_blank">Get Support</a></li>
               </ul>
             </div>
             <!-- Dropup -->
