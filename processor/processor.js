@@ -745,5 +745,25 @@ $(document).on('click','.deleteu',function(e){
 });
 
 
+// edit product 
+
+$(document).on('submit','.editproduct',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=editproduct',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
+
+
     
 })

@@ -205,6 +205,7 @@ $id = $_GET['id'];
                     <div class="form-group">
                       <label for="exampleInputEmail1">Name</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product Name" name="name" value="<?php echo item('vproducts',$id,'name');?>">
+                      <input type="hidden" class="form-control" id="exampleInputEmail1" placeholder="Product Name" name="id" value="<?php echo item('vproducts',$id,'id');?>">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Price</label>

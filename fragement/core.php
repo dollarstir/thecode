@@ -2604,3 +2604,15 @@ function item($table,$id,$data)
   return $c[$data];
     
 }
+
+function editproduct($id, $name, $price, $category){
+    if(empty($name) || empty($price) || empty($category)){
+        echo 'All fields are required';
+    }else{
+        if(update('vproducts',['name'=>$name,'price'=>$price,'category'=>$category],['id'=>$id],$_FILES,'../yolkassets/upload/') == 'success'){
+            echo 'success';
+        }else{
+            echo 'failed';
+        }
+    }
+}

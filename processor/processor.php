@@ -157,6 +157,12 @@ if (isset($_GET['action'])) {
             # code...
             break;
 
+        case 'editproduct':
+            extract($_POST);
+            editproduct($id, $name, $price, $category);
+            # code...
+            break;
+
         default:
 
         break;
