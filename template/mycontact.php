@@ -39,7 +39,7 @@ start('Contact Us');
                 <!-- Contact Mini Card-->
                 <div class="contact-mini-card">
                   <div class="contact-mini-card-icon"><i class="bi bi-headphones"></i></div>
-                  <p>(+880) 145 2635896</p>
+                  <p><?php echo app1() ;?></p>
                 </div>
                 <!-- Contact Mini Card-->
                 <div class="contact-mini-card">
