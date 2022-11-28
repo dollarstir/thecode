@@ -163,6 +163,12 @@ if (isset($_GET['action'])) {
             # code...
             break;
 
+        case 'editcategory':
+            extract($_POST);
+            editcategory($id, $catname);
+            # code...
+            break;
+
         default:
 
         break;

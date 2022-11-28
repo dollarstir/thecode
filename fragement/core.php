@@ -2616,3 +2616,15 @@ function editproduct($id, $name, $price, $category){
         }
     }
 }
+
+function editcategory($id, $catname){
+    if(empty($catname)){
+        echo 'All fields are required';
+    }else{
+        if(update('vcategory',['catname'=>$catname],['id'=>$id]) == 'success'){
+            echo 'success';
+        }else{
+            echo 'failed';
+        }
+    }
+}

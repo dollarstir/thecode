@@ -765,5 +765,24 @@ $(document).on('submit','.editproduct',function(e){
 });
 
 
+// edit category
+$(document).on('submit','.editcategory',function(e){
+
+  e.preventDefault();
+  var user = {
+            url: 'processor/processor.php?action=editcategory',
+            type: 'post',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: before,
+            success: resp
+    
+        };
+      $.ajax(user);
+});
+
+
     
 })
