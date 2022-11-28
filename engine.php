@@ -237,5 +237,12 @@ $router = new Router([
             return Viewer::view('vadmin/auth.php', $context);
         }
     ),
+
+    new Route(
+        '/editproduct',
+        function ($context) {
+            return Viewer::view('vadmin/edit_prod.php', $context);
+        }
+    ),
 ]);
 $router->launch();
