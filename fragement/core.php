@@ -2415,7 +2415,7 @@ function adminproducts()
     <td>'.$cat.'</td>
     <td><img src="yolkassets/upload/'.$d['image'].'" style="width:50px;height:50px;"></td>
     <td>'.$d['dateadded'].'</td>
-    <td><button class="btn btn-danger btn-sm deletep" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="editp?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
+    <td><button class="btn btn-danger btn-sm deletep" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="editproduct?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
   </tr>';
     }
 
