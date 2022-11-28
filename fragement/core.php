@@ -96,7 +96,7 @@ function start($title)
                       <li class=""><a href="home">Home</a>
                       <li class=""><a href="product?optimizationtoken=1">Google Voice</a>
                       <li class=""><a href="product?optimizationtoken=8">Available now</a></li>
-                      <li class=""><a href="contact">Support</a></li>
+                      
                       
                       
                       <li class="sb-dropdown"><a href="#">Other Services</a>
@@ -111,6 +111,9 @@ function start($title)
                             <li class=""><a href="product?optimizationtoken=7">Instagram</a></li>
                         </ul>
                       </li>
+
+
+                      <li class=""><a href="contact">Support</a></li>
                       <!-- <li><a href="">About</a></li> -->
                         <!-- <li class=""><a href="#">Contact</a></li> -->
                       <!-- <li class="sb-dropdown"><a href="#">Shop</a>
