@@ -244,5 +244,12 @@ $router = new Router([
             return Viewer::view('vadmin/edit_prod.php', $context);
         }
     ),
+
+    new Route(
+        '/editcategory',
+        function ($context) {
+            return Viewer::view('vadmin/edit_cat.php', $context);
+        }
+    ),
 ]);
 $router->launch();
