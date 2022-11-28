@@ -207,7 +207,7 @@ $id = $_GET['id'];
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Category</label>
-                      <input type="text" class="form-control" name="catname" id="exampleInputEmail1" placeholder="Name of category" value="Edit <?php echo item('vcategory',$id,'catname');?> ">
+                      <input type="text" class="form-control" name="catname" id="exampleInputEmail1" placeholder="Name of category" value="<?php echo item('vcategory',$id,'catname');?> ">
                       <input type="hidden" class="form-control" name="id" id="exampleInputEmail1" placeholder="Name of category" value="<?php echo item('vcategory',$id,'id');?> ">
                     </div>
                     
