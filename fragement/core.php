@@ -2594,3 +2594,13 @@ function app1($data){
     $c = $c[0];
     return $c[$data];
 }
+
+
+
+function item($table,$id,$data)
+{
+  $c = customfetch($table,[['id','=',$id]]);
+  $c = $c[0];
+  return $c[$data];
+    
+}

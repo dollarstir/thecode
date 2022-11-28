@@ -1,7 +1,8 @@
 <?php
 involve('core.php');
 
-admintop('New Product');
+admintop('Edit Product');
+$id = $_GET['id'];
 
 ?>
 
@@ -17,9 +18,9 @@ admintop('New Product');
         <li class="nav-item d-none d-sm-inline-block">
           <a href="index3.html" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
+        <!-- <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">Contact</a>
-        </li>
+        </li> -->
       </ul>
 
       <ul class="navbar-nav ml-auto">
@@ -184,7 +185,7 @@ admintop('New Product');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>General Form</h1>
+              <h1>Edit <?php echo item('vproducts',$id,'name');?>  </h1>
             </div>
 
           </div>
@@ -203,7 +204,7 @@ admintop('New Product');
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product Name" name="name">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product Name" name="name" value="">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Price</label>
