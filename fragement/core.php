@@ -2661,3 +2661,68 @@ function listusers()
 
     echo $finito;
 }
+
+function messagetemplate($message, $username)
+{
+    $bd = '<html><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="streetkode.tk/template/css/bootstrap.min.css">
+            <style>
+    
+            body{
+              font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+            }
+            
+           
+    
+            h1{
+              display: block;
+              text-align: center;
+              padding-top: 36px;
+              padding-bottom: 36px;
+              padding-left: 48px;
+              padding-right: 48px;
+            }
+    
+            .pm{
+              color: #747474;
+              text-align: left;
+              font-size: 14px;
+              line-height: 24px;
+              font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+              font-weight: 400;
+              margin:0 0 16px;
+            }
+            p{
+            </style>
+       </head><body>
+        <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
+        <h1>Great News!! </h1>
+        <p class="pm">Hello '.$username.', '.$message.' </p>';
+
+    $bd .= '<p>Thank you for shopping with us</p>';
+    $bd .= '<p>Regards</p>';
+    $bd .= '<p>Team Streetcode</p>';
+    $bd .= '<p>www.streetkode.tk</p></center></body></html>';
+
+
+    return $bd;
+}
+
+function newsletter($message, $user)
+{
+    if (empty($message) || empty($user)) {
+        echo 'All fields are required';
+    } else {
+        $subject = 'New Google Voice Available '.app1('appname');
+
+        if ($user == 'all') {
+            $u = fetchall('vusers');
+
+            foreach ($u as $d) {
+                $email = $d['email'];
+                $name = $d['name'];
+            }
+        }
+    }
+}

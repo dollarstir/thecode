@@ -93,19 +93,19 @@ if (isset($_GET['action'])) {
             break;
 
         case 'payapprove':
-            # code...
+            // code...
             extract($_POST);
             payapprove($token);
             break;
 
         case 'payreject':
-                # code...
+                // code...
             extract($_POST);
             payreject($token);
             break;
 
         case 'reject':
-                # code...
+                // code...
             extract($_POST);
             reject($token);
             break;
@@ -113,60 +113,66 @@ if (isset($_GET['action'])) {
         case 'addproduct':
             extract($_POST);
             addproduct($name, $price, $category);
-            # code...
+            // code...
             break;
 
         case 'editapp':
             extract($_POST);
-            editapp($appname, $appemail, $appcontact,$appaddress, $about);
-            # code...
+            editapp($appname, $appemail, $appcontact, $appaddress, $about);
+            // code...
             break;
 
         case 'addcustom':
             extract($_POST);
             addcustom($state);
-            # code...
+            // code...
             break;
 
         case 'deletestate':
             extract($_POST);
             deletestate($id);
-            # code...
+            // code...
             break;
         case 'deleteproduct':
             extract($_POST);
             deleteproduct($id);
-            # code...
+            // code...
             break;
 
         case 'addcategory':
             extract($_POST);
             addcategory($catname);
-            # code...
+            // code...
             break;
 
         case 'deletecategory':
             extract($_POST);
             deletecategory($id);
-            # code...
+            // code...
             break;
 
         case 'deleteuser':
             extract($_POST);
             deleteuser($id);
-            # code...
+            // code...
             break;
 
         case 'editproduct':
             extract($_POST);
             editproduct($id, $name, $price, $category);
-            # code...
+            // code...
             break;
 
         case 'editcategory':
             extract($_POST);
             editcategory($id, $catname);
-            # code...
+            // code...
+            break;
+
+        case 'newsletter':
+            extract($_POST);
+            newsletter($message, $user);
+            // code...
             break;
 
         default:
