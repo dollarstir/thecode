@@ -2705,11 +2705,10 @@ function messagetemplate($message, $username)
     $bd .= '<p>Team Streetcode</p>';
     $bd .= '<p>www.streetkode.tk</p></center></body></html>';
 
-
     return $bd;
 }
 
-function newsletter($message, $user)
+function newsletter($subject, $message, $user)
 {
     if (empty($message) || empty($user)) {
         echo 'All fields are required';
@@ -2722,6 +2721,8 @@ function newsletter($message, $user)
             foreach ($u as $d) {
                 $email = $d['email'];
                 $name = $d['name'];
+                $mymessage = messagetemplate($message, $name);
+                sendmail('tuceehub.org', $subject, $mymessage, 'Street Code', [$email], 'services@streetkode.tk', 'Street Code');
             }
         }
     }
