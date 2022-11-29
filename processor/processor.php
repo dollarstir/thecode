@@ -171,7 +171,7 @@ if (isset($_GET['action'])) {
 
         case 'newsletter':
             extract($_POST);
-            newsletter($message, $user);
+            newsletter($subject, $message, $user);
             // code...
             break;
 
