@@ -207,6 +207,11 @@ admintop('Newsletter');
                     </div>
 
                     <div class="form-group">
+                      <label for="exampleInputEmail1">Heading</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="heading" name="heading">
+                    </div>
+
+                    <div class="form-group">
                       <label for="exampleInputEmail1">Message</label>
                       <textarea  class="form-control" id="exampleInputEmail1" placeholder="Enter Campain Message" name="message"></textarea>
                     </div>

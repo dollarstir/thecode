@@ -2662,7 +2662,7 @@ function listusers()
     echo $finito;
 }
 
-function messagetemplate($message, $username)
+function messagetemplate($message, $username, $heading)
 {
     $bd = '<html><head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2697,7 +2697,7 @@ function messagetemplate($message, $username)
             </style>
        </head><body>
         <center><img src="http://streetkode.tk/template/img/core-img/logo.png">
-        <h1>Great News!! </h1>
+        <h1>'.$heading.'</h1>
         <p class="pm">Hello '.$username.', '.$message.' </p>';
 
     $bd .= '<p>Thank you for shopping with us</p>';
@@ -2708,7 +2708,7 @@ function messagetemplate($message, $username)
     return $bd;
 }
 
-function newsletter($subject, $message, $user)
+function newsletter($subject, $message, $user, $heading = '')
 {
     $msg = '';
     if (empty($message) || empty($user)) {
@@ -2720,7 +2720,7 @@ function newsletter($subject, $message, $user)
             foreach ($u as $d) {
                 $email = $d['email'];
                 $name = $d['name'];
-                $mymessage = messagetemplate($message, $name);
+                $mymessage = messagetemplate($message, $name, $heading);
                 $msg .= sendmail('tuceehub.org', $subject, $mymessage, 'Street Code', [$email], 'services@streetkode.tk', 'Street Code');
             }
         } else {
@@ -2728,7 +2728,7 @@ function newsletter($subject, $message, $user)
             $u = $u[0];
             $email = $u['email'];
             $name = $u['name'];
-            $mymessage = messagetemplate($message, $name);
+            $mymessage = messagetemplate($message, $name, $heading);
             $msg .= sendmail('tuceehub.org', $subject, $mymessage, 'Street Code', [$email], 'services@streetkode.tk', 'Street Code');
         }
     }
