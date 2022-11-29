@@ -201,6 +201,13 @@ admintop('Newsletter');
                
                 <form class="newsletter">
                   <div class="card-body">
+
+
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Subject</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Subject" name="subject">
+                    </div>
+
                     <div class="form-group">
                       <label for="exampleInputEmail1">Message</label>
                       <textarea  class="form-control" id="exampleInputEmail1" placeholder="Enter Campain Message" name="message"></textarea>
