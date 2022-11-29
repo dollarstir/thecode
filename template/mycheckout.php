@@ -73,7 +73,7 @@ start('Checkout');
 
                   <?php echo (!isset($_SESSION['vuser'])) ? '<div class="col-12">
                     <input  id="tpass" type="checkbox" name="" value="" >
-                    <label class="mb-2" for="phone" style="margin-left: 10px !important;">Create Account?</label>
+                    <label class="mb-2" for="phone" style="margin-left: 10px !important;">First time? Create account Now.</label>
                   </div>' : ''; ?>
                   
                   
