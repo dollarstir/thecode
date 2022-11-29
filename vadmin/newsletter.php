@@ -17,9 +17,7 @@ admintop('Newsletter');
         <li class="nav-item d-none d-sm-inline-block">
           <a href="index3.html" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
+        
       </ul>
 
       <ul class="navbar-nav ml-auto">
@@ -184,7 +182,7 @@ admintop('Newsletter');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>General Form</h1>
+              <h1>News Letter</h1>
             </div>
 
           </div>
