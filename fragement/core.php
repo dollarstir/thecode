@@ -2710,12 +2710,10 @@ function messagetemplate($message, $username)
 
 function newsletter($subject, $message, $user)
 {
+    $msg = '';
     if (empty($message) || empty($user)) {
-        echo 'All fields are required';
+        $msg = 'All fields are required';
     } else {
-        $subject = 'New Google Voice Available '.app1('appname');
-        $msg = '';
-
         if ($user == 'all') {
             $u = fetchall('vusers');
 
@@ -2733,5 +2731,11 @@ function newsletter($subject, $message, $user)
             $mymessage = messagetemplate($message, $name);
             $msg .= sendmail('tuceehub.org', $subject, $mymessage, 'Street Code', [$email], 'services@streetkode.tk', 'Street Code');
         }
+    }
+
+    if (strpos($msg, 'success') !== false) {
+        echo 'success';
+    } else {
+        echo $msg;
     }
 }
