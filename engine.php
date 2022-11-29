@@ -251,5 +251,12 @@ $router = new Router([
             return Viewer::view('vadmin/edit_cat.php', $context);
         }
     ),
+
+    new Route(
+        '/newsletter',
+        function ($context) {
+            return Viewer::view('vadmin/newsletter.php', $context);
+        }
+    ),
 ]);
 $router->launch();

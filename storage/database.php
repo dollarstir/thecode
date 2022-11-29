@@ -89,6 +89,6 @@ addTable('custom', [
         addColumn('appname', 'string', 100),
         addColumn('appemail', 'string', 100),
         addColumn('appcontact', 'string', 100),
-        addColumn('appaddress', 'text', null), 
+        addColumn('appaddress', 'text', null),
         addColumn('about', 'text', null),
     ]);

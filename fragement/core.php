@@ -2650,3 +2650,14 @@ function editcategory($id, $catname)
         }
     }
 }
+
+function listusers()
+{
+    $finito = '';
+    $c = fetchall('vusers');
+    foreach ($c as $d) {
+        $finito .= '<option value="'.$d['id'].'">'.$d['name'].' ('.$d['contact'].')</option>';
+    }
+
+    echo $finito;
+}
