@@ -2714,6 +2714,7 @@ function newsletter($subject, $message, $user)
         echo 'All fields are required';
     } else {
         $subject = 'New Google Voice Available '.app1('appname');
+        $msg = '';
 
         if ($user == 'all') {
             $u = fetchall('vusers');
@@ -2722,8 +2723,15 @@ function newsletter($subject, $message, $user)
                 $email = $d['email'];
                 $name = $d['name'];
                 $mymessage = messagetemplate($message, $name);
-                sendmail('tuceehub.org', $subject, $mymessage, 'Street Code', [$email], 'services@streetkode.tk', 'Street Code');
+                $msg .= sendmail('tuceehub.org', $subject, $mymessage, 'Street Code', [$email], 'services@streetkode.tk', 'Street Code');
             }
+        } else {
+            $u = customfetch('vusers', [['id', '=', $user]]);
+            $u = $u[0];
+            $email = $u['email'];
+            $name = $u['name'];
+            $mymessage = messagetemplate($message, $name);
+            $msg .= sendmail('tuceehub.org', $subject, $mymessage, 'Street Code', [$email], 'services@streetkode.tk', 'Street Code');
         }
     }
 }
