@@ -19,7 +19,7 @@ function start($title)
         <meta property="og:url" content="http://streetkode.tk/">
         <meta property="og:title" content="Street Code - Buy Google Voice with Mobile Money">
         <meta property="og:description"
-            content="Buy Google Voice Accounts, Affordable RDP, Text Now Accounts, Youtube Views & Watch hours from Us .We accept Mobile Money">
+            content="Google Voice, Netflix, RDP, Text Now Accounts, Youtube Views & Watch hours from Us .We accept Mobile Money">
         <meta property="og:image" content="template/img/core-img/logo.png">
     
         <!-- Twitter -->
@@ -27,7 +27,7 @@ function start($title)
         <meta property="twitter:url" content="http://streetkode.tk/">
         <meta property="twitter:title" content="Street Code - Buy Google Voice with Mobile Money">
         <meta property="twitter:description"
-            content="Buy Google Voice Accounts, Affordable RDP, Text Now Accounts, Youtube Views & Watch hours from Us .We accept Mobile Money">
+            content="Google Voice, Netflix, RDP, Text Now Accounts, Youtube Views & Watch hours from Us .We accept Mobile Money">
         <meta property="twitter:image" content="template/img/core-img/logo.png">
         <!-- Title-->
         <title>Street Code - '.$title.'</title>
