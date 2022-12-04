@@ -197,7 +197,7 @@ admintop('Add Details');
 
               <div class="card card-primary">
                
-                <form class="addproduct">
+                <form class="adddetail">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Detial</label>

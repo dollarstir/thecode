@@ -2741,3 +2741,18 @@ function newsletter($subject, $message, $user, $heading = '')
         echo $msg;
     }
 }
+
+
+
+function adddetail($detail,$categoryid)
+{
+    if (empty($detail)) {
+        echo 'All fields are required';
+    } else {
+        if (insert('vpdetails', ['detail' => $detail,'categoryid' => $categoryid]) == 'success') {
+            echo 'success';
+        } else {
+            echo 'failed';
+        }
+    }
+}

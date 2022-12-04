@@ -175,6 +175,12 @@ if (isset($_GET['action'])) {
             // code...
             break;
 
+        case 'adddetail':
+            extract($_POST);
+            adddetail($detail,$categoryid);
+            // code...
+            break;
+
         default:
 
         break;
