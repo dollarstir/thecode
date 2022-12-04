@@ -1248,6 +1248,36 @@ function adminnav()
 
 
 
+
+
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <!-- <i class="nav-icon fas fa-table"></i> -->
+          <p>
+            Item Details
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="adddetails" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Add New</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="viewdetials" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>View</p>
+            </a>
+          </li>
+          
+        </ul>
+      </li>
+
+
+
       <li class="nav-item">
         <a href="#" class="nav-link">
           <!-- <i class="nav-icon fas fa-table"></i> -->
@@ -2755,4 +2785,29 @@ function adddetail($detail,$categoryid)
             echo 'failed';
         }
     }
+}
+
+
+
+function detials(){
+
+  
+
+    $finito = '';
+    $c = fetchall('vpdetails');
+    foreach ($c as $d) {
+
+      $e = customfetch('vcategory', [['id', '=', $d['categoryid']]]);
+      $e = $e[0];
+
+        $finito .= '<tr>
+    <td>'.$d['id'].'</td>
+    <td>'.$e['catname'].'</td>
+    <td><button class="btn btn-danger btn-sm deletec" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="editcategory?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
+  </tr>';
+    }
+
+    echo $finito;
+
+
 }

@@ -258,5 +258,20 @@ $router = new Router([
             return Viewer::view('vadmin/newsletter.php', $context);
         }
     ),
+
+    new Route(
+        '/adddetails',
+        function ($context) {
+            return Viewer::view('vadmin/add_detail.php', $context);
+        }
+    ),
+
+
+    new Route(
+        '/viewdetials',
+        function ($context) {
+            return Viewer::view('vadmin/detials.php', $context);
+        }
+    ),
 ]);
 $router->launch();
