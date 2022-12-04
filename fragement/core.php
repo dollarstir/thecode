@@ -95,7 +95,7 @@ function start($title)
                     <ul class="navbar-nav navbar-nav-scroll">
                       <li class=""><a href="home">Home</a>
                       <li class=""><a href="product?optimizationtoken=1">Google Voice</a>
-                      <li class=""><a href="product?optimizationtoken=8"><div class="spinner-grow" role="status">
+                      <li class=""><a href="product?optimizationtoken=8"><div class="spinner-grow text-danger" role="status">
                       <span class="sr-only">Loading...</span>
                     </div>Available now</a></li>
                       
