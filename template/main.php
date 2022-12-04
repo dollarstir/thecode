@@ -181,6 +181,33 @@ start('Buy affordable and quality products from our store');
       </div>
     </div>
     <div class="mb-120 d-block"></div>
+
+
+
+
+    <div class="saasbox-pricing-plan-area price2 bg-gray">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-9 col-md-8 col-lg-7">
+            <div class="section-heading text-center">
+              
+              <h2>Netflix  Packages</h2>
+              
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-12">
+            <div class="row g-4 justify-content-center">
+             <?php product(10); ?>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-120 d-block"></div>
         <!-- cpanel -->
     <div class="saasbox-pricing-plan-area price2">
       <div class="container">
