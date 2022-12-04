@@ -95,7 +95,9 @@ function start($title)
                     <ul class="navbar-nav navbar-nav-scroll">
                       <li class=""><a href="home">Home</a>
                       <li class=""><a href="product?optimizationtoken=1">Google Voice</a>
-                      <li class=""><a href="product?optimizationtoken=8">Available now</a></li>
+                      <li class=""><a href="product?optimizationtoken=8"><div class="spinner-grow" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>Available now</a></li>
                       
                       
                       
@@ -612,7 +614,7 @@ function removefromcart($id)
 
 function checkout($name, $email, $contact, $note, $paymenttype, $password)
 {
-  date_default_timezone_set('Africa/Accra');
+    date_default_timezone_set('Africa/Accra');
     error_reporting(0);
     session_start();
     $msg = '';
@@ -2773,14 +2775,12 @@ function newsletter($subject, $message, $user, $heading = '')
     }
 }
 
-
-
-function adddetail($detail,$categoryid)
+function adddetail($detail, $categoryid)
 {
     if (empty($detail)) {
         echo 'All fields are required';
     } else {
-        if (insert('vpdetails', ['detail' => $detail,'categoryid' => $categoryid]) == 'success') {
+        if (insert('vpdetails', ['detail' => $detail, 'categoryid' => $categoryid]) == 'success') {
             echo 'success';
         } else {
             echo 'failed';
@@ -2788,18 +2788,13 @@ function adddetail($detail,$categoryid)
     }
 }
 
-
-
-function detials(){
-
-  
-
+function detials()
+{
     $finito = '';
     $c = fetchall('vpdetails');
     foreach ($c as $d) {
-
-      $e = customfetch('vcategory', [['id', '=', $d['categoryid']]]);
-      $e = $e[0];
+        $e = customfetch('vcategory', [['id', '=', $d['categoryid']]]);
+        $e = $e[0];
 
         $finito .= '<tr>
     <td>'.$d['id'].'</td>
@@ -2810,6 +2805,4 @@ function detials(){
     }
 
     echo $finito;
-
-
 }
