@@ -2802,6 +2802,7 @@ function detials(){
 
         $finito .= '<tr>
     <td>'.$d['id'].'</td>
+    <td>'.$d['detail'].'</td>
     <td>'.$e['catname'].'</td>
     <td><button class="btn btn-danger btn-sm deletec" id="'.$d['id'].'"><i class="fas fa-trash"></i></button> <a class="btn btn-primary btn-sm" href="editcategory?id='.$d['id'].'"><i class="fas fa-edit"></i></a></td>
   </tr>';
