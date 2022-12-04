@@ -185,7 +185,7 @@ admintop('New  orders');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>NEW  ORDERS</h1>
+              <h1>CANCELLED  ORDERS</h1>
             </div>
             
           </div>
