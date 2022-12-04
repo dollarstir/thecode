@@ -612,6 +612,7 @@ function removefromcart($id)
 
 function checkout($name, $email, $contact, $note, $paymenttype, $password)
 {
+  date_default_timezone_set('Africa/Accra');
     error_reporting(0);
     session_start();
     $msg = '';
